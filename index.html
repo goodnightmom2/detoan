@@ -1,677 +1,439 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="vi">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Determinant Calculator</title>
+    <title>Đề Kiểm Tra Toán 11 - Đề Số 2</title>
     <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+        :root { --primary-color: #0d6efd; --success-color: #198754; --danger-color: #dc3545; --light-bg: #f8f9fa; }
+        body { font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; line-height: 1.6; background-color: #edf2f7; color: #333; margin: 0; padding: 20px; }
+        .container { max-width: 900px; margin: 0 auto; background: white; padding: 30px; border-radius: 12px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
+        
+        /* Header & Timer */
+        header { text-align: center; border-bottom: 2px solid var(--primary-color); padding-bottom: 20px; margin-bottom: 30px; }
+        h1 { color: #2c3e50; margin-bottom: 5px; }
+        .sticky-timer { position: fixed; top: 10px; right: 10px; background: #fff; padding: 10px 20px; border-radius: 50px; box-shadow: 0 2px 10px rgba(0,0,0,0.15); font-weight: bold; color: var(--danger-color); border: 2px solid var(--danger-color); z-index: 1000; }
+        
+        /* Sections */
+        .section-title { background-color: var(--primary-color); color: white; padding: 10px 15px; border-radius: 6px; margin-top: 30px; margin-bottom: 15px; font-size: 1.1rem; font-weight: bold; }
+        
+        /* Questions */
+        .question-block { margin-bottom: 25px; padding: 15px; border: 1px solid #e2e8f0; border-radius: 8px; background-color: #fff; transition: transform 0.2s; }
+        .question-block:hover { box-shadow: 0 2px 8px rgba(0,0,0,0.05); }
+        .q-text { font-weight: 600; margin-bottom: 10px; display: block; }
+        
+        /* Multiple Choice */
+        .options-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+        .option-item { display: flex; align-items: center; padding: 8px; border: 1px solid #ced4da; border-radius: 5px; cursor: pointer; }
+        .option-item:hover { background-color: #e9ecef; }
+        .option-item input { margin-right: 10px; }
 
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            min-height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            padding: 20px;
-        }
+        /* True/False Table */
+        .tf-table { width: 100%; border-collapse: collapse; margin-top: 8px; }
+        .tf-table th, .tf-table td { border: 1px solid #dee2e6; padding: 8px; }
+        .tf-table th { background-color: #f1f3f5; text-align: center; font-size: 0.9rem; }
+        .tf-table td:first-child { width: 70%; }
+        .tf-center { text-align: center; }
 
-        .container {
-            background: white;
-            border-radius: 12px;
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
-            padding: 40px;
-            max-width: 800px;
-            width: 100%;
-            overflow-x: hidden;
-        }
+        /* Short Answer */
+        .short-input { width: 200px; padding: 8px; border: 1px solid #ced4da; border-radius: 4px; font-size: 1rem; }
 
-        h1 {
-            color: #333;
-            text-align: center;
-            margin-bottom: 30px;
-            font-size: 28px;
-            word-wrap: break-word;
-            overflow-wrap: break-word;
-        }
+        /* Grading Feedback */
+        .feedback { margin-top: 10px; padding: 10px; border-radius: 5px; font-size: 0.9rem; background-color: #f8f9fa; border-left: 4px solid #6c757d; display: none; }
+        .correct-bg { background-color: #d1e7dd !important; border-color: var(--success-color) !important; }
+        .wrong-bg { background-color: #f8d7da !important; border-color: var(--danger-color) !important; }
+        .ans-true { color: var(--success-color); font-weight: bold; }
+        .ans-false { color: var(--danger-color); font-weight: bold; }
 
-        .input-section {
-            margin-bottom: 30px;
-        }
-
-        label {
-            display: block;
-            margin-bottom: 10px;
-            color: #555;
-            font-weight: 600;
-            font-size: 14px;
-        }
-
-        input[type="number"] {
-            width: 100%;
-            padding: 12px;
-            border: 2px solid #ddd;
-            border-radius: 6px;
-            font-size: 16px;
-            transition: border-color 0.3s;
-            overflow-wrap: break-word;
-            word-break: break-word;
-        }
-
-        input[type="number"]:focus {
-            outline: none;
-            border-color: #667eea;
-            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
-        }
-
-        .matrix-grid {
-            display: grid;
-            gap: 15px;
-            margin-bottom: 30px;
-        }
-
-        .matrix-row {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
-            gap: 10px;
-        }
-
-        .matrix-input {
-            width: 100%;
-            padding: 10px;
-            border: 2px solid #ddd;
-            border-radius: 6px;
-            font-size: 14px;
-            text-align: center;
-            transition: border-color 0.3s, background-color 0.3s;
-            overflow-wrap: break-word;
-            word-break: break-word;
-        }
-
-        .matrix-input:focus {
-            outline: none;
-            border-color: #667eea;
-            background-color: #f0f4ff;
-        }
-
-        .options-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-            gap: 15px;
-            margin-bottom: 30px;
-        }
-
-        button {
-            padding: 12px 24px;
-            background-color: #667eea;
-            color: white;
-            border: none;
-            border-radius: 6px;
-            font-size: 14px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: background-color 0.3s, transform 0.2s;
-            white-space: nowrap;
-            overflow-wrap: break-word;
-            word-break: break-word;
-        }
-
-        button:hover {
-            background-color: #5568d3;
-            transform: translateY(-2px);
-        }
-
-        button:active {
-            transform: translateY(0);
-        }
-
-        .secondary-btn {
-            background-color: #764ba2;
-        }
-
-        .secondary-btn:hover {
-            background-color: #62408a;
-        }
-
-        .result-section {
-            background: #f8f9fa;
-            padding: 25px;
-            border-radius: 8px;
-            margin-top: 30px;
-            border-left: 4px solid #667eea;
-            word-wrap: break-word;
-            overflow-wrap: break-word;
-            overflow-x: auto;
-        }
-
-        .result-label {
-            color: #666;
-            font-size: 14px;
-            margin-bottom: 12px;
-            font-weight: 600;
-        }
-
-        .result-value {
-            font-size: 24px;
-            color: #333;
-            font-weight: bold;
-            word-wrap: break-word;
-            overflow-wrap: break-word;
-            min-height: 40px;
-            display: flex;
-            align-items: center;
-        }
-
-        .steps-section {
-            background: #f0f4ff;
-            padding: 25px;
-            border-radius: 8px;
-            margin-top: 20px;
-            border-left: 4px solid #764ba2;
-            max-height: 400px;
-            overflow-y: auto;
-            word-wrap: break-word;
-            overflow-wrap: break-word;
-        }
-
-        .steps-title {
-            color: #764ba2;
-            font-weight: 700;
-            margin-bottom: 15px;
-            font-size: 14px;
-        }
-
-        .step {
-            background: white;
-            padding: 15px;
-            margin-bottom: 10px;
-            border-radius: 6px;
-            border-left: 3px solid #667eea;
-            font-size: 13px;
-            color: #555;
-            word-wrap: break-word;
-            overflow-wrap: break-word;
-            overflow-x: auto;
-        }
-
-        .error-message {
-            background-color: #fee;
-            color: #c33;
-            padding: 15px;
-            border-radius: 6px;
-            margin-top: 15px;
-            border-left: 4px solid #c33;
-            font-size: 14px;
-            word-wrap: break-word;
-            overflow-wrap: break-word;
-        }
-
-        .success-message {
-            background-color: #efe;
-            color: #3c3;
-            padding: 15px;
-            border-radius: 6px;
-            margin-top: 15px;
-            border-left: 4px solid #3c3;
-            font-size: 14px;
-            word-wrap: break-word;
-            overflow-wrap: break-word;
-        }
-
-        /* MathJax responsive styling */
-        .mjx-chtml {
-            overflow-x: auto !important;
-            max-width: 100% !important;
-            display: inline-block;
-            word-wrap: break-word;
-        }
-
-        /* Responsive Media Queries */
-        @media (max-width: 768px) {
-            .container {
-                padding: 25px;
-                border-radius: 10px;
-            }
-
-            h1 {
-                font-size: 24px;
-                margin-bottom: 25px;
-            }
-
-            .options-grid {
-                grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-                gap: 12px;
-            }
-
-            button {
-                padding: 10px 16px;
-                font-size: 13px;
-            }
-
-            .matrix-row {
-                grid-template-columns: repeat(auto-fit, minmax(70px, 1fr));
-                gap: 8px;
-            }
-
-            .matrix-input {
-                padding: 8px;
-                font-size: 13px;
-            }
-
-            input[type="number"] {
-                padding: 10px;
-                font-size: 15px;
-            }
-
-            .result-section {
-                padding: 20px;
-            }
-
-            .result-value {
-                font-size: 20px;
-            }
-
-            .steps-section {
-                padding: 20px;
-                max-height: 300px;
-            }
-
-            .step {
-                padding: 12px;
-                font-size: 12px;
-                margin-bottom: 8px;
-            }
-
-            label {
-                font-size: 13px;
-                margin-bottom: 8px;
-            }
-        }
-
-        @media (max-width: 480px) {
-            body {
-                padding: 10px;
-            }
-
-            .container {
-                padding: 18px;
-                border-radius: 8px;
-            }
-
-            h1 {
-                font-size: 20px;
-                margin-bottom: 20px;
-            }
-
-            .input-section {
-                margin-bottom: 20px;
-            }
-
-            label {
-                font-size: 12px;
-                margin-bottom: 6px;
-            }
-
-            input[type="number"] {
-                padding: 8px;
-                font-size: 14px;
-            }
-
-            .matrix-grid {
-                gap: 10px;
-                margin-bottom: 20px;
-            }
-
-            .matrix-row {
-                grid-template-columns: repeat(auto-fit, minmax(60px, 1fr));
-                gap: 6px;
-            }
-
-            .matrix-input {
-                padding: 6px 4px;
-                font-size: 12px;
-            }
-
-            .options-grid {
-                grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
-                gap: 8px;
-            }
-
-            button {
-                padding: 8px 12px;
-                font-size: 12px;
-            }
-
-            .result-section {
-                padding: 15px;
-                margin-top: 20px;
-            }
-
-            .result-label {
-                font-size: 12px;
-                margin-bottom: 10px;
-            }
-
-            .result-value {
-                font-size: 18px;
-                min-height: 35px;
-            }
-
-            .steps-section {
-                padding: 15px;
-                margin-top: 15px;
-                max-height: 250px;
-            }
-
-            .steps-title {
-                font-size: 13px;
-                margin-bottom: 10px;
-            }
-
-            .step {
-                padding: 10px;
-                font-size: 11px;
-                margin-bottom: 6px;
-            }
-
-            .error-message {
-                padding: 12px;
-                font-size: 12px;
-                margin-top: 12px;
-            }
-
-            .success-message {
-                padding: 12px;
-                font-size: 12px;
-                margin-top: 12px;
-            }
-        }
-
-        @media (max-width: 360px) {
-            .container {
-                padding: 15px;
-            }
-
-            h1 {
-                font-size: 18px;
-                margin-bottom: 18px;
-            }
-
-            .options-grid {
-                grid-template-columns: 1fr;
-            }
-
-            button {
-                width: 100%;
-            }
-
-            .matrix-row {
-                grid-template-columns: repeat(auto-fit, minmax(50px, 1fr));
-            }
-        }
+        /* Submit Button */
+        .btn-submit { background-color: var(--primary-color); color: white; border: none; padding: 15px 30px; font-size: 1.2rem; border-radius: 8px; cursor: pointer; width: 100%; margin-top: 20px; transition: background 0.3s; }
+        .btn-submit:hover { background-color: #0b5ed7; }
+        
+        /* Result */
+        #result-area { text-align: center; margin-bottom: 20px; padding: 20px; background-color: #d1e7dd; border-radius: 8px; display: none; }
+        #final-score { font-size: 2.5rem; color: var(--success-color); font-weight: bold; }
     </style>
 </head>
 <body>
-    <div class="container">
-        <h1>Determinant Calculator</h1>
 
-        <div class="input-section">
-            <label>Matrix Size (2-5):</label>
-            <input type="number" id="matrixSize" min="2" max="5" value="2" required>
-        </div>
+<div class="sticky-timer" id="timer">45:00</div>
 
-        <div id="matrixInputs" class="matrix-grid"></div>
+<div class="container">
+    <header>
+        <h1>ĐỀ KIỂM TRA CUỐI KỲ 1 - TOÁN 11 (ĐỀ 2)</h1>
+        <p><i>Thời gian làm bài: 45 phút | Bám sát ma trận đặc tả</i></p>
+    </header>
 
-        <div class="options-grid">
-            <button onclick="generateMatrix()">Generate Random</button>
-            <button class="secondary-btn" onclick="calculateDeterminant()">Calculate</button>
-            <button class="secondary-btn" onclick="clearInputs()">Clear All</button>
-            <button class="secondary-btn" onclick="showExample()">Load Example</button>
-        </div>
-
-        <div id="result" class="result-section" style="display: none;">
-            <div class="result-label">Determinant:</div>
-            <div class="result-value" id="resultValue"></div>
-        </div>
-
-        <div id="steps" class="steps-section" style="display: none;">
-            <div class="steps-title">Calculation Steps:</div>
-            <div id="stepsContent"></div>
-        </div>
-
-        <div id="error" class="error-message" style="display: none;"></div>
-        <div id="success" class="success-message" style="display: none;"></div>
+    <div id="result-area">
+        <h3>KẾT QUẢ BÀI LÀM</h3>
+        <div id="final-score">0.00</div>
+        <p id="final-msg">Hãy xem chi tiết đáp án bên dưới.</p>
+        <button onclick="location.reload()" style="padding: 5px 10px; cursor:pointer;">Làm lại</button>
     </div>
 
-    <script>
-        // Initialize when page loads
-        document.addEventListener('DOMContentLoaded', function() {
-            document.getElementById('matrixSize').addEventListener('change', generateMatrixInputs);
-            generateMatrixInputs();
+    <form id="quiz-form">
+        <div class="section-title">PHẦN I: TRẮC NGHIỆM (10 câu - 3.0 điểm)</div>
+        
+        <div class="question-block" id="q1">
+            <span class="q-text">Câu 1: Công thức nào sau đây đúng?</span>
+            <div class="options-grid">
+                <label class="option-item"><input type="radio" name="q1" value="A"> A. \(\sin(a+b) = \sin a \cos b + \cos a \sin b\)</label>
+                <label class="option-item"><input type="radio" name="q1" value="B"> B. \(\sin(a+b) = \sin a \sin b + \cos a \cos b\)</label>
+                <label class="option-item"><input type="radio" name="q1" value="C"> C. \(\cos(a+b) = \cos a \cos b + \sin a \sin b\)</label>
+                <label class="option-item"><input type="radio" name="q1" value="D"> D. \(\tan(a+b) = \tan a + \tan b\)</label>
+            </div>
+            <div class="feedback"><b>Đáp án: A.</b> <br> Công thức cộng cung: sin(a+b) = sin a cos b + cos a sin b.</div>
+        </div>
+
+        <div class="question-block" id="q2">
+            <span class="q-text">Câu 2: Phương trình \(\cot x = \sqrt{3}\) có nghiệm là:</span>
+            <div class="options-grid">
+                <label class="option-item"><input type="radio" name="q2" value="A"> A. \(x = \frac{\pi}{6} + k\pi\)</label>
+                <label class="option-item"><input type="radio" name="q2" value="B"> B. \(x = \frac{\pi}{3} + k\pi\)</label>
+                <label class="option-item"><input type="radio" name="q2" value="C"> C. \(x = \frac{\pi}{6} + k2\pi\)</label>
+                <label class="option-item"><input type="radio" name="q2" value="D"> D. \(x = -\frac{\pi}{6} + k\pi\)</label>
+            </div>
+            <div class="feedback"><b>Đáp án: A.</b> <br> \(\cot x = \sqrt{3} = \cot(\frac{\pi}{6}) \Rightarrow x = \frac{\pi}{6} + k\pi\).</div>
+        </div>
+
+        <div class="question-block" id="q3">
+            <span class="q-text">Câu 3: Cho dãy số \((u_n)\) xác định bởi \(u_n = 3^n\). Số hạng \(u_2\) là:</span>
+            <div class="options-grid">
+                <label class="option-item"><input type="radio" name="q3" value="A"> A. 6</label>
+                <label class="option-item"><input type="radio" name="q3" value="B"> B. 9</label>
+                <label class="option-item"><input type="radio" name="q3" value="C"> C. 3</label>
+                <label class="option-item"><input type="radio" name="q3" value="D"> D. 27</label>
+            </div>
+            <div class="feedback"><b>Đáp án: B.</b> <br> \(u_2 = 3^2 = 9\).</div>
+        </div>
+
+        <div class="question-block" id="q4">
+            <span class="q-text">Câu 4: Cho cấp số cộng \((u_n)\) có \(u_1 = 5\) và \(u_2 = 9\). Công sai \(d\) bằng:</span>
+            <div class="options-grid">
+                <label class="option-item"><input type="radio" name="q4" value="A"> A. 4</label>
+                <label class="option-item"><input type="radio" name="q4" value="B"> B. -4</label>
+                <label class="option-item"><input type="radio" name="q4" value="C"> C. 14</label>
+                <label class="option-item"><input type="radio" name="q4" value="D"> D. 45</label>
+            </div>
+            <div class="feedback"><b>Đáp án: A.</b> <br> \(d = u_2 - u_1 = 9 - 5 = 4\).</div>
+        </div>
+
+        <div class="question-block" id="q5">
+            <span class="q-text">Câu 5: Cho cấp số nhân \((u_n)\) có \(u_1 = 2\) và \(q = -2\). Số hạng thứ 3 là:</span>
+            <div class="options-grid">
+                <label class="option-item"><input type="radio" name="q5" value="A"> A. 4</label>
+                <label class="option-item"><input type="radio" name="q5" value="B"> B. -8</label>
+                <label class="option-item"><input type="radio" name="q5" value="C"> C. 8</label>
+                <label class="option-item"><input type="radio" name="q5" value="D"> D. -4</label>
+            </div>
+            <div class="feedback"><b>Đáp án: C.</b> <br> \(u_3 = u_1 \cdot q^2 = 2 \cdot (-2)^2 = 2 \cdot 4 = 8\).</div>
+        </div>
+
+        <div class="question-block" id="q6">
+            <span class="q-text">Câu 6: \(\lim_{n \to +\infty} \frac{2n + 5}{n}\) bằng:</span>
+            <div class="options-grid">
+                <label class="option-item"><input type="radio" name="q6" value="A"> A. 5</label>
+                <label class="option-item"><input type="radio" name="q6" value="B"> B. 2</label>
+                <label class="option-item"><input type="radio" name="q6" value="C"> C. 0</label>
+                <label class="option-item"><input type="radio" name="q6" value="D"> D. \(+\infty\)</label>
+            </div>
+            <div class="feedback"><b>Đáp án: B.</b> <br> Chia cả tử và mẫu cho n, giới hạn là 2.</div>
+        </div>
+
+        <div class="question-block" id="q7">
+            <span class="q-text">Câu 7: \(\lim_{x \to 2} (3x - 1)\) bằng:</span>
+            <div class="options-grid">
+                <label class="option-item"><input type="radio" name="q7" value="A"> A. 5</label>
+                <label class="option-item"><input type="radio" name="q7" value="B"> B. 6</label>
+                <label class="option-item"><input type="radio" name="q7" value="C"> C. 2</label>
+                <label class="option-item"><input type="radio" name="q7" value="D"> D. -1</label>
+            </div>
+            <div class="feedback"><b>Đáp án: A.</b> <br> Thay trực tiếp: \(3(2) - 1 = 5\).</div>
+        </div>
+
+        <div class="question-block" id="q8">
+            <span class="q-text">Câu 8: Hàm số \(y=f(x)\) được gọi là liên tục tại điểm \(x_0\) nếu:</span>
+            <div class="options-grid">
+                <label class="option-item"><input type="radio" name="q8" value="A"> A. \(\lim_{x \to x_0} f(x) = f(x_0)\)</label>
+                <label class="option-item"><input type="radio" name="q8" value="B"> B. \(\lim_{x \to x_0} f(x) = 0\)</label>
+                <label class="option-item"><input type="radio" name="q8" value="C"> C. \(f(x_0)\) không xác định</label>
+                <label class="option-item"><input type="radio" name="q8" value="D"> D. \(\lim_{x \to x_0^+} f(x) \neq \lim_{x \to x_0^-} f(x)\)</label>
+            </div>
+            <div class="feedback"><b>Đáp án: A.</b> <br> Đây là định nghĩa hàm số liên tục tại 1 điểm.</div>
+        </div>
+
+        <div class="question-block" id="q9">
+            <span class="q-text">Câu 9: Nếu đường thẳng \(a\) song song với mặt phẳng \((P)\) thì:</span>
+            <div class="options-grid">
+                <label class="option-item"><input type="radio" name="q9" value="A"> A. \(a\) và \((P)\) có 1 điểm chung.</label>
+                <label class="option-item"><input type="radio" name="q9" value="B"> B. \(a\) vuông góc với \((P)\).</label>
+                <label class="option-item"><input type="radio" name="q9" value="C"> C. \(a\) và \((P)\) không có điểm chung.</label>
+                <label class="option-item"><input type="radio" name="q9" value="D"> D. \(a\) nằm trong \((P)\).</label>
+            </div>
+            <div class="feedback"><b>Đáp án: C.</b> <br> Định nghĩa đường thẳng song song với mặt phẳng.</div>
+        </div>
+
+        <div class="question-block" id="q10">
+            <span class="q-text">Câu 10: Cho bảng tần số ghép nhóm. "Nhóm chứa mốt" là nhóm:</span>
+            <div class="options-grid">
+                <label class="option-item"><input type="radio" name="q10" value="A"> A. Có giá trị trung bình lớn nhất.</label>
+                <label class="option-item"><input type="radio" name="q10" value="B"> B. Có tần số lớn nhất.</label>
+                <label class="option-item"><input type="radio" name="q10" value="C"> C. Đầu tiên của bảng.</label>
+                <label class="option-item"><input type="radio" name="q10" value="D"> D. Cuối cùng của bảng.</label>
+            </div>
+            <div class="feedback"><b>Đáp án: B.</b> <br> Mốt (Mode) liên quan đến tần số xuất hiện nhiều nhất.</div>
+        </div>
+
+        <div class="section-title">PHẦN II: TRẮC NGHIỆM ĐÚNG/SAI (3 câu - 4.0 điểm)</div>
+        <p><i>Học sinh chọn đúng hoặc sai cho mỗi ý a), b), c), d).</i></p>
+
+        <div class="question-block" id="tf1">
+            <span class="q-text">Câu 1: Cho phương trình lượng giác \(\sin(2x - \frac{\pi}{4}) = -\frac{1}{2}\).</span>
+            <table class="tf-table">
+                <thead><tr><th>Mệnh đề</th><th>Đúng</th><th>Sai</th></tr></thead>
+                <tbody>
+                    <tr data-key="T">
+                        <td>a) Phương trình có tập xác định là \(D = \mathbb{R}\).</td>
+                        <td class="tf-center"><input type="radio" name="tf1a" value="T"></td>
+                        <td class="tf-center"><input type="radio" name="tf1a" value="F"></td>
+                    </tr>
+                    <tr data-key="T">
+                        <td>b) Phương trình tương đương \(\sin(2x - \frac{\pi}{4}) = \sin(-\frac{\pi}{6})\).</td>
+                        <td class="tf-center"><input type="radio" name="tf1b" value="T"></td>
+                        <td class="tf-center"><input type="radio" name="tf1b" value="F"></td>
+                    </tr>
+                    <tr data-key="F">
+                        <td>c) Phương trình vô nghiệm.</td>
+                        <td class="tf-center"><input type="radio" name="tf1c" value="T"></td>
+                        <td class="tf-center"><input type="radio" name="tf1c" value="F"></td>
+                    </tr>
+                    <tr data-key="F">
+                        <td>d) Phương trình có nghiệm \(x = \frac{\pi}{2}\).</td>
+                        <td class="tf-center"><input type="radio" name="tf1d" value="T"></td>
+                        <td class="tf-center"><input type="radio" name="tf1d" value="F"></td>
+                    </tr>
+                </tbody>
+            </table>
+            <div class="feedback">
+                <b>Giải thích:</b> <br>
+                - a) Đúng. Hàm sin xác định trên R. <br>
+                - b) Đúng. \(\sin(-\pi/6) = -1/2\). <br>
+                - c) Sai. Vì \(-1/2 \in [-1;1]\) nên có nghiệm. <br>
+                - d) Sai. Thay \(x=\pi/2 \Rightarrow \sin(\pi - \pi/4) = \sin(3\pi/4) = \sqrt{2}/2 \neq -1/2\).
+            </div>
+        </div>
+
+        <div class="question-block" id="tf2">
+            <span class="q-text">Câu 2: Một đơn vị vận chuyển tính phí cước \(C(x)\) (nghìn đồng) theo khối lượng \(x\) (kg) như sau:
+            \[ C(x) = \begin{cases} 20 & \text{nếu } 0 < x \le 2 \\ 20 + 5(x-2) & \text{nếu } x > 2 \end{cases} \]
+            </span>
+            <table class="tf-table">
+                <thead><tr><th>Mệnh đề</th><th>Đúng</th><th>Sai</th></tr></thead>
+                <tbody>
+                    <tr data-key="T">
+                        <td>a) Phí cước cho kiện hàng 1.5 kg là 20 nghìn đồng.</td>
+                        <td class="tf-center"><input type="radio" name="tf2a" value="T"></td>
+                        <td class="tf-center"><input type="radio" name="tf2a" value="F"></td>
+                    </tr>
+                    <tr data-key="F">
+                        <td>b) Phí cước cho kiện hàng 4 kg là 40 nghìn đồng.</td>
+                        <td class="tf-center"><input type="radio" name="tf2b" value="T"></td>
+                        <td class="tf-center"><input type="radio" name="tf2b" value="F"></td>
+                    </tr>
+                    <tr data-key="T">
+                        <td>c) Hàm số chi phí \(C(x)\) liên tục tại \(x = 2\).</td>
+                        <td class="tf-center"><input type="radio" name="tf2c" value="T"></td>
+                        <td class="tf-center"><input type="radio" name="tf2c" value="F"></td>
+                    </tr>
+                    <tr data-key="T">
+                        <td>d) Với \(x > 2\), mỗi kg tăng thêm sẽ tính thêm 5 nghìn đồng.</td>
+                        <td class="tf-center"><input type="radio" name="tf2d" value="T"></td>
+                        <td class="tf-center"><input type="radio" name="tf2d" value="F"></td>
+                    </tr>
+                </tbody>
+            </table>
+            <div class="feedback">
+                <b>Giải thích:</b> <br>
+                - a) Đúng. \(1.5 \le 2\) nên giá là 20. <br>
+                - b) Sai. \(x=4 \Rightarrow C(4) = 20 + 5(4-2) = 20+10 = 30\) (không phải 40). <br>
+                - c) Đúng. \(\lim_{x \to 2^-} = 20\), \(\lim_{x \to 2^+} = 20 + 5(0) = 20\). <br>
+                - d) Đúng. Hệ số góc là 5.
+            </div>
+        </div>
+
+        <div class="question-block" id="tf3">
+            <span class="q-text">Câu 3: Cho hình lập phương \(ABCD.A'B'C'D'\).</span>
+            <table class="tf-table">
+                <thead><tr><th>Mệnh đề</th><th>Đúng</th><th>Sai</th></tr></thead>
+                <tbody>
+                    <tr data-key="T">
+                        <td>a) Mặt phẳng \((ABCD)\) song song với mặt phẳng \((A'B'C'D')\).</td>
+                        <td class="tf-center"><input type="radio" name="tf3a" value="T"></td>
+                        <td class="tf-center"><input type="radio" name="tf3a" value="F"></td>
+                    </tr>
+                    <tr data-key="T">
+                        <td>b) Đường thẳng \(AC\) song song với mặt phẳng \((A'B'C'D')\).</td>
+                        <td class="tf-center"><input type="radio" name="tf3b" value="T"></td>
+                        <td class="tf-center"><input type="radio" name="tf3b" value="F"></td>
+                    </tr>
+                    <tr data-key="F">
+                        <td>c) Đường thẳng \(AB'\) song song với đường thẳng \(CD\).</td>
+                        <td class="tf-center"><input type="radio" name="tf3c" value="T"></td>
+                        <td class="tf-center"><input type="radio" name="tf3c" value="F"></td>
+                    </tr>
+                    <tr data-key="T">
+                        <td>d) Hai mặt phẳng \((ABB'A')\) và \((CDD'C')\) song song với nhau.</td>
+                        <td class="tf-center"><input type="radio" name="tf3d" value="T"></td>
+                        <td class="tf-center"><input type="radio" name="tf3d" value="F"></td>
+                    </tr>
+                </tbody>
+            </table>
+            <div class="feedback">
+                <b>Giải thích:</b> <br>
+                - a) Đúng. Hai mặt đáy của lăng trụ/hình lập phương. <br>
+                - b) Đúng. \(AC // A'C'\) nằm trong đáy trên. <br>
+                - c) Sai. \(AB'\) và \(CD\) chéo nhau. <br>
+                - d) Đúng. Hai mặt bên đối diện.
+            </div>
+        </div>
+
+        <div class="section-title">PHẦN III: TRẢ LỜI NGẮN (3 câu - 3.0 điểm)</div>
+        
+        <div class="question-block" id="sa1">
+            <span class="q-text">Câu 1: Một loại virus nhân đôi số lượng sau mỗi giờ. Ban đầu có 50 con. Hỏi sau 4 giờ số lượng virus là bao nhiêu con?</span>
+            <br>
+            <input type="number" class="short-input" id="input-sa1" placeholder="Nhập số...">
+            <div class="feedback"><b>Đáp án: 800.</b> <br> Cấp số nhân \(u_1=50, q=2\). Sau 1 giờ là \(u_2\), sau 4 giờ là \(u_5\). Hoặc hiểu đơn giản: \(50 \times 2^4 = 50 \times 16 = 800\).</div>
+        </div>
+
+        <div class="question-block" id="sa2">
+            <span class="q-text">Câu 2: Tìm giá trị của tham số \(m\) để hàm số sau liên tục tại \(x = 1\):
+            \[ f(x) = \begin{cases} \frac{x^2 - 1}{x - 1} & \text{khi } x \neq 1 \\ 3m - 1 & \text{khi } x = 1 \end{cases} \]
+            </span>
+            <br>
+            <input type="number" step="0.1" class="short-input" id="input-sa2" placeholder="Nhập giá trị m...">
+            <div class="feedback"><b>Đáp án: 1.</b> <br> \(\lim_{x \to 1} \frac{(x-1)(x+1)}{x-1} = \lim (x+1) = 2\). <br> Để liên tục: \(3m - 1 = 2 \Rightarrow 3m = 3 \Rightarrow m = 1\).</div>
+        </div>
+
+        <div class="question-block" id="sa3">
+            <span class="q-text">Câu 3: Ba mặt phẳng song song cắt hai đường thẳng chéo nhau \(a\) và \(b\) lần lượt tại \(A, B, C\) và \(A', B', C'\). Biết \(AB = 3, BC = 6, A'B' = 4\). Tính độ dài đoạn \(B'C'\).</span>
+            <br>
+            <input type="number" class="short-input" id="input-sa3" placeholder="Nhập độ dài...">
+            <div class="feedback"><b>Đáp án: 8.</b> <br> Định lý Thales trong không gian: \(\frac{AB}{BC} = \frac{A'B'}{B'C'} \Rightarrow \frac{3}{6} = \frac{4}{x} \Rightarrow x = \frac{6 \cdot 4}{3} = 8\).</div>
+        </div>
+
+        <button type="button" class="btn-submit" onclick="gradeExam()">NỘP BÀI</button>
+
+    </form>
+</div>
+
+<script>
+    // Timer Logic
+    let timeLeft = 45 * 60; // 45 minutes
+    const timerEl = document.getElementById('timer');
+    
+    const countdown = setInterval(() => {
+        const min = Math.floor(timeLeft / 60);
+        let sec = timeLeft % 60;
+        sec = sec < 10 ? '0' + sec : sec;
+        timerEl.innerText = `${min}:${sec}`;
+        timeLeft--;
+        
+        if (timeLeft < 0) {
+            clearInterval(countdown);
+            alert('Hết giờ làm bài!');
+            gradeExam();
+        }
+    }, 1000);
+
+    function gradeExam() {
+        clearInterval(countdown);
+        let totalScore = 0;
+        
+        // --- GRADING PART I: MCQ (0.3 points each) ---
+        const mcqKeys = { q1: 'A', q2: 'A', q3: 'B', q4: 'A', q5: 'C', q6: 'B', q7: 'A', q8: 'A', q9: 'C', q10: 'B' };
+        
+        for (let q in mcqKeys) {
+            const selected = document.querySelector(`input[name="${q}"]:checked`);
+            const block = document.getElementById(q);
+            const fb = block.querySelector('.feedback');
+            fb.style.display = 'block';
             
-            // Re-render MathJax when content changes
-            if (window.MathJax) {
-                MathJax.contentDocument = document;
+            if (selected && selected.value === mcqKeys[q]) {
+                totalScore += 0.3;
+                block.classList.add('correct-bg');
+            } else {
+                block.classList.add('wrong-bg');
             }
+        }
+
+        // --- GRADING PART II: True/False (Approx 1.33 points each question) ---
+        // Simplified scoring for demo: Each correct row adds point fraction
+        // Total 12 rows. Total 4 points. Each row ~ 0.33 points.
+        const tfIds = ['tf1', 'tf2', 'tf3'];
+        tfIds.forEach(id => {
+            const rows = document.querySelectorAll(`#${id} tbody tr`);
+            const fb = document.querySelector(`#${id} .feedback`);
+            fb.style.display = 'block';
+            
+            rows.forEach(row => {
+                const correctKey = row.getAttribute('data-key');
+                const userT = row.querySelector(`input[value="T"]`).checked;
+                const userF = row.querySelector(`input[value="F"]`).checked;
+                let userVal = userT ? 'T' : (userF ? 'F' : '');
+                
+                if (userVal === correctKey) {
+                    totalScore += (4.0 / 12); // Split 4 points across 12 items
+                    row.style.backgroundColor = '#d1e7dd';
+                } else {
+                    row.style.backgroundColor = '#f8d7da';
+                }
+            });
         });
 
-        function generateMatrixInputs() {
-            const size = parseInt(document.getElementById('matrixSize').value);
-            const container = document.getElementById('matrixInputs');
-            container.innerHTML = '';
-
-            for (let i = 0; i < size; i++) {
-                const row = document.createElement('div');
-                row.className = 'matrix-row';
-                for (let j = 0; j < size; j++) {
-                    const input = document.createElement('input');
-                    input.type = 'number';
-                    input.className = 'matrix-input';
-                    input.id = `matrix_${i}_${j}`;
-                    input.value = '0';
-                    input.step = '0.01';
-                    row.appendChild(input);
-                }
-                container.appendChild(row);
-            }
-        }
-
-        function getMatrixValues() {
-            const size = parseInt(document.getElementById('matrixSize').value);
-            const matrix = [];
-            for (let i = 0; i < size; i++) {
-                const row = [];
-                for (let j = 0; j < size; j++) {
-                    const value = parseFloat(document.getElementById(`matrix_${i}_${j}`).value);
-                    row.push(isNaN(value) ? 0 : value);
-                }
-                matrix.push(row);
-            }
-            return matrix;
-        }
-
-        function setMatrixValues(matrix) {
-            const size = matrix.length;
-            document.getElementById('matrixSize').value = size;
-            generateMatrixInputs();
-            for (let i = 0; i < size; i++) {
-                for (let j = 0; j < size; j++) {
-                    document.getElementById(`matrix_${i}_${j}`).value = matrix[i][j];
-                }
-            }
-        }
-
-        function generateMatrix() {
-            const size = parseInt(document.getElementById('matrixSize').value);
-            for (let i = 0; i < size; i++) {
-                for (let j = 0; j < size; j++) {
-                    const value = Math.floor(Math.random() * 10);
-                    document.getElementById(`matrix_${i}_${j}`).value = value;
-                }
-            }
-            clearMessages();
-        }
-
-        function clearInputs() {
-            const size = parseInt(document.getElementById('matrixSize').value);
-            for (let i = 0; i < size; i++) {
-                for (let j = 0; j < size; j++) {
-                    document.getElementById(`matrix_${i}_${j}`).value = '0';
-                }
-            }
-            document.getElementById('result').style.display = 'none';
-            document.getElementById('steps').style.display = 'none';
-            clearMessages();
-        }
-
-        function showExample() {
-            const size = parseInt(document.getElementById('matrixSize').value);
-            let exampleMatrix;
-
-            if (size === 2) {
-                exampleMatrix = [[4, 7], [2, 6]];
-            } else if (size === 3) {
-                exampleMatrix = [[1, 2, 3], [0, 4, 5], [1, 0, 6]];
-            } else if (size === 4) {
-                exampleMatrix = [[1, 0, 2, -1], [3, 0, 0, 5], [2, 1, 4, -3], [1, 0, 5, 0]];
+        // --- GRADING PART III: Short Answer (1.0 point each) ---
+        const saKeys = {
+            'input-sa1': 800,
+            'input-sa2': 1,
+            'input-sa3': 8
+        };
+        
+        for (let id in saKeys) {
+            const input = document.getElementById(id);
+            const block = input.closest('.question-block');
+            const fb = block.querySelector('.feedback');
+            fb.style.display = 'block';
+            
+            if (parseFloat(input.value) === saKeys[id]) {
+                totalScore += 1.0;
+                block.classList.add('correct-bg');
             } else {
-                exampleMatrix = [[2, 1, 0, 0, 1], [1, 3, 1, 0, 0], [0, 1, 2, 1, 0], [0, 0, 1, 3, 1], [1, 0, 0, 1, 2]];
-            }
-
-            setMatrixValues(exampleMatrix);
-            clearMessages();
-        }
-
-        function calculateDeterminant() {
-            clearMessages();
-            const matrix = getMatrixValues();
-            
-            try {
-                const result = determinant(matrix);
-                displayResult(result);
-            } catch (error) {
-                showError(error.message);
+                block.classList.add('wrong-bg');
             }
         }
 
-        function determinant(matrix) {
-            const n = matrix.length;
+        // Display Result
+        const resultArea = document.getElementById('result-area');
+        const scoreDisplay = document.getElementById('final-score');
+        const msg = document.getElementById('final-msg');
+        
+        resultArea.style.display = 'block';
+        scoreDisplay.innerText = totalScore.toFixed(2) + " / 10";
+        
+        if (totalScore >= 8) msg.innerText = "Xuất sắc! Em nắm rất chắc kiến thức.";
+        else if (totalScore >= 5) msg.innerText = "Đạt yêu cầu. Cần ôn tập thêm các câu sai.";
+        else msg.innerText = "Cần cố gắng nhiều hơn nữa.";
 
-            if (n === 1) {
-                return matrix[0][0];
-            }
+        window.scrollTo(0, 0);
+        
+        // Disable all inputs
+        const allInputs = document.querySelectorAll('input');
+        allInputs.forEach(i => i.disabled = true);
+        document.querySelector('.btn-submit').style.display = 'none';
+    }
+</script>
 
-            if (n === 2) {
-                return matrix[0][0] * matrix[1][1] - matrix[0][1] * matrix[1][0];
-            }
-
-            // For larger matrices, use Gaussian elimination
-            const steps = [];
-            let det = 1;
-            const augmented = matrix.map(row => [...row]);
-
-            // Gaussian elimination with partial pivoting
-            for (let i = 0; i < n; i++) {
-                // Find pivot
-                let maxRow = i;
-                for (let k = i + 1; k < n; k++) {
-                    if (Math.abs(augmented[k][i]) > Math.abs(augmented[maxRow][i])) {
-                        maxRow = k;
-                    }
-                }
-
-                // Swap rows
-                if (maxRow !== i) {
-                    [augmented[i], augmented[maxRow]] = [augmented[maxRow], augmented[i]];
-                    det *= -1;
-                    steps.push(`Swapped row ${i + 1} and row ${maxRow + 1}`);
-                }
-
-                if (Math.abs(augmented[i][i]) < 1e-10) {
-                    det = 0;
-                    steps.push('Found zero on diagonal - determinant is 0');
-                    displaySteps(steps, det);
-                    return 0;
-                }
-
-                det *= augmented[i][i];
-
-                // Eliminate column
-                for (let k = i + 1; k < n; k++) {
-                    const factor = augmented[k][i] / augmented[i][i];
-                    for (let j = i; j < n; j++) {
-                        augmented[k][j] -= factor * augmented[i][j];
-                    }
-                }
-            }
-
-            displaySteps(steps, det);
-            return det;
-        }
-
-        function displayResult(result) {
-            const resultDiv = document.getElementById('result');
-            const resultValue = document.getElementById('resultValue');
-            
-            // Round to reasonable precision
-            const displayValue = Math.abs(result) < 1e-10 ? 0 : result.toFixed(6).replace(/\.?0+$/, '');
-            
-            resultValue.innerHTML = `$$${displayValue}$$`;
-            resultDiv.style.display = 'block';
-
-            // Trigger MathJax rendering
-            if (window.MathJax && window.MathJax.typesetPromise) {
-                MathJax.typesetPromise([resultValue]).catch(err => console.log(err));
-            }
-
-            showSuccess('Determinant calculated successfully!');
-        }
-
-        function displaySteps(steps, det) {
-            const stepsDiv = document.getElementById('steps');
-            const stepsContent = document.getElementById('stepsContent');
-            stepsContent.innerHTML = '';
-
-            steps.forEach((step, index) => {
-                const stepDiv = document.createElement('div');
-                stepDiv.className = 'step';
-                stepDiv.textContent = `Step ${index + 1}: ${step}`;
-                stepsContent.appendChild(stepDiv);
-            });
-
-            if (steps.length === 0) {
-                const stepDiv = document.createElement('div');
-                stepDiv.className = 'step';
-                stepDiv.textContent = `Final determinant: ${det}`;
-                stepsContent.appendChild(stepDiv);
-            }
-
-            stepsDiv.style.display = 'block';
-        }
-
-        function showError(message) {
-            const errorDiv = document.getElementById('error');
-            errorDiv.textContent = `Error: ${message}`;
-            errorDiv.style.display = 'block';
-        }
-
-        function showSuccess(message) {
-            const successDiv = document.getElementById('success');
-            successDiv.textContent = message;
-            successDiv.style.display = 'block';
-        }
-
-        function clearMessages() {
-            document.getElementById('error').style.display = 'none';
-            document.getElementById('success').style.display = 'none';
-        }
-    </script>
 </body>
 </html>
