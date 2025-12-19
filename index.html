@@ -447,4 +447,201 @@
                 <tr>
                     <td>b</td><td>\( AA' // (BCC'B') \).</td>
                     <td class="tf-option"><input type="radio" name="p2_q4_b" value="true"></td>
-                    <td cl
+                    <td class="tf-option"><input type="radio" name="p2_q4_b" value="false"></td>
+                </tr>
+                <tr>
+                    <td>c</td><td>\( (AB'C') // (A'BC) \).</td>
+                    <td class="tf-option"><input type="radio" name="p2_q4_c" value="true"></td>
+                    <td class="tf-option"><input type="radio" name="p2_q4_c" value="false"></td>
+                </tr>
+                <tr>
+                    <td>d</td><td>Đường qua \( G \) song song \( BB' \) cắt \( (A'B'C') \).</td>
+                    <td class="tf-option"><input type="radio" name="p2_q4_d" value="true"></td>
+                    <td class="tf-option"><input type="radio" name="p2_q4_d" value="false"></td>
+                </tr>
+            </table>
+            <div class="feedback"></div>
+        </div>
+
+        <div class="part-section">PHẦN III. TRẢ LỜI NGẮN (3.0 điểm)</div>
+        <p><i>Điền đáp án (số hoặc biểu thức đơn giản). Mỗi câu 0.5 điểm.</i></p>
+
+        <div class="question-card" id="p3_q1">
+            <div class="question-title">Câu 1: Số lần vật qua VTCB trong 2 giây đầu của \( x = 10\cos(4\pi t + \frac{\pi}{2}) \)?</div>
+            <input type="number" class="short-input" id="inp_p3_q1" placeholder="Nhập số...">
+            <div class="feedback"></div>
+        </div>
+
+        <div class="question-card" id="p3_q2">
+            <div class="question-title">Câu 2: 100 vi khuẩn, nhân đôi mỗi giờ. Sau 6 giờ có bao nhiêu con?</div>
+            <input type="number" class="short-input" id="inp_p3_q2" placeholder="Nhập số...">
+            <div class="feedback"></div>
+        </div>
+
+        <div class="question-card" id="p3_q3">
+            <div class="question-title">Câu 3: Nồng độ thuốc \( C(t) = \frac{20t}{t^2+5} \) tiệm cận về giá trị nào?</div>
+            <input type="number" class="short-input" id="inp_p3_q3" placeholder="Nhập số...">
+            <div class="feedback"></div>
+        </div>
+
+        <div class="question-card" id="p3_q4">
+            <div class="question-title">Câu 4: Tìm \( m \) để hàm số liên tục tại \( x=4 \): \( f(x) = \frac{x^2-16}{x-4} \) khi \( x \ne 4 \) và \( f(4) = m+1 \).</div>
+            <input type="number" class="short-input" id="inp_p3_q4" placeholder="Nhập giá trị m...">
+            <div class="feedback"></div>
+        </div>
+
+        <div class="question-card" id="p3_q5">
+            <div class="question-title">Câu 5: Cọc 2m bóng 3m. Tháp bóng 210m. Tháp cao bao nhiêu mét?</div>
+            <input type="number" class="short-input" id="inp_p3_q5" placeholder="Nhập chiều cao...">
+            <div class="feedback"></div>
+        </div>
+
+        <div class="question-card" id="p3_q6">
+            <div class="question-title">Câu 6: Kệ sách song song. Khoảng cách bên trái 40cm. Khoảng cách bên phải là bao nhiêu cm?</div>
+            <input type="number" class="short-input" id="inp_p3_q6" placeholder="Nhập khoảng cách...">
+            <div class="feedback"></div>
+        </div>
+
+        <button type="button" class="submit-btn" onclick="submitQuiz()">NỘP BÀI</button>
+        
+        <div class="result-box" id="resultBox">
+            <h3>KẾT QUẢ</h3>
+            <div class="score-display" id="totalScore">0.0 / 10</div>
+            <p>Hãy xem lại chi tiết các câu trả lời bên trên.</p>
+        </div>
+    </form>
+</div>
+
+<script>
+    // ĐÁP ÁN CHUẨN
+    const answers = {
+        // Phần 1: A, B, C, D
+        p1: {
+            q1: 'A', q2: 'B', q3: 'D', q4: 'B', q5: 'C', q6: 'A',
+            q7: 'B', q8: 'B', q9: 'C', q10: 'C', q11: 'B', q12: 'A'
+        },
+        // Phần 2: true/false cho từng ý a,b,c,d
+        p2: {
+            q1: {a: true, b: false, c: true, d: true},
+            q2: {a: false, b: true, c: true, d: true},
+            q3: {a: true, b: true, c: false, d: true},
+            q4: {a: true, b: true, c: false, d: true}
+        },
+        // Phần 3: Số hoặc chuỗi
+        p3: {
+            q1: 9, // Chấp nhận 8 hoặc 9, nhưng đáp án chuẩn 9
+            q2: 6400,
+            q3: 0,
+            q4: 7,
+            q5: 140,
+            q6: 40
+        }
+    };
+
+    function submitQuiz() {
+        let score = 0;
+        let form = document.getElementById('quizForm');
+        
+        // --- CHẤM PHẦN 1 (0.25đ/câu) ---
+        for (let i = 1; i <= 12; i++) {
+            let qKey = 'q' + i;
+            let userVal = form.elements['p1_' + qKey].value;
+            let correctVal = answers.p1[qKey];
+            let card = document.getElementById(qKey);
+            let feedback = card.querySelector('.feedback');
+            
+            if (userVal === correctVal) {
+                score += 0.25;
+                card.classList.add('correct-answer');
+                feedback.innerHTML = '<span class="text-success">✔ Chính xác!</span>';
+            } else {
+                card.classList.add('wrong-answer');
+                feedback.innerHTML = `<span class="text-danger">✘ Sai. Đáp án đúng: ${correctVal}</span>`;
+            }
+        }
+
+        // --- CHẤM PHẦN 2 (Thang điểm bậc thang) ---
+        for (let i = 1; i <= 4; i++) {
+            let qKey = 'q' + i;
+            let subKeys = ['a', 'b', 'c', 'd'];
+            let correctCount = 0;
+            let card = document.getElementById('p2_' + qKey);
+            let feedback = card.querySelector('.feedback');
+            
+            subKeys.forEach(sub => {
+                let userVal = form.elements[`p2_${qKey}_${sub}`].value;
+                // Convert string "true"/"false" to boolean
+                let userBool = (userVal === 'true');
+                let correctBool = answers.p2[qKey][sub];
+                
+                // Tô màu dòng
+                let rowInputs = document.getElementsByName(`p2_${qKey}_${sub}`);
+                let parentRow = rowInputs[0].closest('tr');
+                
+                if (userVal !== "") {
+                     if (userBool === correctBool) {
+                        correctCount++;
+                        parentRow.style.backgroundColor = '#d4edda'; // Xanh nhạt
+                    } else {
+                        parentRow.style.backgroundColor = '#f8d7da'; // Đỏ nhạt
+                    }
+                }
+            });
+
+            // Tính điểm theo thang mới
+            let points = 0;
+            if (correctCount === 1) points = 0.1;
+            else if (correctCount === 2) points = 0.2; // Theo yêu cầu đề bài (file ảnh: 2 ý 0.2, 3 ý 0.5, 4 ý 1.0)
+            else if (correctCount === 3) points = 0.5;
+            else if (correctCount === 4) points = 1.0;
+            
+            score += points;
+            feedback.innerHTML = `Bạn đúng ${correctCount}/4 ý. Điểm: ${points}`;
+        }
+
+        // --- CHẤM PHẦN 3 (0.5đ/câu) ---
+        for (let i = 1; i <= 6; i++) {
+            let qKey = 'q' + i;
+            let inputId = 'inp_p3_' + qKey;
+            let userVal = parseFloat(document.getElementById(inputId).value);
+            let correctVal = answers.p3[qKey];
+            let card = document.getElementById('p3_' + qKey);
+            let feedback = card.querySelector('.feedback');
+
+            // Xử lý riêng câu 1 có thể gây tranh cãi (8 hoặc 9)
+            if (i === 1 && (userVal === 8 || userVal === 9)) {
+                score += 0.5;
+                card.classList.add('correct-answer');
+                feedback.innerHTML = '<span class="text-success">✔ Chính xác!</span>';
+            } 
+            else if (userVal === correctVal) {
+                score += 0.5;
+                card.classList.add('correct-answer');
+                feedback.innerHTML = '<span class="text-success">✔ Chính xác!</span>';
+            } else {
+                card.classList.add('wrong-answer');
+                feedback.innerHTML = `<span class="text-danger">✘ Sai. Đáp án đúng: ${correctVal}</span>`;
+            }
+        }
+
+        // Hiển thị kết quả
+        let resultBox = document.getElementById('resultBox');
+        let scoreDisplay = document.getElementById('totalScore');
+        
+        // Làm tròn điểm 2 chữ số thập phân
+        score = Math.round(score * 100) / 100;
+        
+        resultBox.style.display = 'block';
+        scoreDisplay.textContent = `${score} / 10`;
+        
+        // Cuộn xuống kết quả
+        resultBox.scrollIntoView({ behavior: 'smooth' });
+
+        // Disable nút nộp bài
+        document.querySelector('.submit-btn').disabled = true;
+        document.querySelector('.submit-btn').textContent = "ĐÃ NỘP BÀI";
+    }
+</script>
+
+</body>
+</html>
