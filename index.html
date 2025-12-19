@@ -3,623 +3,547 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Đề Thi Toán 11 HK1 - Đề Số 6 (Ma trận 2025)</title>
+    <title>Thi Thử Toán 11 - Đề Số 6 (Có Lời Giải)</title>
     <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <style>
         :root {
-            --primary: #004d40; /* Xanh rêu đậm */
-            --secondary: #00796b;
-            --light: #e0f2f1;
-            --correct: #c8e6c9;
-            --wrong: #ffcdd2;
+            --primary: #2980b9;
+            --success: #27ae60;
+            --danger: #c0392b;
+            --light: #ecf0f1;
+            --dark: #2c3e50;
         }
 
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #f5f5f5;
-            color: #333;
-            line-height: 1.5;
+            background-color: #f4f6f7;
+            color: var(--dark);
             margin: 0;
-            padding: 20px;
+            padding-bottom: 60px; /* Space for footer */
         }
 
-        .exam-container {
-            max-width: 900px;
-            margin: 0 auto;
-            background: white;
-            padding: 40px;
-            border-radius: 12px;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
-        }
-
-        .exam-header {
+        /* Sticky Timer */
+        .timer-bar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background-color: var(--dark);
+            color: #fff;
+            padding: 10px 0;
             text-align: center;
-            border-bottom: 3px double var(--primary);
-            padding-bottom: 20px;
-            margin-bottom: 30px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            z-index: 1000;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        }
+        
+        .timer-warning {
+            background-color: var(--danger);
+            animation: pulse 1s infinite;
         }
 
-        .exam-header h1 {
-            color: var(--primary);
-            margin: 0 0 10px 0;
-            text-transform: uppercase;
+        @keyframes pulse {
+            0% { opacity: 1; }
+            50% { opacity: 0.8; }
+            100% { opacity: 1; }
         }
 
-        .section-title {
-            background-color: var(--primary);
+        .container {
+            max-width: 900px;
+            margin: 60px auto 20px auto; /* Margin top for sticky timer */
+            background: #fff;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+        }
+
+        h1 { text-align: center; color: var(--primary); }
+        .part-header {
+            background: var(--primary);
             color: white;
             padding: 10px 15px;
-            border-radius: 6px;
-            margin-top: 40px;
+            border-radius: 5px;
+            margin-top: 30px;
             margin-bottom: 20px;
-            font-weight: bold;
-            font-size: 1.1em;
         }
 
-        /* Question Box Styles */
-        .question-box {
+        /* Question Styles */
+        .question-card {
             background: #fff;
             border: 1px solid #ddd;
             border-radius: 8px;
             padding: 20px;
             margin-bottom: 20px;
+            transition: 0.3s;
         }
 
-        .q-title {
-            font-weight: 600;
-            margin-bottom: 15px;
-            color: #263238;
-        }
+        .q-text { font-weight: 600; margin-bottom: 15px; }
 
-        /* Multiple Choice Styles */
-        .mc-options {
+        /* Multiple Choice */
+        .options-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 15px;
+            gap: 10px;
         }
-
-        .mc-label {
+        .option-label {
             display: flex;
             align-items: center;
             padding: 10px;
             border: 1px solid #eee;
-            border-radius: 4px;
+            border-radius: 5px;
             cursor: pointer;
-            transition: 0.2s;
+        }
+        .option-label:hover { background: var(--light); }
+        .option-label input { margin-right: 10px; }
+
+        /* True/False Table */
+        .tf-table { width: 100%; border-collapse: collapse; }
+        .tf-table th, .tf-table td { border: 1px solid #ddd; padding: 8px; }
+        .tf-table th { background: #f8f9fa; text-align: center; }
+        .tf-center { text-align: center; width: 60px; }
+
+        /* Short Answer */
+        .short-input {
+            width: 100%; max-width: 300px;
+            padding: 8px; border: 2px solid #bdc3c7;
+            border-radius: 4px; font-size: 16px;
         }
 
-        .mc-label:hover {
-            background-color: var(--light);
+        /* EXPLANATION STYLES */
+        .explanation {
+            display: none; /* Hidden by default */
+            margin-top: 15px;
+            padding: 15px;
+            background-color: #e8f6f3;
+            border-left: 4px solid var(--success);
+            font-size: 0.95em;
         }
+        .explanation strong { color: var(--success); }
 
-        .mc-label input {
-            margin-right: 10px;
-            transform: scale(1.2);
-        }
-
-        /* True/False Table Styles */
-        .tf-table {
-            width: 100%;
-            border-collapse: collapse;
-        }
-
-        .tf-table th, .tf-table td {
-            border: 1px solid #ccc;
-            padding: 10px;
-            text-align: left;
-        }
-
-        .tf-table th {
-            background-color: #eceff1;
-            text-align: center;
-        }
-
-        .tf-radio {
-            text-align: center;
-            width: 60px;
-        }
-
-        /* Short Answer Styles */
-        .short-ans-input {
-            width: 100%;
-            max-width: 250px;
-            padding: 8px 12px;
-            border: 2px solid #bdbdbd;
+        /* Result Styles */
+        .correct-card { border-color: var(--success); background-color: #f0fff4; }
+        .wrong-card { border-color: var(--danger); background-color: #fff5f5; }
+        
+        .feedback-badge {
+            display: inline-block;
+            padding: 2px 8px;
             border-radius: 4px;
-            font-size: 16px;
+            font-size: 0.8em;
+            font-weight: bold;
+            margin-bottom: 10px;
         }
+        .badge-correct { background: var(--success); color: white; }
+        .badge-wrong { background: var(--danger); color: white; }
 
-        /* Result & Feedback */
-        .btn-submit {
-            display: block;
+        .submit-btn {
             width: 100%;
             padding: 15px;
-            background-color: var(--secondary);
+            background: var(--dark);
             color: white;
             border: none;
-            border-radius: 6px;
-            font-size: 18px;
-            font-weight: bold;
+            border-radius: 5px;
+            font-size: 1.2rem;
             cursor: pointer;
-            margin-top: 30px;
+            margin-top: 20px;
         }
+        .submit-btn:hover { background: #34495e; }
 
-        .btn-submit:hover {
-            background-color: var(--primary);
-        }
-
-        .feedback-msg {
-            margin-top: 8px;
-            font-weight: bold;
-            font-size: 0.9em;
-        }
-
-        .box-correct { background-color: var(--correct); border-color: #81c784; }
-        .box-wrong { background-color: var(--wrong); border-color: #e57373; }
-
-        .result-panel {
+        #result-area {
             display: none;
-            margin-top: 30px;
-            padding: 20px;
-            background-color: #e8f5e9;
-            border: 2px solid #2e7d32;
-            border-radius: 8px;
             text-align: center;
-            font-size: 1.5em;
-            color: #2e7d32;
-            font-weight: bold;
+            margin-top: 20px;
+            padding: 20px;
+            border: 2px solid var(--primary);
+            border-radius: 8px;
+            background: #eaf2f8;
         }
+        .score-big { font-size: 2.5rem; color: var(--primary); font-weight: bold; }
     </style>
 </head>
 <body>
 
-<div class="exam-container">
-    <div class="exam-header">
-        <h1>ĐỀ KIỂM TRA TOÁN 11 (ĐỀ SỐ 6)</h1>
-        <p>Thời gian: 60 phút | Bám sát Ma trận 2025</p>
-    </div>
+<div class="timer-bar" id="timerDisplay">60:00</div>
 
-    <form id="examForm">
+<div class="container">
+    <h1>ĐỀ KIỂM TRA TOÁN 11 - HK1</h1>
+    <p style="text-align: center;">Mã đề: 006 | Thời gian: 60 phút</p>
 
-        <div class="section-title">PHẦN I. TRẮC NGHIỆM (3.0 điểm - 0.25đ/câu)</div>
+    <form id="quizForm">
+        
+        <div class="part-header">PHẦN I. TRẮC NGHIỆM (3.0 điểm)</div>
+        <div id="p1-container"></div>
 
-        <div class="question-box" id="q1">
-            <div class="q-title">Câu 1: Cho cấp số nhân \( (u_n) \) có \( u_1 = 3 \) và \( u_2 = 12 \). Công bội \( q \) bằng:</div>
-            <div class="mc-options">
-                <label class="mc-label"><input type="radio" name="p1_q1" value="A"> A. \( q = 4 \)</label>
-                <label class="mc-label"><input type="radio" name="p1_q1" value="B"> B. \( q = 9 \)</label>
-                <label class="mc-label"><input type="radio" name="p1_q1" value="C"> C. \( q = 3 \)</label>
-                <label class="mc-label"><input type="radio" name="p1_q1" value="D"> D. \( q = \frac{1}{4} \)</label>
-            </div>
-            <div class="feedback-msg"></div>
-        </div>
+        <div class="part-header">PHẦN II. ĐÚNG/SAI (4.0 điểm)</div>
+        <div id="p2-container"></div>
 
-        <div class="question-box" id="q2">
-            <div class="q-title">Câu 2: Số hạng tổng quát của cấp số nhân \( 2; 4; 8; 16; ... \) là:</div>
-            <div class="mc-options">
-                <label class="mc-label"><input type="radio" name="p1_q2" value="A"> A. \( u_n = 2^n \)</label>
-                <label class="mc-label"><input type="radio" name="p1_q2" value="B"> B. \( u_n = 2n \)</label>
-                <label class="mc-label"><input type="radio" name="p1_q2" value="C"> C. \( u_n = 2^{n-1} \)</label>
-                <label class="mc-label"><input type="radio" name="p1_q2" value="D"> D. \( u_n = n+2 \)</label>
-            </div>
-            <div class="feedback-msg"></div>
-        </div>
+        <div class="part-header">PHẦN III. TRẢ LỜI NGẮN (3.0 điểm)</div>
+        <div id="p3-container"></div>
 
-        <div class="question-box" id="q3">
-            <div class="q-title">Câu 3: Kết quả của \( \lim \left( 5 + \frac{1}{n} \right) \) là:</div>
-            <div class="mc-options">
-                <label class="mc-label"><input type="radio" name="p1_q3" value="A"> A. 5</label>
-                <label class="mc-label"><input type="radio" name="p1_q3" value="B"> B. 6</label>
-                <label class="mc-label"><input type="radio" name="p1_q3" value="C"> C. 0</label>
-                <label class="mc-label"><input type="radio" name="p1_q3" value="D"> D. \( +\infty \)</label>
-            </div>
-            <div class="feedback-msg"></div>
-        </div>
-
-        <div class="question-box" id="q4">
-            <div class="q-title">Câu 4: Tính giới hạn \( L = \lim_{x \to 1} (x^2 - 4x + 1) \).</div>
-            <div class="mc-options">
-                <label class="mc-label"><input type="radio" name="p1_q4" value="A"> A. -2</label>
-                <label class="mc-label"><input type="radio" name="p1_q4" value="B"> B. 1</label>
-                <label class="mc-label"><input type="radio" name="p1_q4" value="C"> C. -4</label>
-                <label class="mc-label"><input type="radio" name="p1_q4" value="D"> D. 2</label>
-            </div>
-            <div class="feedback-msg"></div>
-        </div>
-
-        <div class="question-box" id="q5">
-            <div class="q-title">Câu 5: Giới hạn \( \lim_{x \to +\infty} \frac{3x^2 - x}{x^2 + 5} \) bằng:</div>
-            <div class="mc-options">
-                <label class="mc-label"><input type="radio" name="p1_q5" value="A"> A. 3</label>
-                <label class="mc-label"><input type="radio" name="p1_q5" value="B"> B. -1</label>
-                <label class="mc-label"><input type="radio" name="p1_q5" value="C"> C. 0</label>
-                <label class="mc-label"><input type="radio" name="p1_q5" value="D"> D. \( +\infty \)</label>
-            </div>
-            <div class="feedback-msg"></div>
-        </div>
-
-        <div class="question-box" id="q6">
-            <div class="q-title">Câu 6: Tính \( \lim_{x \to 3} \frac{x^2 - 9}{x - 3} \).</div>
-            <div class="mc-options">
-                <label class="mc-label"><input type="radio" name="p1_q6" value="A"> A. 6</label>
-                <label class="mc-label"><input type="radio" name="p1_q6" value="B"> B. 0</label>
-                <label class="mc-label"><input type="radio" name="p1_q6" value="C"> C. 3</label>
-                <label class="mc-label"><input type="radio" name="p1_q6" value="D"> D. \( \infty \)</label>
-            </div>
-            <div class="feedback-msg"></div>
-        </div>
-
-        <div class="question-box" id="q7">
-            <div class="q-title">Câu 7: Hàm số \( y = \frac{2x}{x+1} \) liên tục trên khoảng nào sau đây?</div>
-            <div class="mc-options">
-                <label class="mc-label"><input type="radio" name="p1_q7" value="A"> A. \( (-1; +\infty) \)</label>
-                <label class="mc-label"><input type="radio" name="p1_q7" value="B"> B. \( (-\infty; 0) \)</label>
-                <label class="mc-label"><input type="radio" name="p1_q7" value="C"> C. \( \mathbb{R} \)</label>
-                <label class="mc-label"><input type="radio" name="p1_q7" value="D"> D. \( (-3; 3) \)</label>
-            </div>
-            <div class="feedback-msg"></div>
-        </div>
-
-        <div class="question-box" id="q8">
-            <div class="q-title">Câu 8: Cho mẫu số liệu ghép nhóm về thời gian tự học (phút): [0;20), [20;40), [40;60). Tần số tương ứng là 5, 12, 3. Nhóm chứa mốt là:</div>
-            <div class="mc-options">
-                <label class="mc-label"><input type="radio" name="p1_q8" value="A"> A. [20; 40)</label>
-                <label class="mc-label"><input type="radio" name="p1_q8" value="B"> B. [0; 20)</label>
-                <label class="mc-label"><input type="radio" name="p1_q8" value="C"> C. [40; 60)</label>
-                <label class="mc-label"><input type="radio" name="p1_q8" value="D"> D. Không xác định</label>
-            </div>
-            <div class="feedback-msg"></div>
-        </div>
-
-        <div class="question-box" id="q9">
-            <div class="q-title">Câu 9: Cho đường thẳng \( d \) và mặt phẳng \( (\alpha) \). Nếu \( d \) song song với \( (\alpha) \) thì:</div>
-            <div class="mc-options">
-                <label class="mc-label"><input type="radio" name="p1_q9" value="A"> A. Chúng không có điểm chung</label>
-                <label class="mc-label"><input type="radio" name="p1_q9" value="B"> B. \( d \) nằm trong \( (\alpha) \)</label>
-                <label class="mc-label"><input type="radio" name="p1_q9" value="C"> C. Chúng cắt nhau</label>
-                <label class="mc-label"><input type="radio" name="p1_q9" value="D"> D. Có vô số điểm chung</label>
-            </div>
-            <div class="feedback-msg"></div>
-        </div>
-
-        <div class="question-box" id="q10">
-            <div class="q-title">Câu 10: Cho tứ diện \( ABCD \). Gọi \( I, J \) là trung điểm của \( AB \) và \( AC \). Đường thẳng \( IJ \) song song với mặt phẳng nào?</div>
-            <div class="mc-options">
-                <label class="mc-label"><input type="radio" name="p1_q10" value="A"> A. \( (BCD) \)</label>
-                <label class="mc-label"><input type="radio" name="p1_q10" value="B"> B. \( (ABD) \)</label>
-                <label class="mc-label"><input type="radio" name="p1_q10" value="C"> C. \( (ACD) \)</label>
-                <label class="mc-label"><input type="radio" name="p1_q10" value="D"> D. \( (ABC) \)</label>
-            </div>
-            <div class="feedback-msg"></div>
-        </div>
-
-        <div class="question-box" id="q11">
-            <div class="q-title">Câu 11: Trong không gian, qua một điểm nằm ngoài mặt phẳng cho trước, ta vẽ được bao nhiêu mặt phẳng song song với mặt phẳng đó?</div>
-            <div class="mc-options">
-                <label class="mc-label"><input type="radio" name="p1_q11" value="A"> A. Duy nhất 1</label>
-                <label class="mc-label"><input type="radio" name="p1_q11" value="B"> B. 2</label>
-                <label class="mc-label"><input type="radio" name="p1_q11" value="C"> C. Vô số</label>
-                <label class="mc-label"><input type="radio" name="p1_q11" value="D"> D. 0</label>
-            </div>
-            <div class="feedback-msg"></div>
-        </div>
-
-        <div class="question-box" id="q12">
-            <div class="q-title">Câu 12: Cho lăng trụ \( ABC.A'B'C' \). Khẳng định nào SAI?</div>
-            <div class="mc-options">
-                <label class="mc-label"><input type="radio" name="p1_q12" value="A"> A. \( (ABB'A') // (ACC'A') \)</label>
-                <label class="mc-label"><input type="radio" name="p1_q12" value="B"> B. \( (ABC) // (A'B'C') \)</label>
-                <label class="mc-label"><input type="radio" name="p1_q12" value="C"> C. \( AA' // BB' \)</label>
-                <label class="mc-label"><input type="radio" name="p1_q12" value="D"> D. \( AB // A'B' \)</label>
-            </div>
-            <div class="feedback-msg"></div>
-        </div>
-
-        <div class="section-title">PHẦN II. ĐÚNG/SAI (4.0 điểm - Thang điểm 0.1/0.25/0.5/1.0)</div>
-
-        <div class="question-box" id="p2_q1">
-            <div class="q-title">Câu 1: Một người gửi tiết kiệm 100 triệu đồng vào ngân hàng với lãi suất 6%/năm theo hình thức lãi kép (tiền lãi nhập vào vốn). Gọi \( u_n \) là số tiền người đó có được sau \( n \) năm.</div>
-            <table class="tf-table">
-                <tr><th>Ý</th><th>Nội dung</th><th>Đúng</th><th>Sai</th></tr>
-                <tr>
-                    <td>a</td><td>Dãy số \( (u_n) \) là một cấp số nhân.</td>
-                    <td class="tf-radio"><input type="radio" name="p2_q1_a" value="true"></td>
-                    <td class="tf-radio"><input type="radio" name="p2_q1_a" value="false"></td>
-                </tr>
-                <tr>
-                    <td>b</td><td>Công bội của cấp số nhân là \( q = 0.06 \).</td>
-                    <td class="tf-radio"><input type="radio" name="p2_q1_b" value="true"></td>
-                    <td class="tf-radio"><input type="radio" name="p2_q1_b" value="false"></td>
-                </tr>
-                <tr>
-                    <td>c</td><td>Số tiền sau 1 năm là 106 triệu đồng.</td>
-                    <td class="tf-radio"><input type="radio" name="p2_q1_c" value="true"></td>
-                    <td class="tf-radio"><input type="radio" name="p2_q1_c" value="false"></td>
-                </tr>
-                <tr>
-                    <td>d</td><td>Sau 10 năm, số tiền nhận được xấp xỉ 179 triệu đồng.</td>
-                    <td class="tf-radio"><input type="radio" name="p2_q1_d" value="true"></td>
-                    <td class="tf-radio"><input type="radio" name="p2_q1_d" value="false"></td>
-                </tr>
-            </table>
-            <div class="feedback-msg"></div>
-        </div>
-
-        <div class="question-box" id="p2_q2">
-            <div class="q-title">Câu 2: Cho hàm số \( f(x) = \begin{cases} \frac{x^2-1}{x-1} & \text{khi } x \neq 1 \\ 3 & \text{khi } x = 1 \end{cases} \).</div>
-            <table class="tf-table">
-                <tr><th>Ý</th><th>Nội dung</th><th>Đúng</th><th>Sai</th></tr>
-                <tr>
-                    <td>a</td><td>Tập xác định của hàm số là \( \mathbb{R} \setminus \{1\} \).</td>
-                    <td class="tf-radio"><input type="radio" name="p2_q2_a" value="true"></td>
-                    <td class="tf-radio"><input type="radio" name="p2_q2_a" value="false"></td>
-                </tr>
-                <tr>
-                    <td>b</td><td>\( \lim_{x \to 1} f(x) = 2 \).</td>
-                    <td class="tf-radio"><input type="radio" name="p2_q2_b" value="true"></td>
-                    <td class="tf-radio"><input type="radio" name="p2_q2_b" value="false"></td>
-                </tr>
-                <tr>
-                    <td>c</td><td>Giá trị của hàm số tại \( x=1 \) là \( f(1) = 3 \).</td>
-                    <td class="tf-radio"><input type="radio" name="p2_q2_c" value="true"></td>
-                    <td class="tf-radio"><input type="radio" name="p2_q2_c" value="false"></td>
-                </tr>
-                <tr>
-                    <td>d</td><td>Hàm số liên tục tại điểm \( x=1 \).</td>
-                    <td class="tf-radio"><input type="radio" name="p2_q2_d" value="true"></td>
-                    <td class="tf-radio"><input type="radio" name="p2_q2_d" value="false"></td>
-                </tr>
-            </table>
-            <div class="feedback-msg"></div>
-        </div>
-
-        <div class="question-box" id="p2_q3">
-            <div class="q-title">Câu 3: Cho hình chóp \( S.ABCD \) có đáy \( ABCD \) là hình bình hành. Gọi \( O \) là giao điểm của hai đường chéo \( AC \) và \( BD \).</div>
-            <table class="tf-table">
-                <tr><th>Ý</th><th>Nội dung</th><th>Đúng</th><th>Sai</th></tr>
-                <tr>
-                    <td>a</td><td>Giao tuyến của \( (SAC) \) và \( (SBD) \) là \( SO \).</td>
-                    <td class="tf-radio"><input type="radio" name="p2_q3_a" value="true"></td>
-                    <td class="tf-radio"><input type="radio" name="p2_q3_a" value="false"></td>
-                </tr>
-                <tr>
-                    <td>b</td><td>Đường thẳng \( AB \) song song với mặt phẳng \( (SCD) \).</td>
-                    <td class="tf-radio"><input type="radio" name="p2_q3_b" value="true"></td>
-                    <td class="tf-radio"><input type="radio" name="p2_q3_b" value="false"></td>
-                </tr>
-                <tr>
-                    <td>c</td><td>Mặt phẳng \( (SAB) \) song song với mặt phẳng \( (SCD) \).</td>
-                    <td class="tf-radio"><input type="radio" name="p2_q3_c" value="true"></td>
-                    <td class="tf-radio"><input type="radio" name="p2_q3_c" value="false"></td>
-                </tr>
-                <tr>
-                    <td>d</td><td>Một mặt phẳng \( (\alpha) \) qua \( O \) song song với \( (SAB) \) sẽ cắt \( SC \) tại trung điểm của \( SC \).</td>
-                    <td class="tf-radio"><input type="radio" name="p2_q3_d" value="true"></td>
-                    <td class="tf-radio"><input type="radio" name="p2_q3_d" value="false"></td>
-                </tr>
-            </table>
-            <div class="feedback-msg"></div>
-        </div>
-
-        <div class="question-box" id="p2_q4">
-            <div class="q-title">Câu 4: Cho hình hộp chữ nhật \( ABCD.A'B'C'D' \).</div>
-            <table class="tf-table">
-                <tr><th>Ý</th><th>Nội dung</th><th>Đúng</th><th>Sai</th></tr>
-                <tr>
-                    <td>a</td><td>Mặt phẳng \( (ADD'A') \) song song với \( (BCC'B') \).</td>
-                    <td class="tf-radio"><input type="radio" name="p2_q4_a" value="true"></td>
-                    <td class="tf-radio"><input type="radio" name="p2_q4_a" value="false"></td>
-                </tr>
-                <tr>
-                    <td>b</td><td>Đường thẳng \( AC' \) cắt mặt phẳng \( (A'B'C'D') \).</td>
-                    <td class="tf-radio"><input type="radio" name="p2_q4_b" value="true"></td>
-                    <td class="tf-radio"><input type="radio" name="p2_q4_b" value="false"></td>
-                </tr>
-                <tr>
-                    <td>c</td><td>Hai đường thẳng \( AB \) và \( C'D' \) chéo nhau.</td>
-                    <td class="tf-radio"><input type="radio" name="p2_q4_c" value="true"></td>
-                    <td class="tf-radio"><input type="radio" name="p2_q4_c" value="false"></td>
-                </tr>
-                <tr>
-                    <td>d</td><td>Mặt phẳng \( (AB'D') \) song song với mặt phẳng \( (BDC') \).</td>
-                    <td class="tf-radio"><input type="radio" name="p2_q4_d" value="true"></td>
-                    <td class="tf-radio"><input type="radio" name="p2_q4_d" value="false"></td>
-                </tr>
-            </table>
-            <div class="feedback-msg"></div>
-        </div>
-
-        <div class="section-title">PHẦN III. TRẢ LỜI NGẮN (3.0 điểm - 0.5đ/câu)</div>
-
-        <div class="question-box" id="p3_q1">
-            <div class="q-title">Câu 1: Một quả bóng cao su được thả từ độ cao 10m. Sau mỗi lần chạm đất, quả bóng nảy lên độ cao bằng \( \frac{2}{3} \) độ cao trước đó. Hỏi sau lần chạm đất thứ 3, quả bóng nảy lên độ cao bao nhiêu mét? (Làm tròn đến 1 chữ số thập phân).</div>
-            <input type="number" step="0.1" class="short-ans-input" id="inp_p3_q1" placeholder="Nhập đáp án...">
-            <div class="feedback-msg"></div>
-        </div>
-
-        <div class="question-box" id="p3_q2">
-            <div class="q-title">Câu 2: Điểm kiểm tra Toán của một nhóm học sinh: [0;5) có 2 bạn, [5;8) có 10 bạn, [8;10] có 8 bạn. Tính điểm trung bình của nhóm học sinh này (Làm tròn 1 chữ số thập phân). Giả sử lấy giá trị đại diện là trung bình cộng hai đầu mút (với nhóm cuối [8;10] lấy 9).</div>
-            <input type="number" step="0.1" class="short-ans-input" id="inp_p3_q2" placeholder="Nhập số...">
-            <div class="feedback-msg"></div>
-        </div>
-
-        <div class="question-box" id="p3_q3">
-            <div class="q-title">Câu 3: Biết \( \lim_{x \to 2} \frac{x^2 + ax + b}{x - 2} = 6 \). Tính giá trị của \( S = a + b \).</div>
-            <input type="number" class="short-ans-input" id="inp_p3_q3" placeholder="Nhập số...">
-            <div class="feedback-msg"></div>
-        </div>
-
-        <div class="question-box" id="p3_q4">
-            <div class="q-title">Câu 4: Tìm giá trị của tham số \( m \) để hàm số \( f(x) = \begin{cases} \frac{\sqrt{x+1}-1}{x} & x \ne 0 \\ m & x = 0 \end{cases} \) liên tục tại \( x = 0 \).</div>
-            <input type="number" step="0.1" class="short-ans-input" id="inp_p3_q4" placeholder="Nhập số...">
-            <div class="feedback-msg"></div>
-        </div>
-
-        <div class="question-box" id="p3_q5">
-            <div class="q-title">Câu 5: Một người cao 1.6m đứng thẳng trên mặt đất phẳng. Vào lúc bóng người đó trên mặt đất dài 0.8m thì bóng của một cột cờ gần đó dài 5m. Tính chiều cao của cột cờ (mét). Các tia nắng song song.</div>
-            <input type="number" class="short-ans-input" id="inp_p3_q5" placeholder="Nhập số...">
-            <div class="feedback-msg"></div>
-        </div>
-
-        <div class="question-box" id="p3_q6">
-            <div class="q-title">Câu 6: Cho tứ diện \( ABCD \). Gọi \( G \) là trọng tâm tam giác \( BCD \). Mặt phẳng \( (\alpha) \) qua \( G \) và song song với mặt phẳng \( (ABC) \) cắt các cạnh \( DB, DC, DA \) lần lượt tại \( M, N, P \). Tính tỉ số diện tích \( \frac{S_{DMN}}{S_{DBC}} \).</div>
-            <input type="text" class="short-ans-input" id="inp_p3_q6" placeholder="Nhập phân số (vd: 1/2)...">
-            <div class="feedback-msg"></div>
-        </div>
-
-        <button type="button" class="btn-submit" onclick="gradeExam()">NỘP BÀI VÀ XEM ĐIỂM</button>
-
-        <div class="result-panel" id="resultPanel">
-            ĐIỂM SỐ CỦA BẠN: <span id="scoreDisplay">0</span> / 10
-        </div>
-
+        <button type="button" class="submit-btn" onclick="submitExam()">NỘP BÀI</button>
     </form>
+
+    <div id="result-area">
+        <h3>KẾT QUẢ BÀI LÀM</h3>
+        <div class="score-big"><span id="scoreVal">0</span>/10</div>
+        <p>Kéo lên trên để xem lời giải chi tiết.</p>
+    </div>
 </div>
 
 <script>
-    const answerKey = {
-        // Phần 1 (A,B,C,D)
-        p1: {
-            q1: 'A', // q=12/3 = 4
-            q2: 'A', // 2^n
-            q3: 'A', // 5
-            q4: 'A', // 1-4+1 = -2
-            q5: 'A', // 3/1 = 3
-            q6: 'A', // x+3 -> 6
-            q7: 'A', // x != -1
-            q8: 'A', // Tan so 12 (nhom 20-40)
-            q9: 'A', // Ko diem chung
-            q10: 'A', // // BC // (BCD)
-            q11: 'A', // Duy nhat 1
-            q12: 'A'  // 2 mat ben ke nhau cat nhau, ko song song
-        },
-        // Phần 2 (True/False)
-        p2: {
-            q1: { a: true, b: false, c: true, d: true }, // b sai vi q = 1.06, d: 100*1.06^10 ~ 179
-            q2: { a: false, b: true, c: true, d: false }, // a sai (x!=1), d sai (2!=3)
-            q3: { a: true, b: true, c: false, d: true }, // c sai (cat nhau theo giao tuyen song song AB)
-            q4: { a: true, b: true, c: false, d: true } // c sai (song song chu ko cheo), d dung
-        },
-        // Phần 3 (Short Answer)
-        p3: {
-            q1: 3.0, // 10 * (2/3)^3 = 10*8/27 = 2.96 -> 3.0
-            q2: 7.1, 
-            q3: -6, 
-            q4: 0.5, 
-            q5: 10,
-            q6: "4/9"
-        }
+    // ================= DỮ LIỆU ĐỀ THI & LỜI GIẢI =================
+    const examData = {
+        p1: [
+            {
+                id: 1, 
+                q: "Cho cấp số nhân \\( (u_n) \\) có \\( u_1 = 3 \\) và \\( u_2 = 12 \\). Công bội \\( q \\) bằng:", 
+                opts: ["A. 4", "B. 9", "C. 3", "D. 1/4"], 
+                correct: "A", 
+                explain: "Ta có công thức \\( u_2 = u_1 \\cdot q \\). <br>Suy ra \\( 12 = 3 \\cdot q \\Rightarrow q = 4 \\)."
+            },
+            {
+                id: 2, 
+                q: "Số hạng tổng quát của cấp số nhân \\( 2; 4; 8; 16; ... \\) là:", 
+                opts: ["A. \\( u_n = 2^n \\)", "B. \\( u_n = 2n \\)", "C. \\( u_n = 2^{n-1} \\)", "D. \\( u_n = n+2 \\)"], 
+                correct: "A", 
+                explain: "Dãy số có \\( u_1 = 2 \\) và công bội \\( q = 2 \\). <br>Công thức tổng quát: \\( u_n = u_1 \\cdot q^{n-1} = 2 \\cdot 2^{n-1} = 2^n \\)."
+            },
+            {
+                id: 3, 
+                q: "Kết quả của \\( \\lim \\left( 5 + \\frac{1}{n} \\right) \\) là:", 
+                opts: ["A. 5", "B. 6", "C. 0", "D. \\( +\\infty \\)"], 
+                correct: "A", 
+                explain: "Vì \\( \\lim \\frac{1}{n} = 0 \\) nên \\( \\lim (5 + \\frac{1}{n}) = 5 + 0 = 5 \\)."
+            },
+            {
+                id: 4, 
+                q: "Tính giới hạn \\( L = \\lim_{x \\to 1} (x^2 - 4x + 1) \\).", 
+                opts: ["A. -2", "B. 1", "C. -4", "D. 2"], 
+                correct: "A", 
+                explain: "Hàm đa thức liên tục trên R, thay \\( x=1 \\): <br>\\( L = 1^2 - 4(1) + 1 = 1 - 4 + 1 = -2 \\)."
+            },
+            {
+                id: 5, 
+                q: "Giới hạn \\( \\lim_{x \\to +\\infty} \\frac{3x^2 - x}{x^2 + 5} \\) bằng:", 
+                opts: ["A. 3", "B. -1", "C. 0", "D. \\( +\\infty \\)"], 
+                correct: "A", 
+                explain: "Chia cả tử và mẫu cho \\( x^2 \\): <br>\\( \\lim \\frac{3 - 1/x}{1 + 5/x^2} = \\frac{3-0}{1+0} = 3 \\)."
+            },
+            {
+                id: 6, 
+                q: "Tính \\( \\lim_{x \\to 3} \\frac{x^2 - 9}{x - 3} \\).", 
+                opts: ["A. 6", "B. 0", "C. 3", "D. \\( \\infty \\)"], 
+                correct: "A", 
+                explain: "\\( \\lim_{x \\to 3} \\frac{(x-3)(x+3)}{x-3} = \\lim_{x \\to 3} (x+3) = 3+3 = 6 \\)."
+            },
+            {
+                id: 7, 
+                q: "Hàm số \\( y = \\frac{2x}{x+1} \\) liên tục trên khoảng nào?", 
+                opts: ["A. \\( (-1; +\\infty) \\)", "B. \\( (-\\infty; 0) \\)", "C. R", "D. \\( (-3; 3) \\)"], 
+                correct: "A", 
+                explain: "Hàm số xác định khi \\( x \\ne -1 \\). Do đó hàm số liên tục trên các khoảng \\( (-\\infty; -1) \\) và \\( (-1; +\\infty) \\)."
+            },
+            {
+                id: 8, 
+                q: "Mẫu số liệu: [0;20) tần số 5, [20;40) tần số 12, [40;60) tần số 3. Nhóm chứa mốt là:", 
+                opts: ["A. [20; 40)", "B. [0; 20)", "C. [40; 60)", "D. Không xác định"], 
+                correct: "A", 
+                explain: "Nhóm chứa mốt là nhóm có tần số lớn nhất. Tần số 12 là lớn nhất, ứng với nhóm [20; 40)."
+            },
+            {
+                id: 9, 
+                q: "Nếu đường thẳng \\( d \\) song song với mặt phẳng \\( (\\alpha) \\) thì:", 
+                opts: ["A. Chúng không có điểm chung", "B. \\( d \\subset (\\alpha) \\)", "C. Cắt nhau", "D. Vô số điểm chung"], 
+                correct: "A", 
+                explain: "Theo định nghĩa: Đường thẳng và mặt phẳng song song là chúng không có điểm chung."
+            },
+            {
+                id: 10, 
+                q: "Tứ diện ABCD, I, J là trung điểm AB, AC. IJ song song với:", 
+                opts: ["A. (BCD)", "B. (ABD)", "C. (ACD)", "D. (ABC)"], 
+                correct: "A", 
+                explain: "IJ là đường trung bình \\( \\Delta ABC \\) nên \\( IJ // BC \\). <br>Mà \\( BC \\subset (BCD) \\) nên \\( IJ // (BCD) \\)."
+            },
+            {
+                id: 11, 
+                q: "Qua 1 điểm ngoài mặt phẳng, vẽ được bao nhiêu mp song song với mp đó?", 
+                opts: ["A. 1", "B. 2", "C. Vô số", "D. 0"], 
+                correct: "A", 
+                explain: "Tính chất duy nhất: Qua một điểm nằm ngoài mặt phẳng, có duy nhất một mặt phẳng song song với mặt phẳng đó."
+            },
+            {
+                id: 12, 
+                q: "Lăng trụ \\( ABC.A'B'C' \\). Khẳng định SAI:", 
+                opts: ["A. \\( (ABB'A') // (ACC'A') \\)", "B. \\( (ABC) // (A'B'C') \\)", "C. \\( AA' // BB' \\)", "D. \\( AB // A'B' \\)"], 
+                correct: "A", 
+                explain: "Hai mặt bên \\( (ABB'A') \\) và \\( (ACC'A') \\) cắt nhau theo giao tuyến \\( AA' \\), không song song."
+            }
+        ],
+        p2: [
+            {
+                id: 1,
+                q: "Gửi 100 triệu, lãi suất 6%/năm (lãi kép). Gọi \\( u_n \\) là tiền sau n năm.",
+                sub: [
+                    { t: "Dãy số là cấp số nhân.", ans: true },
+                    { t: "Công bội \\( q = 0.06 \\).", ans: false },
+                    { t: "Sau 1 năm có 106 triệu.", ans: true },
+                    { t: "Sau 10 năm có xấp xỉ 179 triệu.", ans: true }
+                ],
+                explain: "a) Đúng. Công thức lãi kép \\( A_n = A_0(1+r)^n \\) là CSN.<br>b) Sai. Công bội \\( q = 1 + r = 1 + 0.06 = 1.06 \\).<br>c) Đúng. \\( 100(1.06)^1 = 106 \\).<br>d) Đúng. \\( 100(1.06)^{10} \\approx 179.08 \\)."
+            },
+            {
+                id: 2,
+                q: "Hàm số \\( f(x) = \\frac{x^2-1}{x-1} \\) khi \\( x \\ne 1 \\), bằng 3 khi \\( x=1 \\).",
+                sub: [
+                    { t: "TXĐ là \\( R \\setminus \\{1\\} \\).", ans: false },
+                    { t: "\\( \\lim_{x \\to 1} f(x) = 2 \\).", ans: true },
+                    { t: "\\( f(1) = 3 \\).", ans: true },
+                    { t: "Hàm số liên tục tại \\( x=1 \\).", ans: false }
+                ],
+                explain: "a) Sai. Đề bài cho \\( f(1)=3 \\) nên TXĐ là R.<br>b) Đúng. \\( \\lim (x+1) = 2 \\).<br>c) Đúng. Giả thiết.<br>d) Sai. Vì \\( \\lim f(x) = 2 \\ne f(1)=3 \\)."
+            },
+            {
+                id: 3,
+                q: "Hình chóp S.ABCD, đáy hbh tâm O.",
+                sub: [
+                    { t: "Giao tuyến (SAC) và (SBD) là SO.", ans: true },
+                    { t: "AB // (SCD).", ans: true },
+                    { t: "(SAB) // (SCD).", ans: false },
+                    { t: "Mp qua O // (SAB) cắt SC tại trung điểm SC.", ans: true }
+                ],
+                explain: "c) Sai. Hai mặt phẳng này cắt nhau theo giao tuyến qua S song song AB, CD.<br>d) Đúng. Mp qua O song song (SAB) sẽ song song SB. Trong tam giác SBD, đường thẳng qua O // SB là đường trung bình, đi qua trung điểm SD (tương tự với AC sẽ qua trung điểm SC)."
+            },
+            {
+                id: 4,
+                q: "Hình hộp ABCD.A'B'C'D'.",
+                sub: [
+                    { t: "(ADD'A') // (BCC'B').", ans: true },
+                    { t: "AC' cắt (A'B'C'D').", ans: true },
+                    { t: "AB và C'D' chéo nhau.", ans: false },
+                    { t: "(AB'D') // (BDC').", ans: true }
+                ],
+                explain: "c) Sai. \\( AB // CD // C'D' \\) nên chúng song song, không chéo nhau."
+            }
+        ],
+        p3: [
+            {
+                id: 1,
+                q: "Bóng rơi từ 10m, nảy \\( \\frac{2}{3} \\). Độ cao sau lần chạm đất thứ 3? (Làm tròn 1 số thập phân)",
+                correct: 3.0,
+                explain: "Độ cao sau lần 1: \\( 10 \\cdot \\frac{2}{3} \\).<br>Độ cao sau lần 2: \\( 10 \\cdot (\\frac{2}{3})^2 \\).<br>Độ cao sau lần 3: \\( h_3 = 10 \\cdot (\\frac{2}{3})^3 = 10 \\cdot \\frac{8}{27} \\approx 2.96 \\). Làm tròn 3.0m."
+            },
+            {
+                id: 2,
+                q: "Điểm TB nhóm: [0;5): 2 hs, [5;8): 10 hs, [8;10]: 8 hs. (Làm tròn 1 số thập phân)",
+                correct: 7.1,
+                explain: "Đại diện: \\( c_1=2.5, c_2=6.5, c_3=9 \\).<br>TB = \\( \\frac{2(2.5) + 10(6.5) + 8(9)}{20} = \\frac{5 + 65 + 72}{20} = \\frac{142}{20} = 7.1 \\)."
+            },
+            {
+                id: 3,
+                q: "Biết \\( \\lim_{x \\to 2} \\frac{x^2 + ax + b}{x - 2} = 6 \\). Tính \\( a+b \\).",
+                correct: -6,
+                explain: "Tử phải có nghiệm 2: \\( 4 + 2a + b = 0 \\Rightarrow b = -2a - 4 \\).<br>Giới hạn: \\( \\lim (x + a + 2) = 4 + a = 6 \\Rightarrow a = 2 \\).<br>Suy ra \\( b = -4 - 4 = -8 \\).<br>\\( a + b = 2 + (-8) = -6 \\)."
+            },
+            {
+                id: 4,
+                q: "Tìm m để \\( f(x) = \\frac{\\sqrt{x+1}-1}{x} \\) liên tục tại 0.",
+                correct: 0.5,
+                explain: "\\( \\lim_{x \\to 0} \\frac{x}{x(\\sqrt{x+1}+1)} = \\frac{1}{2} = 0.5 \\).<br>Để liên tục thì \\( m = 0.5 \\)."
+            },
+            {
+                id: 5,
+                q: "Người cao 1.6m bóng 0.8m. Cột cờ bóng 5m thì cao bao nhiêu?",
+                correct: 10,
+                explain: "Tỉ lệ: \\( \\frac{h_{nguoi}}{bong_{nguoi}} = \\frac{h_{cot}}{bong_{cot}} \\Rightarrow \\frac{1.6}{0.8} = \\frac{h}{5} \\).<br>\\( h = 2 \\cdot 5 = 10 \\)m."
+            },
+            {
+                id: 6,
+                q: "Tỉ số diện tích \\( \\frac{S_{DMN}}{S_{DBC}} \\) (Nhập phân số dạng a/b)",
+                correct: "4/9",
+                explain: "Mp qua trọng tâm G song song đáy sẽ cắt cạnh bên theo tỉ lệ \\( \\frac{DM}{DB} = \\frac{2}{3} \\).<br>Tỉ số diện tích đồng dạng: \\( k^2 = (\\frac{2}{3})^2 = \\frac{4}{9} \\)."
+            }
+        ]
     };
 
-    function gradeExam() {
-        let totalScore = 0;
-        let form = document.getElementById('examForm');
+    // ================= RENDER CÂU HỎI =================
+    
+    // Render P1
+    const p1Cont = document.getElementById('p1-container');
+    examData.p1.forEach((item, index) => {
+        let html = `
+        <div class="question-card" id="p1_q${item.id}">
+            <div class="q-text">Câu ${index+1}: ${item.q}</div>
+            <div class="options-grid">
+                ${item.opts.map(opt => `
+                    <label class="option-label">
+                        <input type="radio" name="p1_q${item.id}" value="${opt.split('.')[0]}"> ${opt}
+                    </label>
+                `).join('')}
+            </div>
+            <div class="explanation" id="exp_p1_q${item.id}">
+                <strong>Lời giải:</strong> ${item.explain}
+            </div>
+        </div>`;
+        p1Cont.innerHTML += html;
+    });
 
-        // --- CHẤM PHẦN 1 ---
-        for (let i = 1; i <= 12; i++) {
-            let qID = `q${i}`;
-            let userAns = form.elements[`p1_${qID}`].value;
-            let correctAns = answerKey.p1[qID];
-            let box = document.getElementById(qID);
-            let msg = box.querySelector('.feedback-msg');
+    // Render P2
+    const p2Cont = document.getElementById('p2-container');
+    examData.p2.forEach((item, index) => {
+        let rows = item.sub.map((s, i) => `
+            <tr>
+                <td class="tf-center">${String.fromCharCode(97+i)}</td>
+                <td>${s.t}</td>
+                <td class="tf-center"><input type="radio" name="p2_q${item.id}_${i}" value="true"></td>
+                <td class="tf-center"><input type="radio" name="p2_q${item.id}_${i}" value="false"></td>
+            </tr>
+        `).join('');
 
-            if (userAns === correctAns) {
-                totalScore += 0.25;
-                box.classList.add('box-correct');
-                msg.innerHTML = "✔ Chính xác";
-            } else {
-                box.classList.add('box-wrong');
-                msg.innerHTML = `✘ Sai. Đáp án đúng: ${correctAns}`;
-            }
+        let html = `
+        <div class="question-card" id="p2_q${item.id}">
+            <div class="q-text">Câu ${index+1}: ${item.q}</div>
+            <table class="tf-table">
+                <tr><th>Ý</th><th>Nội dung</th><th>Đúng</th><th>Sai</th></tr>
+                ${rows}
+            </table>
+            <div class="explanation" id="exp_p2_q${item.id}">
+                <strong>Giải thích:</strong> ${item.explain}
+            </div>
+        </div>`;
+        p2Cont.innerHTML += html;
+    });
+
+    // Render P3
+    const p3Cont = document.getElementById('p3-container');
+    examData.p3.forEach((item, index) => {
+        let html = `
+        <div class="question-card" id="p3_q${item.id}">
+            <div class="q-text">Câu ${index+1}: ${item.q}</div>
+            <input type="text" class="short-input" id="inp_p3_q${item.id}" placeholder="Nhập kết quả...">
+            <div class="explanation" id="exp_p3_q${item.id}">
+                <strong>Đáp án:</strong> ${item.correct}. <br>
+                <strong>Lời giải:</strong> ${item.explain}
+            </div>
+        </div>`;
+        p3Cont.innerHTML += html;
+    });
+
+    // ================= LOGIC ĐỒNG HỒ =================
+    let timeLeft = 60 * 60; // 60 minutes
+    const timerEl = document.getElementById('timerDisplay');
+    
+    const timerInterval = setInterval(() => {
+        timeLeft--;
+        let m = Math.floor(timeLeft / 60);
+        let s = timeLeft % 60;
+        timerEl.textContent = `${m.toString().padStart(2, '0')}:${s.toString().padStart(2, '0')}`;
+        
+        if (timeLeft <= 300) { // Last 5 mins
+            timerEl.classList.add('timer-warning');
         }
 
-        // --- CHẤM PHẦN 2 ---
-        for (let i = 1; i <= 4; i++) {
-            let qID = `p2_q${i}`;
-            let correctCount = 0;
-            let subQuestions = ['a', 'b', 'c', 'd'];
+        if (timeLeft <= 0) {
+            clearInterval(timerInterval);
+            submitExam();
+            alert("Hết giờ làm bài!");
+        }
+    }, 1000);
+
+    // ================= LOGIC CHẤM ĐIỂM =================
+    function submitExam() {
+        clearInterval(timerInterval);
+        let score = 0;
+
+        // Chấm P1
+        examData.p1.forEach(item => {
+            const els = document.getElementsByName(`p1_q${item.id}`);
+            let userVal = '';
+            for(let el of els) if(el.checked) userVal = el.value;
             
-            subQuestions.forEach(sub => {
-                let userVal = form.elements[`${qID}_${sub}`].value === "true";
-                // Check if user selected anything
-                let userSelected = form.elements[`${qID}_${sub}`].value !== "";
+            const card = document.getElementById(`p1_q${item.id}`);
+            const exp = document.getElementById(`exp_p1_q${item.id}`);
+            exp.style.display = 'block';
+
+            if(userVal === item.correct) {
+                score += 0.25;
+                card.classList.add('correct-card');
+                card.insertAdjacentHTML('beforeend', '<div class="feedback-badge badge-correct">Đúng (+0.25đ)</div>');
+            } else {
+                card.classList.add('wrong-card');
+                card.insertAdjacentHTML('beforeend', `<div class="feedback-badge badge-wrong">Sai. Đáp án đúng: ${item.correct}</div>`);
+            }
+        });
+
+        // Chấm P2
+        examData.p2.forEach(item => {
+            let correctCount = 0;
+            item.sub.forEach((s, i) => {
+                const els = document.getElementsByName(`p2_q${item.id}_${i}`);
+                let userVal = null;
+                for(let el of els) if(el.checked) userVal = (el.value === 'true');
                 
-                if (userSelected && userVal === answerKey.p2[qID][sub]) {
-                    correctCount++;
-                }
+                // Highlight row
+                if(userVal === s.ans) correctCount++;
             });
 
-            // Tô màu dựa trên số ý đúng
-            let box = document.getElementById(qID);
-            let msg = box.querySelector('.feedback-msg');
+            const card = document.getElementById(`p2_q${item.id}`);
+            const exp = document.getElementById(`exp_p2_q${item.id}`);
+            exp.style.display = 'block';
+
             let points = 0;
-            if (correctCount === 1) points = 0.1;
-            else if (correctCount === 2) points = 0.25;
-            else if (correctCount === 3) points = 0.5;
-            else if (correctCount === 4) points = 1.0;
+            if(correctCount === 1) points = 0.1;
+            else if(correctCount === 2) points = 0.25;
+            else if(correctCount === 3) points = 0.5;
+            else if(correctCount === 4) points = 1.0;
 
-            totalScore += points;
+            score += points;
             
-            if (correctCount === 4) {
-                box.classList.add('box-correct');
-                msg.innerHTML = `✔ Xuất sắc! Đúng 4/4 ý (+1.0đ)`;
+            if(correctCount === 4) {
+                card.classList.add('correct-card');
+                card.insertAdjacentHTML('beforeend', `<div class="feedback-badge badge-correct">Đúng 4/4 ý (+1.0đ)</div>`);
             } else {
-                box.classList.add('box-wrong');
-                msg.innerHTML = `Đúng ${correctCount}/4 ý. (+${points}đ). Đáp án: ` + 
-                    subQuestions.map(s => `${s}:${answerKey.p2[qID][s]?'Đ':'S'}`).join(', ');
+                card.classList.add('wrong-card');
+                card.insertAdjacentHTML('beforeend', `<div class="feedback-badge badge-wrong">Đúng ${correctCount}/4 ý (+${points}đ)</div>`);
             }
-        }
+        });
 
-        // --- CHẤM PHẦN 3 ---
-        // Helper: so sánh số
-        const checkNumber = (user, correct) => Math.abs(parseFloat(user) - correct) < 0.1;
+        // Chấm P3
+        examData.p3.forEach(item => {
+            const inp = document.getElementById(`inp_p3_q${item.id}`);
+            const userVal = inp.value.trim();
+            const card = document.getElementById(`p3_q${item.id}`);
+            const exp = document.getElementById(`exp_p3_q${item.id}`);
+            exp.style.display = 'block';
 
-        // Q1
-        let u1 = parseFloat(document.getElementById('inp_p3_q1').value);
-        let fb1 = document.querySelector('#p3_q1 .feedback-msg');
-        if (checkNumber(u1, 3.0)) { totalScore += 0.5; fb1.innerHTML = "✔ Chính xác"; } 
-        else { fb1.innerHTML = "✘ Sai. Đáp án: 3.0"; }
+            let isCorrect = false;
+            // Xử lý số học (sai số 0.1) hoặc so sánh chuỗi
+            if (typeof item.correct === 'number') {
+                if (Math.abs(parseFloat(userVal) - item.correct) < 0.1) isCorrect = true;
+            } else {
+                if (userVal === item.correct) isCorrect = true;
+            }
 
-        // Q2
-        let u2 = parseFloat(document.getElementById('inp_p3_q2').value);
-        let fb2 = document.querySelector('#p3_q2 .feedback-msg');
-        if (checkNumber(u2, 7.1)) { totalScore += 0.5; fb2.innerHTML = "✔ Chính xác"; } 
-        else { fb2.innerHTML = "✘ Sai. Đáp án: 7.1"; }
+            if(isCorrect) {
+                score += 0.5;
+                card.classList.add('correct-card');
+                card.insertAdjacentHTML('beforeend', '<div class="feedback-badge badge-correct">Đúng (+0.5đ)</div>');
+            } else {
+                card.classList.add('wrong-card');
+                card.insertAdjacentHTML('beforeend', `<div class="feedback-badge badge-wrong">Sai</div>`);
+            }
+        });
 
-        // Q3
-        let u3 = parseFloat(document.getElementById('inp_p3_q3').value);
-        let fb3 = document.querySelector('#p3_q3 .feedback-msg');
-        if (checkNumber(u3, -6)) { totalScore += 0.5; fb3.innerHTML = "✔ Chính xác"; } 
-        else { fb3.innerHTML = "✘ Sai. Đáp án: -6"; }
-
-        // Q4
-        let u4 = parseFloat(document.getElementById('inp_p3_q4').value);
-        let fb4 = document.querySelector('#p3_q4 .feedback-msg');
-        if (checkNumber(u4, 0.5)) { totalScore += 0.5; fb4.innerHTML = "✔ Chính xác"; } 
-        else { fb4.innerHTML = "✘ Sai. Đáp án: 0.5"; }
-
-        // Q5
-        let u5 = parseFloat(document.getElementById('inp_p3_q5').value);
-        let fb5 = document.querySelector('#p3_q5 .feedback-msg');
-        if (checkNumber(u5, 10)) { totalScore += 0.5; fb5.innerHTML = "✔ Chính xác"; } 
-        else { fb5.innerHTML = "✘ Sai. Đáp án: 10"; }
-
-        // Q6 (String comparison for fraction)
-        let u6 = document.getElementById('inp_p3_q6').value.trim();
-        let fb6 = document.querySelector('#p3_q6 .feedback-msg');
-        // Chấp nhận 4/9 hoặc 0.44...
-        if (u6 === "4/9" || checkNumber(u6, 0.444)) { totalScore += 0.5; fb6.innerHTML = "✔ Chính xác"; } 
-        else { fb6.innerHTML = "✘ Sai. Đáp án: 4/9"; }
-
-        // Hiển thị điểm
-        document.getElementById('scoreDisplay').innerText = totalScore.toFixed(2);
-        document.getElementById('resultPanel').style.display = 'block';
-        document.querySelector('.btn-submit').disabled = true;
-        document.querySelector('.btn-submit').innerText = "ĐÃ CHẤM BÀI";
+        // Hiển thị kết quả
+        const resultArea = document.getElementById('result-area');
+        document.getElementById('scoreVal').textContent = score.toFixed(2);
+        resultArea.style.display = 'block';
         
-        // Scroll to result
-        document.getElementById('resultPanel').scrollIntoView({ behavior: 'smooth' });
+        // Scroll xuống dưới
+        resultArea.scrollIntoView({behavior: "smooth"});
+        
+        // Disable nút nộp
+        document.querySelector('.submit-btn').disabled = true;
+        document.querySelector('.submit-btn').innerText = "ĐÃ CHẤM BÀI";
     }
 </script>
 
