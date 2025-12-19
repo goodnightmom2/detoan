@@ -3,420 +3,448 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Đề Thi Học Kỳ 1 Toán 11 - Theo Ma Trận Mới 2025</title>
+    <title>Thi Thử Toán 11 HK1 (Online) - Ma Trận 2025</title>
     <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <style>
+        :root {
+            --primary-color: #2c3e50;
+            --accent-color: #3498db;
+            --success-color: #27ae60;
+            --error-color: #c0392b;
+            --bg-color: #f4f7f6;
+        }
+
         body {
-            font-family: 'Times New Roman', serif;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             line-height: 1.6;
+            background-color: var(--bg-color);
+            color: #333;
             margin: 0;
             padding: 20px;
-            background-color: #f9f9f9;
-            color: #333;
         }
+
         .container {
             max-width: 900px;
             margin: 0 auto;
             background-color: #fff;
             padding: 40px;
-            box-shadow: 0 0 15px rgba(0,0,0,0.1);
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
         }
-        h1, h2, h3 {
-            text-align: center;
-            margin-bottom: 10px;
-        }
+
         .header {
-            border-bottom: 2px solid #000;
+            text-align: center;
+            border-bottom: 2px solid var(--primary-color);
             padding-bottom: 20px;
             margin-bottom: 30px;
-            text-align: center;
         }
-        .exam-title {
-            font-size: 20px;
-            font-weight: bold;
+
+        .header h1 {
+            color: var(--primary-color);
+            margin: 0;
+            font-size: 24px;
             text-transform: uppercase;
         }
-        .exam-info {
+
+        .header p {
+            color: #666;
+            margin-top: 5px;
             font-style: italic;
         }
-        .part-title {
-            background-color: #0056b3;
+
+        .part-section {
+            background-color: var(--primary-color);
             color: #fff;
-            padding: 10px;
-            margin-top: 30px;
-            font-weight: bold;
-            border-radius: 5px;
-        }
-        .question {
+            padding: 12px 20px;
+            margin-top: 40px;
             margin-bottom: 20px;
-            padding: 15px;
-            border: 1px solid #ddd;
             border-radius: 5px;
-            background-color: #fafafa;
-        }
-        .question-text {
             font-weight: bold;
-            margin-bottom: 10px;
+            font-size: 1.1em;
         }
-        .options {
+
+        .question-card {
+            background: #fff;
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 20px;
+            transition: all 0.3s ease;
+        }
+
+        .question-card:hover {
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        }
+
+        .question-title {
+            font-weight: 600;
+            margin-bottom: 15px;
+            color: #2c3e50;
+        }
+
+        /* Styles cho Phần 1 (Trắc nghiệm) */
+        .options-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 10px;
+            gap: 12px;
         }
-        .option {
-            margin-bottom: 5px;
+
+        .option-label {
+            display: flex;
+            align-items: center;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.2s;
         }
+
+        .option-label:hover {
+            background-color: #f0f8ff;
+        }
+
+        .option-label input {
+            margin-right: 10px;
+        }
+
+        /* Styles cho Phần 2 (Đúng Sai) */
         .tf-table {
             width: 100%;
             border-collapse: collapse;
             margin-top: 10px;
         }
+
         .tf-table th, .tf-table td {
-            border: 1px solid #999;
-            padding: 8px;
-            text-align: left;
+            border: 1px solid #ddd;
+            padding: 10px;
         }
+
         .tf-table th {
-            background-color: #e9ecef;
+            background-color: #f8f9fa;
             text-align: center;
         }
-        .short-answer-box {
-            margin-top: 10px;
-            padding: 10px;
-            border: 1px dashed #0056b3;
-            background-color: #eef5fa;
+
+        .tf-option {
+            text-align: center;
+            width: 60px;
         }
-        .answer-key {
-            margin-top: 50px;
+
+        /* Styles cho Phần 3 (Trả lời ngắn) */
+        .short-input {
+            width: 100%;
+            padding: 10px;
+            border: 2px solid #ddd;
+            border-radius: 5px;
+            font-size: 16px;
+            max-width: 300px;
+        }
+
+        .short-input:focus {
+            border-color: var(--accent-color);
+            outline: none;
+        }
+
+        /* Nút nộp bài */
+        .submit-btn {
+            display: block;
+            width: 100%;
+            padding: 15px;
+            background-color: var(--accent-color);
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 18px;
+            font-weight: bold;
+            cursor: pointer;
+            margin-top: 30px;
+            transition: background 0.3s;
+        }
+
+        .submit-btn:hover {
+            background-color: #2980b9;
+        }
+
+        /* Kết quả */
+        .result-box {
+            display: none;
+            margin-top: 30px;
             padding: 20px;
             background-color: #e8f5e9;
-            border: 1px solid #c8e6c9;
-            border-radius: 5px;
+            border: 2px solid var(--success-color);
+            border-radius: 10px;
+            text-align: center;
         }
-        details summary {
-            cursor: pointer;
+
+        .score-display {
+            font-size: 2em;
             font-weight: bold;
-            color: #2e7d32;
+            color: var(--success-color);
         }
+
+        /* Feedback visual styles */
+        .correct-answer {
+            background-color: #d4edda !important;
+            border-color: #c3e6cb !important;
+        }
+        
+        .wrong-answer {
+            background-color: #f8d7da !important;
+            border-color: #f5c6cb !important;
+        }
+
+        .feedback-text {
+            font-size: 0.9em;
+            margin-top: 5px;
+            font-weight: bold;
+        }
+        .text-success { color: var(--success-color); }
+        .text-danger { color: var(--error-color); }
+
     </style>
 </head>
 <body>
 
 <div class="container">
     <div class="header">
-        <div class="exam-title">ĐỀ KIỂM TRA HỌC KỲ 1 - NĂM HỌC 2025-2026</div>
-        <div class="exam-title">MÔN: TOÁN - LỚP 11</div>
-        <div class="exam-info">Thời gian làm bài: 60 phút (Không kể thời gian phát đề)</div>
+        <h1>ĐỀ KIỂM TRA HỌC KỲ 1 TOÁN 11</h1>
+        <p>Thời gian: 60 phút | Hình thức: Trực tuyến</p>
     </div>
 
-    <div class="part-title">PHẦN I. Câu trắc nghiệm nhiều phương án lựa chọn (3,0 điểm)</div>
-    <p><i>Thí sinh trả lời từ câu 1 đến câu 12. Mỗi câu hỏi chỉ chọn một phương án.</i></p>
+    <form id="quizForm">
+        
+        <div class="part-section">PHẦN I. TRẮC NGHIỆM (3.0 điểm)</div>
+        <p><i>Chọn 1 đáp án đúng nhất. Mỗi câu 0.25 điểm.</i></p>
 
-    <div class="question">
-        <div class="question-text">Câu 1: Tập xác định của hàm số \( y = \cot x \) là:</div>
-        <div class="options">
-            <div class="option">A. \( \mathbb{R} \setminus \{ k\pi, k \in \mathbb{Z} \} \)</div>
-            <div class="option">B. \( \mathbb{R} \setminus \{ \frac{\pi}{2} + k\pi, k \in \mathbb{Z} \} \)</div>
-            <div class="option">C. \( \mathbb{R} \setminus \{ k2\pi, k \in \mathbb{Z} \} \)</div>
-            <div class="option">D. \( \mathbb{R} \)</div>
+        <div class="question-card" id="q1">
+            <div class="question-title">Câu 1: Tập xác định của hàm số \( y = \cot x \) là:</div>
+            <div class="options-grid">
+                <label class="option-label"><input type="radio" name="p1_q1" value="A"> A. \( \mathbb{R} \setminus \{ k\pi \} \)</label>
+                <label class="option-label"><input type="radio" name="p1_q1" value="B"> B. \( \mathbb{R} \setminus \{ \frac{\pi}{2} + k\pi \} \)</label>
+                <label class="option-label"><input type="radio" name="p1_q1" value="C"> C. \( \mathbb{R} \setminus \{ k2\pi \} \)</label>
+                <label class="option-label"><input type="radio" name="p1_q1" value="D"> D. \( \mathbb{R} \)</label>
+            </div>
+            <div class="feedback"></div>
         </div>
-    </div>
 
-    <div class="question">
-        <div class="question-text">Câu 2: Nghiệm của phương trình \( \cos x = \frac{\sqrt{3}}{2} \) là:</div>
-        <div class="options">
-            <div class="option">A. \( x = \pm \frac{\pi}{3} + k2\pi \)</div>
-            <div class="option">B. \( x = \pm \frac{\pi}{6} + k2\pi \)</div>
-            <div class="option">C. \( x = \pm \frac{\pi}{6} + k\pi \)</div>
-            <div class="option">D. \( x = \frac{\pi}{6} + k2\pi \)</div>
+        <div class="question-card" id="q2">
+            <div class="question-title">Câu 2: Nghiệm của phương trình \( \cos x = \frac{\sqrt{3}}{2} \) là:</div>
+            <div class="options-grid">
+                <label class="option-label"><input type="radio" name="p1_q2" value="A"> A. \( x = \pm \frac{\pi}{3} + k2\pi \)</label>
+                <label class="option-label"><input type="radio" name="p1_q2" value="B"> B. \( x = \pm \frac{\pi}{6} + k2\pi \)</label>
+                <label class="option-label"><input type="radio" name="p1_q2" value="C"> C. \( x = \pm \frac{\pi}{6} + k\pi \)</label>
+                <label class="option-label"><input type="radio" name="p1_q2" value="D"> D. \( x = \frac{\pi}{6} + k2\pi \)</label>
+            </div>
+            <div class="feedback"></div>
         </div>
-    </div>
 
-    <div class="question">
-        <div class="question-text">Câu 3: Công thức nhân đôi nào sau đây là **sai**?</div>
-        <div class="options">
-            <div class="option">A. \( \sin 2a = 2\sin a \cos a \)</div>
-            <div class="option">B. \( \cos 2a = \cos^2 a - \sin^2 a \)</div>
-            <div class="option">C. \( \cos 2a = 2\cos^2 a - 1 \)</div>
-            <div class="option">D. \( \cos 2a = 2\sin^2 a + 1 \)</div>
+        <div class="question-card" id="q3">
+            <div class="question-title">Câu 3: Công thức nhân đôi nào sau đây là SAI?</div>
+            <div class="options-grid">
+                <label class="option-label"><input type="radio" name="p1_q3" value="A"> A. \( \sin 2a = 2\sin a \cos a \)</label>
+                <label class="option-label"><input type="radio" name="p1_q3" value="B"> B. \( \cos 2a = \cos^2 a - \sin^2 a \)</label>
+                <label class="option-label"><input type="radio" name="p1_q3" value="C"> C. \( \cos 2a = 2\cos^2 a - 1 \)</label>
+                <label class="option-label"><input type="radio" name="p1_q3" value="D"> D. \( \cos 2a = 2\sin^2 a + 1 \)</label>
+            </div>
+            <div class="feedback"></div>
         </div>
-    </div>
 
-    <div class="question">
-        <div class="question-text">Câu 4: Cho dãy số \( (u_n) \) với \( u_n = 2n + 1 \). Ba số hạng đầu tiên của dãy số là:</div>
-        <div class="options">
-            <div class="option">A. 1, 3, 5</div>
-            <div class="option">B. 3, 5, 7</div>
-            <div class="option">C. 2, 4, 6</div>
-            <div class="option">D. 0, 2, 4</div>
+        <div class="question-card" id="q4">
+            <div class="question-title">Câu 4: Cho dãy số \( u_n = 2n + 1 \). Ba số hạng đầu tiên là:</div>
+            <div class="options-grid">
+                <label class="option-label"><input type="radio" name="p1_q4" value="A"> A. 1, 3, 5</label>
+                <label class="option-label"><input type="radio" name="p1_q4" value="B"> B. 3, 5, 7</label>
+                <label class="option-label"><input type="radio" name="p1_q4" value="C"> C. 2, 4, 6</label>
+                <label class="option-label"><input type="radio" name="p1_q4" value="D"> D. 0, 2, 4</label>
+            </div>
+            <div class="feedback"></div>
         </div>
-    </div>
 
-    <div class="question">
-        <div class="question-text">Câu 5: Cho cấp số cộng \( (u_n) \) có \( u_1 = 3 \) và công sai \( d = 2 \). Số hạng tổng quát là:</div>
-        <div class="options">
-            <div class="option">A. \( u_n = 3n + 2 \)</div>
-            <div class="option">B. \( u_n = 2n + 3 \)</div>
-            <div class="option">C. \( u_n = 2n + 1 \)</div>
-            <div class="option">D. \( u_n = 2(n+1) \)</div>
+        <div class="question-card" id="q5">
+            <div class="question-title">Câu 5: Cấp số cộng có \( u_1 = 3, d = 2 \). Số hạng tổng quát là:</div>
+            <div class="options-grid">
+                <label class="option-label"><input type="radio" name="p1_q5" value="A"> A. \( u_n = 3n + 2 \)</label>
+                <label class="option-label"><input type="radio" name="p1_q5" value="B"> B. \( u_n = 2n + 3 \)</label>
+                <label class="option-label"><input type="radio" name="p1_q5" value="C"> C. \( u_n = 2n + 1 \)</label>
+                <label class="option-label"><input type="radio" name="p1_q5" value="D"> D. \( u_n = 2(n+1) \)</label>
+            </div>
+            <div class="feedback"></div>
         </div>
-    </div>
 
-    <div class="question">
-        <div class="question-text">Câu 6: Cho cấp số nhân \( (u_n) \) có \( u_1 = -2 \) và công bội \( q = -3 \). Giá trị của \( u_2 \) là:</div>
-        <div class="options">
-            <div class="option">A. 6</div>
-            <div class="option">B. -6</div>
-            <div class="option">C. 5</div>
-            <div class="option">D. -5</div>
+        <div class="question-card" id="q6">
+            <div class="question-title">Câu 6: Cấp số nhân có \( u_1 = -2, q = -3 \). Tính \( u_2 \).</div>
+            <div class="options-grid">
+                <label class="option-label"><input type="radio" name="p1_q6" value="A"> A. 6</label>
+                <label class="option-label"><input type="radio" name="p1_q6" value="B"> B. -6</label>
+                <label class="option-label"><input type="radio" name="p1_q6" value="C"> C. 5</label>
+                <label class="option-label"><input type="radio" name="p1_q6" value="D"> D. -5</label>
+            </div>
+            <div class="feedback"></div>
         </div>
-    </div>
 
-     <div class="question">
-        <div class="question-text">Câu 7: Giá trị của \( \lim \frac{2n-1}{n+1} \) bằng:</div>
-        <div class="options">
-            <div class="option">A. 1</div>
-            <div class="option">B. 2</div>
-            <div class="option">C. 0</div>
-            <div class="option">D. \( +\infty \)</div>
+        <div class="question-card" id="q7">
+            <div class="question-title">Câu 7: Tính \( \lim \frac{2n-1}{n+1} \).</div>
+            <div class="options-grid">
+                <label class="option-label"><input type="radio" name="p1_q7" value="A"> A. 1</label>
+                <label class="option-label"><input type="radio" name="p1_q7" value="B"> B. 2</label>
+                <label class="option-label"><input type="radio" name="p1_q7" value="C"> C. 0</label>
+                <label class="option-label"><input type="radio" name="p1_q7" value="D"> D. \( +\infty \)</label>
+            </div>
+            <div class="feedback"></div>
         </div>
-    </div>
 
-    <div class="question">
-        <div class="question-text">Câu 8: Tính \( \lim_{x \to 2} (x^2 - 3x + 5) \).</div>
-        <div class="options">
-            <div class="option">A. 5</div>
-            <div class="option">B. 3</div>
-            <div class="option">C. 1</div>
-            <div class="option">D. -1</div>
+        <div class="question-card" id="q8">
+            <div class="question-title">Câu 8: Tính \( \lim_{x \to 2} (x^2 - 3x + 5) \).</div>
+            <div class="options-grid">
+                <label class="option-label"><input type="radio" name="p1_q8" value="A"> A. 5</label>
+                <label class="option-label"><input type="radio" name="p1_q8" value="B"> B. 3</label>
+                <label class="option-label"><input type="radio" name="p1_q8" value="C"> C. 1</label>
+                <label class="option-label"><input type="radio" name="p1_q8" value="D"> D. -1</label>
+            </div>
+            <div class="feedback"></div>
         </div>
-    </div>
 
-    <div class="question">
-        <div class="question-text">Câu 9: Hàm số nào sau đây liên tục trên toàn bộ tập xác định \( \mathbb{R} \)?</div>
-        <div class="options">
-            <div class="option">A. \( y = \frac{1}{x} \)</div>
-            <div class="option">B. \( y = \tan x \)</div>
-            <div class="option">C. \( y = x^3 - 2x + 1 \)</div>
-            <div class="option">D. \( y = \sqrt{x-1} \)</div>
+        <div class="question-card" id="q9">
+            <div class="question-title">Câu 9: Hàm số nào liên tục trên \( \mathbb{R} \)?</div>
+            <div class="options-grid">
+                <label class="option-label"><input type="radio" name="p1_q9" value="A"> A. \( y = \frac{1}{x} \)</label>
+                <label class="option-label"><input type="radio" name="p1_q9" value="B"> B. \( y = \tan x \)</label>
+                <label class="option-label"><input type="radio" name="p1_q9" value="C"> C. \( y = x^3 - 2x + 1 \)</label>
+                <label class="option-label"><input type="radio" name="p1_q9" value="D"> D. \( y = \sqrt{x-1} \)</label>
+            </div>
+            <div class="feedback"></div>
         </div>
-    </div>
 
-    <div class="question">
-        <div class="question-text">Câu 10: Trong không gian, hai đường thẳng không có điểm chung thì:</div>
-        <div class="options">
-            <div class="option">A. Song song với nhau</div>
-            <div class="option">B. Chéo nhau</div>
-            <div class="option">C. Song song hoặc chéo nhau</div>
-            <div class="option">D. Trùng nhau</div>
+        <div class="question-card" id="q10">
+            <div class="question-title">Câu 10: Trong không gian, hai đường thẳng không có điểm chung thì:</div>
+            <div class="options-grid">
+                <label class="option-label"><input type="radio" name="p1_q10" value="A"> A. Song song</label>
+                <label class="option-label"><input type="radio" name="p1_q10" value="B"> B. Chéo nhau</label>
+                <label class="option-label"><input type="radio" name="p1_q10" value="C"> C. Song song hoặc chéo nhau</label>
+                <label class="option-label"><input type="radio" name="p1_q10" value="D"> D. Trùng nhau</label>
+            </div>
+            <div class="feedback"></div>
         </div>
-    </div>
 
-    <div class="question">
-        <div class="question-text">Câu 11: Cho đường thẳng \( d \) song song với mặt phẳng \( (\alpha) \). Khẳng định nào đúng?</div>
-        <div class="options">
-            <div class="option">A. \( d \) có đúng 1 điểm chung với \( (\alpha) \)</div>
-            <div class="option">B. \( d \) không có điểm chung với \( (\alpha) \)</div>
-            <div class="option">C. \( d \) nằm trong \( (\alpha) \)</div>
-            <div class="option">D. \( d \) cắt \( (\alpha) \)</div>
+        <div class="question-card" id="q11">
+            <div class="question-title">Câu 11: \( d // (\alpha) \). Khẳng định đúng là:</div>
+            <div class="options-grid">
+                <label class="option-label"><input type="radio" name="p1_q11" value="A"> A. Có 1 điểm chung</label>
+                <label class="option-label"><input type="radio" name="p1_q11" value="B"> B. Không có điểm chung</label>
+                <label class="option-label"><input type="radio" name="p1_q11" value="C"> C. \( d \subset (\alpha) \)</label>
+                <label class="option-label"><input type="radio" name="p1_q11" value="D"> D. Cắt nhau</label>
+            </div>
+            <div class="feedback"></div>
         </div>
-    </div>
 
-    <div class="question">
-        <div class="question-text">Câu 12: Cho hình hộp \( ABCD.A'B'C'D' \). Mặt phẳng \( (ABCD) \) song song với mặt phẳng nào?</div>
-        <div class="options">
-            <div class="option">A. \( (A'B'C'D') \)</div>
-            <div class="option">B. \( (ABB'A') \)</div>
-            <div class="option">C. \( (BCC'B') \)</div>
-            <div class="option">D. \( (CDD'C') \)</div>
+        <div class="question-card" id="q12">
+            <div class="question-title">Câu 12: Hình hộp \( ABCD.A'B'C'D' \). Mp \((ABCD)\) song song với:</div>
+            <div class="options-grid">
+                <label class="option-label"><input type="radio" name="p1_q12" value="A"> A. \( (A'B'C'D') \)</label>
+                <label class="option-label"><input type="radio" name="p1_q12" value="B"> B. \( (ABB'A') \)</label>
+                <label class="option-label"><input type="radio" name="p1_q12" value="C"> C. \( (BCC'B') \)</label>
+                <label class="option-label"><input type="radio" name="p1_q12" value="D"> D. \( (CDD'C') \)</label>
+            </div>
+            <div class="feedback"></div>
         </div>
-    </div>
 
-    <div class="part-title">PHẦN II. Câu trắc nghiệm đúng sai (4,0 điểm)</div>
-    <p><i>Thí sinh trả lời từ câu 1 đến câu 4. Trong mỗi ý a), b), c), d) ở mỗi câu, thí sinh chọn đúng hoặc sai.</i></p>
+        <div class="part-section">PHẦN II. ĐÚNG SAI (4.0 điểm)</div>
+        <p><i>Điểm tính theo số ý đúng mỗi câu: 1 ý (0.1đ), 2 ý (0.2đ), 3 ý (0.5đ), 4 ý (1.0đ).</i></p>
 
-    <div class="question">
-        <div class="question-text">Câu 1: Một mực nước tại một cảng biển được mô hình hóa bởi công thức \( h(t) = 3\cos\left(\frac{\pi t}{6}\right) + 12 \), trong đó \( h(t) \) là độ sâu tính bằng mét và \( t \) là thời gian tính bằng giờ tính từ nửa đêm (\( 0 \le t \le 24 \)).</div>
-        <table class="tf-table">
-            <tr>
-                <th>Ý</th>
-                <th>Nội dung</th>
-                <th>Đúng/Sai</th>
-            </tr>
-            <tr>
-                <td>a)</td>
-                <td>Độ sâu trung bình của mực nước là 12 mét.</td>
-                <td>...</td>
-            </tr>
-            <tr>
-                <td>b)</td>
-                <td>Chu kỳ thay đổi của mực nước là 6 giờ.</td>
-                <td>...</td>
-            </tr>
-            <tr>
-                <td>c)</td>
-                <td>Mực nước thấp nhất tại cảng là 9 mét.</td>
-                <td>...</td>
-            </tr>
-            <tr>
-                <td>d)</td>
-                <td>Vào lúc 6 giờ sáng, mực nước đạt độ cao thấp nhất.</td>
-                <td>...</td>
-            </tr>
-        </table>
-    </div>
+        <div class="question-card" id="p2_q1">
+            <div class="question-title">Câu 1: Mực nước \( h(t) = 3\cos\left(\frac{\pi t}{6}\right) + 12 \).</div>
+            <table class="tf-table">
+                <tr><th>Ý</th><th>Nội dung</th><th>Đúng</th><th>Sai</th></tr>
+                <tr>
+                    <td>a</td><td>Độ sâu trung bình là 12m.</td>
+                    <td class="tf-option"><input type="radio" name="p2_q1_a" value="true"></td>
+                    <td class="tf-option"><input type="radio" name="p2_q1_a" value="false"></td>
+                </tr>
+                <tr>
+                    <td>b</td><td>Chu kỳ là 6 giờ.</td>
+                    <td class="tf-option"><input type="radio" name="p2_q1_b" value="true"></td>
+                    <td class="tf-option"><input type="radio" name="p2_q1_b" value="false"></td>
+                </tr>
+                <tr>
+                    <td>c</td><td>Mực nước thấp nhất là 9m.</td>
+                    <td class="tf-option"><input type="radio" name="p2_q1_c" value="true"></td>
+                    <td class="tf-option"><input type="radio" name="p2_q1_c" value="false"></td>
+                </tr>
+                <tr>
+                    <td>d</td><td>Lúc 6h sáng mực nước thấp nhất.</td>
+                    <td class="tf-option"><input type="radio" name="p2_q1_d" value="true"></td>
+                    <td class="tf-option"><input type="radio" name="p2_q1_d" value="false"></td>
+                </tr>
+            </table>
+            <div class="feedback"></div>
+        </div>
 
-    <div class="question">
-        <div class="question-text">Câu 2: Một kỹ sư được nhận vào làm việc với mức lương khởi điểm là 10 triệu đồng/tháng. Công ty cam kết cứ sau mỗi năm làm việc, mức lương sẽ tăng thêm 1 triệu đồng/tháng. Gọi \( u_n \) (triệu đồng) là mức lương hàng tháng của kỹ sư đó ở năm thứ \( n \).</div>
-        <table class="tf-table">
-            <tr>
-                <th>Ý</th>
-                <th>Nội dung</th>
-                <th>Đúng/Sai</th>
-            </tr>
-            <tr>
-                <td>a)</td>
-                <td>Dãy số \( (u_n) \) là một cấp số nhân.</td>
-                <td>...</td>
-            </tr>
-            <tr>
-                <td>b)</td>
-                <td>Công sai của dãy số này là \( d = 1 \).</td>
-                <td>...</td>
-            </tr>
-            <tr>
-                <td>c)</td>
-                <td>Mức lương hàng tháng ở năm thứ 5 là 14 triệu đồng.</td>
-                <td>...</td>
-            </tr>
-            <tr>
-                <td>d)</td>
-                <td>Tổng số tiền lương kỹ sư nhận được sau 10 năm làm việc là 1,74 tỷ đồng.</td>
-                <td>...</td>
-            </tr>
-        </table>
-    </div>
+        <div class="question-card" id="p2_q2">
+            <div class="question-title">Câu 2: Lương khởi điểm 10tr, tăng 1tr/tháng mỗi năm.</div>
+            <table class="tf-table">
+                <tr><th>Ý</th><th>Nội dung</th><th>Đúng</th><th>Sai</th></tr>
+                <tr>
+                    <td>a</td><td>Dãy số là cấp số nhân.</td>
+                    <td class="tf-option"><input type="radio" name="p2_q2_a" value="true"></td>
+                    <td class="tf-option"><input type="radio" name="p2_q2_a" value="false"></td>
+                </tr>
+                <tr>
+                    <td>b</td><td>Công sai \( d = 1 \).</td>
+                    <td class="tf-option"><input type="radio" name="p2_q2_b" value="true"></td>
+                    <td class="tf-option"><input type="radio" name="p2_q2_b" value="false"></td>
+                </tr>
+                <tr>
+                    <td>c</td><td>Lương tháng năm thứ 5 là 14 triệu.</td>
+                    <td class="tf-option"><input type="radio" name="p2_q2_c" value="true"></td>
+                    <td class="tf-option"><input type="radio" name="p2_q2_c" value="false"></td>
+                </tr>
+                <tr>
+                    <td>d</td><td>Tổng lương sau 10 năm là 1,74 tỷ.</td>
+                    <td class="tf-option"><input type="radio" name="p2_q2_d" value="true"></td>
+                    <td class="tf-option"><input type="radio" name="p2_q2_d" value="false"></td>
+                </tr>
+            </table>
+            <div class="feedback"></div>
+        </div>
 
-    <div class="question">
-        <div class="question-text">Câu 3: Cho hình chóp \( S.ABCD \) có đáy \( ABCD \) là hình bình hành. Gọi \( M, N \) lần lượt là trung điểm của \( SA \) và \( SB \).</div>
-        <table class="tf-table">
-            <tr>
-                <th>Ý</th>
-                <th>Nội dung</th>
-                <th>Đúng/Sai</th>
-            </tr>
-            <tr>
-                <td>a)</td>
-                <td>Đường thẳng \( MN \) song song với đường thẳng \( AB \).</td>
-                <td>...</td>
-            </tr>
-            <tr>
-                <td>b)</td>
-                <td>Đường thẳng \( MN \) song song với mặt phẳng \( (SCD) \).</td>
-                <td>...</td>
-            </tr>
-            <tr>
-                <td>c)</td>
-                <td>Đường thẳng \( MN \) cắt đường thẳng \( BC \).</td>
-                <td>...</td>
-            </tr>
-            <tr>
-                <td>d)</td>
-                <td>Giao tuyến của hai mặt phẳng \( (SAB) \) và \( (SCD) \) là đường thẳng đi qua \( S \) và song song với \( AB \).</td>
-                <td>...</td>
-            </tr>
-        </table>
-    </div>
+        <div class="question-card" id="p2_q3">
+            <div class="question-title">Câu 3: Hình chóp \( S.ABCD \), \( M, N \) là trung điểm \( SA, SB \).</div>
+            <table class="tf-table">
+                <tr><th>Ý</th><th>Nội dung</th><th>Đúng</th><th>Sai</th></tr>
+                <tr>
+                    <td>a</td><td>\( MN // AB \).</td>
+                    <td class="tf-option"><input type="radio" name="p2_q3_a" value="true"></td>
+                    <td class="tf-option"><input type="radio" name="p2_q3_a" value="false"></td>
+                </tr>
+                <tr>
+                    <td>b</td><td>\( MN // (SCD) \).</td>
+                    <td class="tf-option"><input type="radio" name="p2_q3_b" value="true"></td>
+                    <td class="tf-option"><input type="radio" name="p2_q3_b" value="false"></td>
+                </tr>
+                <tr>
+                    <td>c</td><td>\( MN \) cắt \( BC \).</td>
+                    <td class="tf-option"><input type="radio" name="p2_q3_c" value="true"></td>
+                    <td class="tf-option"><input type="radio" name="p2_q3_c" value="false"></td>
+                </tr>
+                <tr>
+                    <td>d</td><td>Giao tuyến \( (SAB) \cap (SCD) \) qua \( S \) song song \( AB \).</td>
+                    <td class="tf-option"><input type="radio" name="p2_q3_d" value="true"></td>
+                    <td class="tf-option"><input type="radio" name="p2_q3_d" value="false"></td>
+                </tr>
+            </table>
+            <div class="feedback"></div>
+        </div>
 
-    <div class="question">
-        <div class="question-text">Câu 4: Cho hình lăng trụ tam giác \( ABC.A'B'C' \). Gọi \( G \) là trọng tâm tam giác \( ABC \).</div>
-        <table class="tf-table">
-            <tr>
-                <th>Ý</th>
-                <th>Nội dung</th>
-                <th>Đúng/Sai</th>
-            </tr>
-            <tr>
-                <td>a)</td>
-                <td>Mặt phẳng \( (ABC) \) song song với mặt phẳng \( (A'B'C') \).</td>
-                <td>...</td>
-            </tr>
-            <tr>
-                <td>b)</td>
-                <td>Đường thẳng \( AA' \) song song với mặt phẳng \( (BCC'B') \).</td>
-                <td>...</td>
-            </tr>
-            <tr>
-                <td>c)</td>
-                <td>Mặt phẳng \( (AB'C') \) song song với mặt phẳng \( (A'BC) \).</td>
-                <td>...</td>
-            </tr>
-            <tr>
-                <td>d)</td>
-                <td>Đường thẳng đi qua \( G \) và song song với \( BB' \) sẽ cắt mặt phẳng \( (A'B'C') \).</td>
-                <td>...</td>
-            </tr>
-        </table>
-    </div>
-
-    <div class="part-title">PHẦN III. Câu trắc nghiệm trả lời ngắn (3,0 điểm)</div>
-    <p><i>Thí sinh trả lời từ câu 1 đến câu 6.</i></p>
-
-    <div class="question">
-        <div class="question-text">Câu 1: Một con lắc lò xo dao động điều hòa theo phương trình \( x = 10\cos(4\pi t + \frac{\pi}{2}) \) (cm), với \( t \) là thời gian tính bằng giây. Trong 2 giây đầu tiên, có bao nhiêu lần vật đi qua vị trí cân bằng?</div>
-        <div class="short-answer-box">Đáp án: ......................</div>
-    </div>
-
-    <div class="question">
-        <div class="question-text">Câu 2: Một loại vi khuẩn sinh sản bằng cách phân đôi cứ sau mỗi giờ. Ban đầu có 100 con vi khuẩn. Sau 6 giờ, số lượng vi khuẩn là bao nhiêu con?</div>
-        <div class="short-answer-box">Đáp án: ......................</div>
-    </div>
-
-    <div class="question">
-        <div class="question-text">Câu 3: Nồng độ \( C(t) \) của một loại thuốc trong máu bệnh nhân sau \( t \) giờ tiêm được tính bởi công thức \( C(t) = \frac{20t}{t^2 + 5} \) (mg/l). Khi thời gian \( t \) trở nên rất lớn (\( t \to +\infty \)), nồng độ thuốc trong máu sẽ tiệm cận về giá trị bao nhiêu?</div>
-        <div class="short-answer-box">Đáp án: ......................</div>
-    </div>
-
-    <div class="question">
-        <div class="question-text">Câu 4: Cho hàm số \( f(x) = \begin{cases} \frac{x^2 - 16}{x - 4} & \text{khi } x \neq 4 \\ m + 1 & \text{khi } x = 4 \end{cases} \). Tìm giá trị của \( m \) để hàm số liên tục tại \( x = 4 \).</div>
-        <div class="short-answer-box">Đáp án: ......................</div>
-    </div>
-
-    <div class="question">
-        <div class="question-text">Câu 5: Để đo chiều cao của một kim tự tháp (coi là hình chóp đều), người ta cắm một cái cọc cao 2m vuông góc với mặt đất. Vào thời điểm bóng của cái cọc trên mặt đất dài 3m thì bóng của đường cao kim tự tháp trên mặt đất dài 210m. Biết các tia nắng mặt trời song song với nhau. Tính chiều cao của kim tự tháp (đơn vị: mét).</div>
-        <div class="short-answer-box">Đáp án: ......................</div>
-    </div>
-
-    <div class="question">
-        <div class="question-text">Câu 6: Một người thợ mộc muốn đóng một cái kệ sách treo tường gồm hai tấm gỗ phẳng. Để đảm bảo thẩm mỹ và kỹ thuật, hai tấm gỗ này phải nằm trên hai mặt phẳng song song. Người thợ đã đo khoảng cách giữa hai đầu bên trái của hai tấm gỗ là 40cm. Hỏi khoảng cách giữa hai đầu bên phải của hai tấm gỗ đó phải là bao nhiêu cm để đảm bảo yêu cầu song song? (Giả sử tường phẳng và các phép đo chính xác).</div>
-        <div class="short-answer-box">Đáp án: ......................</div>
-    </div>
-
-    <div class="answer-key">
-        <details>
-            <summary>Xem Đáp Án & Hướng Dẫn Chấm</summary>
-            <h3>Phần I (0.25 điểm/câu)</h3>
-            <p>1. A | 2. B | 3. D | 4. B | 5. C | 6. A</p>
-            <p>7. B | 8. B | 9. C | 10. C | 11. B | 12. A</p>
-
-            <h3>Phần II (Tính điểm theo số ý đúng: 0.1 - 0.25 - 0.5 - 1.0)</h3>
-            <p><strong>Câu 1:</strong> a) Đ | b) S (T=12) | c) Đ (12-3=9) | d) Đ (cos(pi)= -1)</p>
-            <p><strong>Câu 2:</strong> a) S (CSC) | b) Đ | c) Đ (u5=10+4*1=14) | d) Đ (S10 = 10/2*(20+9) * 12 tháng = Sai, công thức tổng: Tổng lương = 12 * (10 + 10 + 9*1)/2 * 10?? Không, tính theo năm. Lương năm 1: 10*12=120. Tăng 1tr/tháng tức là mỗi năm lương tháng tăng 1tr. Vậy lương năm sau tăng 12tr so với năm trước. CSC: u1=120, d=12. S10 = 10/2 * (2*120 + 9*12) = 5 * (240 + 108) = 5 * 348 = 1740 triệu = 1.74 tỷ -> Đ)</p>
-            <p><strong>Câu 3:</strong> a) Đ | b) Đ (vì MN // AB // CD) | c) S (chéo nhau) | d) Đ</p>
-            <p><strong>Câu 4:</strong> a) Đ | b) Đ (AA' // BB') | c) S (cắt nhau) | d) Đ</p>
-
-            <h3>Phần III (0.5 điểm/câu)</h3>
-            <p><strong>Câu 1:</strong> 4 lần (Tại t = 0, 0.5, 1, 1.5, 2... Chu kỳ T = 0.5s. Trong 2s có 4 chu kỳ. Mỗi chu kỳ qua VTCB 2 lần. Tổng 8 lần. <em>Hiệu chỉnh: phương trình cos(4pi t + pi/2) = -sin(4pi t). x=0 khi 4pi t = k pi -> t = k/4. 0 <= k/4 <= 2 -> 0 <= k <= 8. k = 0,1...8. Tổng 9 lần? Không, t=0 vật ở VTCB. t=2 vật ở VTCB. Đếm kỹ: 0, 0.25, 0.5... Đáp án là 9 lần nếu tính cả 2 mút, 7 lần nếu không tính. Đề bài thường tính mút.</em> Đáp án an toàn: 9)</p>
-            <p><strong>Câu 2:</strong> 6400 (Công thức \( 100 \cdot 2^6 = 100 \cdot 64 = 6400 \))</p>
-            <p><strong>Câu 3:</strong> 0 (Bậc tử nhỏ hơn bậc mẫu)</p>
-            <p><strong>Câu 4:</strong> 7 (Giới hạn là x+4 = 8. m+1 = 8 => m=7)</p>
-            <p><strong>Câu 5:</strong> 140 (Tỉ lệ tam giác đồng dạng: h/2 = 210/3 => h = (210*2)/3 = 140m)</p>
-            <p><strong>Câu 6:</strong> 40 (Khoảng cách giữa 2 mp song song là hằng số)</p>
-        </details>
-    </div>
-</div>
-
-</body>
-    </html>
-                
+        <div class="question-card" id="p2_q4">
+            <div class="question-title">Câu 4: Lăng trụ \( ABC.A'B'C' \), \( G \) trọng tâm \( ABC \).</div>
+            <table class="tf-table">
+                <tr><th>Ý</th><th>Nội dung</th><th>Đúng</th><th>Sai</th></tr>
+                <tr>
+                    <td>a</td><td>\( (ABC) // (A'B'C') \).</td>
+                    <td class="tf-option"><input type="radio" name="p2_q4_a" value="true"></td>
+                    <td class="tf-option"><input type="radio" name="p2_q4_a" value="false"></td>
+                </tr>
+                <tr>
+                    <td>b</td><td>\( AA' // (BCC'B') \).</td>
+                    <td class="tf-option"><input type="radio" name="p2_q4_b" value="true"></td>
+                    <td cl
