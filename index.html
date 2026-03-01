@@ -1,154 +1,390 @@
 <!DOCTYPE html>
 <html lang="vi">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Đề Thi Tuyển Sinh Lớp 10 Môn Toán (60 Phút)</title>
+    <title>Đề Thi Toán Lớp 10 - 60 Phút (Có Giải Chi Tiết Tự Luận)</title>
     <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script>
+        window.MathJax = {
+            tex: { inlineMath: [['\\(', '\\)']] }
+        };
+    </script>
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <style>
-        body { font-family: 'Times New Roman', Times, serif; line-height: 1.6; max-width: 900px; margin: 0 auto; padding: 20px; color: #333; }
-        h1, h2, h3 { text-align: center; margin: 5px 0; }
-        .header { border-bottom: 2px solid #000; padding-bottom: 10px; margin-bottom: 20px; }
-        .question { margin-bottom: 25px; padding: 15px; border: 1px solid #ddd; border-radius: 5px; background-color: #fafafa; }
-        .question h4 { margin-top: 0; color: #0056b3; }
-        .input-group { margin: 12px 0; }
-        .input-group input { padding: 5px; width: 100px; font-size: 16px; margin-left: 10px; border: 1px solid #aaa; border-radius: 3px;}
-        .note { font-style: italic; color: #555; font-size: 0.9em; }
-        #timer-container { position: sticky; top: 0; background-color: #fff; padding: 10px; border-bottom: 3px solid #d9534f; text-align: center; font-size: 22px; font-weight: bold; color: #d9534f; z-index: 1000; box-shadow: 0 2px 5px rgba(0,0,0,0.1);}
-        #submit-btn { display: block; width: 250px; margin: 30px auto; padding: 15px; background-color: #28a745; color: white; border: none; font-size: 18px; font-weight: bold; border-radius: 5px; cursor: pointer; }
-        #submit-btn:hover { background-color: #218838; }
-        #result { text-align: center; font-size: 20px; font-weight: bold; margin-top: 20px; color: #0056b3; display: none; padding: 15px; background: #eef; border: 2px solid #ccd; border-radius: 5px;}
-        .correct { background-color: #d4edda !important; border-color: #c3e6cb !important; }
-        .incorrect { background-color: #f8d7da !important; border-color: #f5c6cb !important; }
-        .feedback { display: none; font-weight: bold; margin-left: 10px; }
-        .correct-text { color: #28a745; }
-        .incorrect-text { color: #dc3545; }
-        .solution { display: none; background-color: #e9ecef; padding: 15px; margin-top: 15px; border-left: 5px solid #17a2b8; border-radius: 4px; font-size: 0.95em; }
-        .solution h5 { margin-top: 0; color: #0056b3; margin-bottom: 8px; }
+        body {
+            font-family: 'Times New Roman', Times, serif;
+            line-height: 1.6;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+            color: #333;
+        }
+
+        h1,
+        h2,
+        h3 {
+            text-align: center;
+            margin: 5px 0;
+        }
+
+        .header {
+            border-bottom: 2px solid #000;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+
+        .question {
+            margin-bottom: 25px;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            background-color: #fff;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+        }
+
+        .question h4 {
+            margin-top: 0;
+            color: #004085;
+        }
+
+        .input-group {
+            margin: 12px 0;
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .input-group label {
+            font-weight: bold;
+            margin-right: 10px;
+        }
+
+        .input-group input {
+            padding: 6px;
+            width: 120px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        .note {
+            font-style: italic;
+            color: #666;
+            font-size: 0.9em;
+            display: block;
+            margin-top: 5px;
+        }
+
+        #timer-container {
+            position: sticky;
+            top: 0;
+            background-color: #f8d7da;
+            padding: 10px;
+            border-bottom: 3px solid #dc3545;
+            text-align: center;
+            font-size: 22px;
+            font-weight: bold;
+            color: #721c24;
+            z-index: 1000;
+            border-radius: 0 0 5px 5px;
+        }
+
+        #submit-btn {
+            display: block;
+            width: 280px;
+            margin: 30px auto;
+            padding: 15px;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            font-size: 18px;
+            font-weight: bold;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: 0.2s;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        #submit-btn:hover {
+            background-color: #218838;
+            transform: translateY(-2px);
+        }
+
+        #result {
+            text-align: center;
+            font-size: 20px;
+            font-weight: bold;
+            margin-top: 20px;
+            color: #004085;
+            display: none;
+            padding: 20px;
+            background: #cce5ff;
+            border: 2px solid #b8daff;
+            border-radius: 5px;
+        }
+
+        .correct {
+            background-color: #d4edda !important;
+            border-color: #c3e6cb !important;
+        }
+
+        .incorrect {
+            background-color: #f8d7da !important;
+            border-color: #f5c6cb !important;
+        }
+
+        .feedback {
+            display: none;
+            font-weight: bold;
+            margin-left: 15px;
+        }
+
+        .correct-text {
+            color: #155724;
+        }
+
+        .incorrect-text {
+            color: #721c24;
+        }
+
+        .solution {
+            display: none;
+            background-color: #fdfdfe;
+            padding: 20px;
+            margin-top: 15px;
+            border-left: 5px solid #0056b3;
+            border-radius: 4px;
+            border-top: 1px solid #eee;
+            border-right: 1px solid #eee;
+            border-bottom: 1px solid #eee;
+        }
+
+        .solution h5 {
+            margin-top: 0;
+            color: #0056b3;
+            margin-bottom: 10px;
+            font-size: 1.1em;
+            border-bottom: 1px dashed #ccc;
+            padding-bottom: 5px;
+        }
+
+        .paper-work {
+            background-color: #fff3cd;
+            padding: 10px;
+            border-left: 4px solid #ffc107;
+            margin-top: 10px;
+        }
+
+        .paper-work h6 {
+            margin: 0 0 5px 0;
+            color: #856404;
+            font-size: 1em;
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            margin-top: 10px;
+            max-width: 400px;
+        }
+
+        th,
+        td {
+            border: 1px solid #000;
+            padding: 8px;
+            text-align: center;
+        }
     </style>
 </head>
+
 <body>
 
-    <div id="timer-container">Thời gian còn lại: <span id="timer">60:00</span></div>
+    <div id="timer-container">⏳ Thời gian còn lại: <span id="timer">60:00</span></div>
 
     <div class="header">
-        <h2>ĐỀ KIỂM TRA TOÁN 10 - HỆ KHÔNG CHUYÊN</h2>
-        <h3>(Rèn luyện kỹ năng - Thời gian: 60 phút)</h3>
+        <h2>ĐỀ KHẢO SÁT CHẤT LƯỢNG MÔN TOÁN LỚP 10</h2>
+        <h3>(Thời gian làm bài: 60 phút - Có chấm tự động & Giải chi tiết)</h3>
     </div>
 
     <form id="exam-form">
         <div class="question" id="q1-box">
             <h4>Câu 1 (1,5 điểm) Căn thức</h4>
-            <p>a) Tính giá trị biểu thức: \( A = \sqrt{49} - \sqrt{16} + \sqrt{25} \)</p>
+            <p>a) Tính giá trị biểu thức: \( A = \sqrt{81} - \sqrt{36} + 3\sqrt{4} \)</p>
             <div class="input-group">
-                <label>Đáp án a:</label> <input type="number" id="q1a"> 
+                <label>Đáp án a:</label> <input type="number" id="q1a">
                 <span class="feedback" id="fb-q1a"></span>
             </div>
-            
-            <p>b) Rút gọn biểu thức \( B = \left( \frac{1}{\sqrt{x}-2} - \frac{1}{\sqrt{x}+2} \right) \cdot \frac{x-4}{4} \) với \( x \ge 0, x \neq 4 \).</p>
+
+            <p>b) Rút gọn biểu thức \( B = \left( \frac{1}{\sqrt{x}-3} - \frac{1}{\sqrt{x}+3} \right) \cdot
+                \frac{x-9}{3} \) với \( x \ge 0, x \neq 9 \).</p>
             <div class="input-group">
-                <label>Đáp án b:</label> <input type="number" id="q1b">
+                <label>Đáp án b (nhập số):</label> <input type="number" id="q1b">
                 <span class="feedback" id="fb-q1b"></span>
             </div>
 
             <div class="solution" id="sol-q1">
-                <h5>📖 Hướng dẫn giải:</h5>
-                <p><strong>a)</strong> \( A = 7 - 4 + 5 = 8 \).</p>
-                <p><strong>b)</strong> Trong ngoặc: \( \frac{\sqrt{x}+2 - (\sqrt{x}-2)}{(\sqrt{x}-2)(\sqrt{x}+2)} = \frac{4}{x-4} \). <br>Nhân với phân thức sau: \( B = \frac{4}{x-4} \cdot \frac{x-4}{4} = 1 \).</p>
+                <h5>📖 Hướng dẫn giải chi tiết:</h5>
+                <p><strong>a)</strong> \( A = 9 - 6 + 3 \cdot 2 = 9 - 6 + 6 = 9 \).</p>
+                <p><strong>b)</strong> Quy đồng trong ngoặc: <br>
+                    \( \frac{\sqrt{x}+3 - (\sqrt{x}-3)}{(\sqrt{x}-3)(\sqrt{x}+3)} = \frac{\sqrt{x}+3 - \sqrt{x}+3}{x-9}
+                    = \frac{6}{x-9} \).<br>
+                    Thực hiện phép nhân: \( B = \frac{6}{x-9} \cdot \frac{x-9}{3} = \frac{6}{3} = 2 \).</p>
             </div>
         </div>
 
         <div class="question" id="q2-box">
             <h4>Câu 2 (0,5 điểm) Hàm số và đồ thị</h4>
-            <p>Cho Parabol \( (P): y = x^2 \). Tính giá trị của hàm số khi \( x = -3 \).</p>
-            <span class="note">(Phần vẽ đồ thị parabol học sinh tự luyện tập ngoài giấy)</span>
+            <p>Cho hàm số \( y = -2x^2 \) có đồ thị là Parabol \( (P) \).</p>
+            <p>a) Tính giá trị của \( y \) khi \( x = 2 \).</p>
             <div class="input-group">
                 <label>Giá trị \( y \):</label> <input type="number" id="q2">
                 <span class="feedback" id="fb-q2"></span>
             </div>
-            
+            <span class="note">b) Vẽ Parabol \( (P) \) trên hệ trục tọa độ Oxy. (Học sinh tự vẽ ra giấy)</span>
+
             <div class="solution" id="sol-q2">
-                <h5>📖 Hướng dẫn giải:</h5>
-                <p>Thay \( x = -3 \) vào hàm số: \( y = (-3)^2 = 9 \).</p>
+                <h5>📖 Hướng dẫn giải chi tiết:</h5>
+                <p><strong>a)</strong> Thay \( x = 2 \) vào hàm số ta được: \( y = -2 \cdot (2)^2 = -2 \cdot 4 = -8 \).
+                </p>
+                <div class="paper-work">
+                    <h6>✍️ Hướng dẫn phần tự luận (Vẽ đồ thị):</h6>
+                    <p>- Lập bảng giá trị (ít nhất 5 điểm):<br>
+                        Khi \( x = -2 \Rightarrow y = -8 \)<br>
+                        Khi \( x = -1 \Rightarrow y = -2 \)<br>
+                        Khi \( x = 0 \Rightarrow y = 0 \) (Đỉnh Parabol)<br>
+                        Khi \( x = 1 \Rightarrow y = -2 \)<br>
+                        Khi \( x = 2 \Rightarrow y = -8 \)
+                    </p>
+                    <p>- Đồ thị là một Parabol đi qua gốc tọa độ O(0;0), nhận trục Oy làm trục đối xứng, bề lõm hướng
+                        xuống dưới (do \( a = -2 < 0 \)) và điểm O là điểm cao nhất.</p>
+                </div>
             </div>
         </div>
 
         <div class="question" id="q3-box">
             <h4>Câu 3 (1,5 điểm) Phương trình và hệ phương trình</h4>
-            <p>a) Giải phương trình: \( x^2 - 7x + 10 = 0 \). Nhập nghiệm nhỏ nhất của phương trình.</p>
+            <p>a) Giải phương trình: \( x^2 - 6x + 8 = 0 \). Nhập nghiệm lớn của phương trình.</p>
             <div class="input-group">
-                <label>Nghiệm nhỏ:</label> <input type="number" id="q3a">
+                <label>Nghiệm lớn:</label> <input type="number" id="q3a">
                 <span class="feedback" id="fb-q3a"></span>
             </div>
 
-            <p>b) Cho phương trình \( x^2 - 4x - 3 = 0 \) có 2 nghiệm \( x_1, x_2 \). Không giải phương trình, hãy tính giá trị biểu thức \( T = x_1 x_2 - (x_1 + x_2) \).</p>
+            <p>b) Cho phương trình \( x^2 - 7x + 5 = 0 \) có 2 nghiệm \( x_1, x_2 \). Không giải phương trình, tính giá
+                trị biểu thức \( T = x_1^2 + x_2^2 \).</p>
             <div class="input-group">
                 <label>Giá trị \( T \):</label> <input type="number" id="q3b">
                 <span class="feedback" id="fb-q3b"></span>
             </div>
 
-            <p>c) <strong>Giải bài toán bằng cách lập hệ phương trình:</strong> Mua 2 cây bút và 3 quyển vở hết 35.000 đồng. Mua 4 cây bút và 1 quyển vở hết 25.000 đồng. Tính giá tiền của 1 quyển vở.</p>
+            <p>c) <strong>Giải bài toán bằng cách lập hệ PT:</strong> Một học sinh mua 3 quyển vở và 2 cây bút hết
+                41.000 đồng. Nếu mua 2 quyển vở và 3 cây bút cùng loại thì hết 39.000 đồng. Tính giá tiền của 1 quyển
+                vở.</p>
             <div class="input-group">
                 <label>Giá 1 quyển vở (VNĐ):</label> <input type="number" id="q3c">
                 <span class="feedback" id="fb-q3c"></span>
             </div>
 
             <div class="solution" id="sol-q3">
-                <h5>📖 Hướng dẫn giải:</h5>
-                <p><strong>a)</strong> PT có hai nghiệm \( x = 2 \) và \( x = 5 \). Nghiệm nhỏ nhất là 2.</p>
-                <p><strong>b)</strong> Theo Vi-ét: \( S = x_1+x_2 = 4 \), \( P = x_1 x_2 = -3 \). Thay vào \( T = P - S = -3 - 4 = -7 \).</p>
-                <p><strong>c)</strong> Gọi giá 1 bút là b, 1 vở là v. Ta có hệ: <br>
-                \( \begin{cases} 2b + 3v = 35000 \\ 4b + v = 25000 \end{cases} \). <br>
-                Từ PT (2) \( \Rightarrow v = 25000 - 4b \). Thế vào (1) giải ra \( b = 4000 \) đ, \( v = 9000 \) đ.</p>
+                <h5>📖 Hướng dẫn giải chi tiết:</h5>
+                <p><strong>a)</strong> Ta có \( \Delta' = (-3)^2 - 1 \cdot 8 = 9 - 8 = 1 > 0 \). Phương trình có 2
+                    nghiệm: \( x_1 = 3 + 1 = 4 \) và \( x_2 = 3 - 1 = 2 \). Nghiệm lớn là 4.</p>
+                <p><strong>b)</strong> Theo hệ thức Vi-ét: \( S = x_1+x_2 = 7 \), \( P = x_1 \cdot x_2 = 5 \).<br>
+                    \( T = x_1^2 + x_2^2 = (x_1+x_2)^2 - 2x_1 x_2 = S^2 - 2P = 7^2 - 2 \cdot 5 = 49 - 10 = 39 \).</p>
+                <div class="paper-work">
+                    <h6>✍️ Hướng dẫn phần tự luận (Câu c):</h6>
+                    <p>Gọi \( x \) là giá 1 quyển vở, \( y \) là giá 1 cây bút (\( x, y > 0 \)).<br>
+                        Theo đề bài ta có hệ phương trình:<br>
+                        \( \begin{cases} 3x + 2y = 41000 \quad (1) \\ 2x + 3y = 39000 \quad (2) \end{cases} \)<br>
+                        Nhân (1) với 3, nhân (2) với 2 ta được:<br>
+                        \( \begin{cases} 9x + 6y = 123000 \\ 4x + 6y = 78000 \end{cases} \)<br>
+                        Trừ vế theo vế: \( 5x = 45000 \Rightarrow x = 9000 \) (VNĐ).<br>
+                        Thay vào (1) tìm được \( y = 7000 \) (VNĐ).<br>
+                        Vậy giá 1 quyển vở là 9.000 đồng.</p>
+                </div>
             </div>
         </div>
 
         <div class="question" id="q4-box">
             <h4>Câu 4 (1,0 điểm) Hình học trực quan</h4>
-            <p>Một quả bóng đá (có dạng hình cầu) có bán kính \( R = 10 \) cm. Tính diện tích bề mặt của quả bóng đó.</p>
-            <span class="note">(Lấy \( \pi \approx 3.14 \), nhập đáp án theo đơn vị \( cm^2 \))</span>
+            <p>Một bồn chứa nước hình trụ có bán kính đáy \( 2 \)m, chiều cao \( 3 \)m. Tính thể tích nước tối đa bồn có
+                thể chứa.</p>
+            <span class="note">(Lấy \( \pi \approx 3.14 \), nhập đáp án theo đơn vị \( m^3 \))</span>
             <div class="input-group">
-                <label>Diện tích:</label> <input type="number" id="q4">
+                <label>Thể tích:</label> <input type="number" step="0.01" id="q4">
                 <span class="feedback" id="fb-q4"></span>
             </div>
 
             <div class="solution" id="sol-q4">
-                <h5>📖 Hướng dẫn giải:</h5>
-                <p>Diện tích mặt cầu: \( S = 4\pi R^2 = 4 \cdot 3.14 \cdot 10^2 = 1256 \, (cm^2) \).</p>
+                <h5>📖 Hướng dẫn giải chi tiết:</h5>
+                <p>Bán kính \( r = 2 \)m, chiều cao \( h = 3 \)m.<br>
+                    Thể tích hình trụ: \( V = \pi r^2 h \approx 3.14 \cdot 2^2 \cdot 3 = 3.14 \cdot 12 = 37.68 \, (m^3)
+                    \).</p>
             </div>
         </div>
 
         <div class="question" id="q5-box">
             <h4>Câu 5 (3,0 điểm) Hình học phẳng</h4>
-            <p>a) Dùng máy tính cầm tay, tính giá trị của \( \cos 60^\circ \).</p>
+            <p>a) Tính giá trị của biểu thức: \( D = \sin 30^\circ + \cos 60^\circ \).</p>
             <div class="input-group">
-                <label>Đáp án:</label> <input type="number" step="0.1" id="q5a">
+                <label>Giá trị D:</label> <input type="number" id="q5a">
                 <span class="feedback" id="fb-q5a"></span>
             </div>
 
-            <p>b) Một chiếc thang dài \( 4 \)m tựa vào một bức tường, tạo với mặt đất một góc \( 60^\circ \). Tính chiều cao từ mặt đất lên điểm tựa của thang vào tường.</p>
-            <span class="note">(Làm tròn đến 1 chữ số thập phân, nhập số mét)</span>
+            <p>b) Một chiếc thang tựa vào tường tạo với mặt đất một góc \( 60^\circ \). Biết đầu trên của thang chạm
+                tường ở độ cao \( 3\sqrt{3} \) mét so với mặt đất. Tính chiều dài của chiếc thang.</p>
+            <span class="note">(Chỉ nhập số mét)</span>
             <div class="input-group">
-                <label>Chiều cao (m):</label> <input type="number" step="0.1" id="q5b">
+                <label>Chiều dài (m):</label> <input type="number" id="q5b">
                 <span class="feedback" id="fb-q5b"></span>
             </div>
 
-            <p>c) Bài hình học đường tròn: Cho đường tròn (O) và dây cung AB không đi qua tâm. Kẻ OH vuông góc với AB tại H. Chứng minh H là trung điểm của AB.</p>
-            <span class="note">(Học sinh tự chứng minh phần c vào giấy theo định lý quan hệ vuông góc giữa đường kính và dây cung)</span>
+            <p>c) <strong>Bài hình tự luận:</strong> Cho đường tròn \( (O) \) và điểm \( A \) nằm ngoài đường tròn. Kẻ
+                hai tiếp tuyến \( AB, AC \) với \( (O) \) (B, C là các tiếp điểm). Kẻ cát tuyến \( ADE \) không đi qua
+                tâm \( O \) (\( D \) nằm giữa \( A \) và \( E \)). <br>
+                1. Chứng minh tứ giác \( ABOC \) nội tiếp.<br>
+                2. Chứng minh \( AB^2 = AD \cdot AE \).<br>
+                <span class="note">(Học sinh tự làm phần c ra giấy)</span>
+            </p>
 
             <div class="solution" id="sol-q5">
-                <h5>📖 Hướng dẫn giải:</h5>
-                <p><strong>a)</strong> \( \cos 60^\circ = 0.5 \).</p>
-                <p><strong>b)</strong> Chiều cao \( h = 4 \cdot \sin 60^\circ = 4 \cdot \frac{\sqrt{3}}{2} = 2\sqrt{3} \approx 3.464 \). Làm tròn 1 chữ số thập phân là 3.5.</p>
+                <h5>📖 Hướng dẫn giải chi tiết:</h5>
+                <p><strong>a)</strong> \( D = 0.5 + 0.5 = 1 \).</p>
+                <p><strong>b)</strong> Gọi chiều dài thang là \( L \). Ta có tam giác vuông tạo bởi thang, tường và mặt
+                    đất. Cạnh góc vuông đối diện góc \( 60^\circ \) là \( 3\sqrt{3} \)m.<br>
+                    \( \sin 60^\circ = \frac{\text{Đối}}{\text{Huyền}} = \frac{3\sqrt{3}}{L} \Rightarrow
+                    \frac{\sqrt{3}}{2} = \frac{3\sqrt{3}}{L} \Rightarrow L = \frac{3\sqrt{3} \cdot 2}{\sqrt{3}} = 6 \)
+                    (mét).</p>
+                <div class="paper-work">
+                    <h6>✍️ Hướng dẫn phần tự luận (Câu c - Hình học đường tròn):</h6>
+                    <p><strong>Ý 1: Chứng minh ABOC nội tiếp</strong><br>
+                        - Vì AB là tiếp tuyến của (O) tại B nên \( OB \perp AB \Rightarrow \widehat{ABO} = 90^\circ
+                        \).<br>
+                        - Tương tự, AC là tiếp tuyến của (O) tại C nên \( OC \perp AC \Rightarrow \widehat{ACO} =
+                        90^\circ \).<br>
+                        - Xét tứ giác ABOC có: \( \widehat{ABO} + \widehat{ACO} = 90^\circ + 90^\circ = 180^\circ
+                        \).<br>
+                        - Mà hai góc này ở vị trí đối nhau nên tứ giác ABOC nội tiếp đường tròn đường kính AO.</p>
+                    <p><strong>Ý 2: Chứng minh \( AB^2 = AD \cdot AE \)</strong><br>
+                        - Xét \( \Delta ABD \) và \( \Delta AEB \) có:<br>
+                        + Góc \( \widehat{BAE} \) chung.<br>
+                        + \( \widehat{ABD} = \widehat{AEB} \) (Góc tạo bởi tia tiếp tuyến và dây cung và góc nội tiếp
+                        cùng chắn cung BD).<br>
+                        - Suy ra \( \Delta ABD \sim \Delta AEB \) (g.g).<br>
+                        - Từ đó suy ra tỉ số đồng dạng: \( \frac{AB}{AE} = \frac{AD}{AB} \Rightarrow AB^2 = AD \cdot AE
+                        \) (đpcm).</p>
+                </div>
             </div>
         </div>
 
         <div class="question" id="q6-box">
             <h4>Câu 6 (1,5 điểm) Một số yếu tố Thống kê và Xác suất</h4>
-            <p>a) Lập bảng tần số. <span class="note">(Học sinh tự làm ra giấy)</span></p>
-            
-            <p>b) Chọn ngẫu nhiên một số tự nhiên từ 1 đến 10. Tính xác suất để số được chọn là một <strong>số lẻ</strong>.</p>
+            <p>a) Điểm kiểm tra Toán của một nhóm học sinh như sau: 7, 8, 8, 9, 9, 9, 10, 10. <br>Lập bảng tần số. <span
+                    class="note">(Học sinh làm phần a ra giấy)</span></p>
+
+            <p>b) Ghi các số từ 1 đến 5 lên 5 tấm thẻ giống hệt nhau. Rút ngẫu nhiên một tấm thẻ. Tính xác suất để rút
+                được tấm thẻ ghi <strong>số chẵn</strong>.</p>
             <span class="note">(Nhập đáp án dưới dạng số thập phân)</span>
             <div class="input-group">
                 <label>Xác suất:</label> <input type="number" step="0.1" id="q6b">
@@ -156,49 +392,77 @@
             </div>
 
             <div class="solution" id="sol-q6">
-                <h5>📖 Hướng dẫn giải:</h5>
-                <p><strong>b)</strong> Có 10 số khả năng. Các số lẻ là: 1, 3, 5, 7, 9 (5 số).<br>
-                Xác suất \( P = \frac{5}{10} = 0.5 \).</p>
+                <h5>📖 Hướng dẫn giải chi tiết:</h5>
+                <p><strong>b)</strong> Có tổng cộng 5 thẻ (không gian mẫu n = 5).<br>
+                    Các thẻ ghi số chẵn là: 2, 4 (có 2 kết quả thuận lợi).<br>
+                    Xác suất: \( P = \frac{2}{5} = 0.4 \).</p>
+                <div class="paper-work">
+                    <h6>✍️ Hướng dẫn phần tự luận (Câu a - Bảng tần số):</h6>
+                    <table>
+                        <tr>
+                            <th>Điểm (x)</th>
+                            <td>7</td>
+                            <td>8</td>
+                            <td>9</td>
+                            <td>10</td>
+                        </tr>
+                        <tr>
+                            <th>Tần số (n)</th>
+                            <td>1</td>
+                            <td>2</td>
+                            <td>3</td>
+                            <td>2</td>
+                        </tr>
+                    </table>
+                    <p><em>(N = 8)</em></p>
+                </div>
             </div>
         </div>
 
         <div class="question" id="q7-box">
             <h4>Câu 7 (1,0 điểm) Bất phương trình bậc nhất một ẩn</h4>
-            <p>Một dịch vụ cho thuê xe đạp tính phí 20.000 đồng cho giờ đầu tiên và 10.000 đồng cho mỗi giờ tiếp theo. Bạn Bình có 65.000 đồng. Hỏi Bình có thể thuê xe tối đa trong bao nhiêu giờ trọn vẹn?</p>
-            <span class="note">(Nhập kết quả là số giờ nguyên tối đa)</span>
+            <p>Một gói cước điện thoại quy định: phí thuê bao cố định là 50.000 đồng/tháng, và mỗi phút gọi tính phí
+                2.000 đồng. Bạn An có số tiền tối đa là 120.000 đồng cho tháng này. Hỏi An có thể gọi tối đa bao nhiêu
+                phút?</p>
+            <span class="note">(Lập bất phương trình, nhập kết quả là số phút nguyên)</span>
             <div class="input-group">
-                <label>Số giờ tối đa:</label> <input type="number" id="q7">
+                <label>Số phút tối đa:</label> <input type="number" id="q7">
                 <span class="feedback" id="fb-q7"></span>
             </div>
 
             <div class="solution" id="sol-q7">
-                <h5>📖 Hướng dẫn giải:</h5>
-                <p>Gọi x là tổng số giờ thuê (x nguyên dương). Số tiền phải trả là: \( 20000 + 10000(x-1) \).<br>
-                Bất phương trình: \( 20000 + 10000(x-1) \le 65000 \Leftrightarrow 10000(x-1) \le 45000 \Leftrightarrow x-1 \le 4.5 \Leftrightarrow x \le 5.5 \).<br>
-                Vậy Bình có thể thuê tối đa 5 giờ.</p>
+                <h5>📖 Hướng dẫn giải chi tiết:</h5>
+                <p>Gọi \( x \) là số phút gọi điện của An (\( x \ge 0 \)).<br>
+                    Tổng số tiền An phải trả trong tháng là: \( 50000 + 2000x \) (đồng).<br>
+                    Vì An chỉ có tối đa 120.000 đồng nên ta có bất phương trình:<br>
+                    \( 50000 + 2000x \le 120000 \)<br>
+                    \( \Leftrightarrow 2000x \le 70000 \)<br>
+                    \( \Leftrightarrow x \le \frac{70000}{2000} \)<br>
+                    \( \Leftrightarrow x \le 35 \).<br>
+                    Vậy An có thể gọi tối đa 35 phút.</p>
             </div>
         </div>
 
-        <button type="button" id="submit-btn" onclick="gradeExam()">Nộp Bài & Xem Đáp Án</button>
+        <button type="button" id="submit-btn" onclick="gradeExam()">Nộp Bài & Xem Chi Tiết Giải</button>
     </form>
 
     <div id="result"></div>
 
     <script>
-        // Cài đặt đếm ngược thời gian: 60 phút = 3600 giây
-        let timeRemaining = 3600; 
+        // Cài đặt đồng hồ 60 phút = 3600 giây
+        let timeRemaining = 3600;
         let timerInterval;
 
         function updateTimer() {
             let minutes = Math.floor(timeRemaining / 60);
             let seconds = timeRemaining % 60;
-            document.getElementById('timer').textContent = 
-                (minutes < 10 ? "0" : "") + minutes + ":" + 
+            document.getElementById('timer').textContent =
+                (minutes < 10 ? "0" : "") + minutes + ":" +
                 (seconds < 10 ? "0" : "") + seconds;
-            
+
             if (timeRemaining <= 0) {
                 clearInterval(timerInterval);
-                alert("Đã hết 60 phút làm bài! Hệ thống tự động thu bài.");
+                alert("⏰ Đã hết 60 phút làm bài! Hệ thống tự động thu bài và hiện đáp án.");
                 gradeExam();
             }
             timeRemaining--;
@@ -206,25 +470,25 @@
 
         timerInterval = setInterval(updateTimer, 1000);
 
-        // Đáp án và chấm điểm
+        // Đáp án các phần điền khuyết
         const answerKey = {
-            'q1a': '8',         
-            'q1b': '1',         
-            'q2': '9',         
-            'q3a': '2',       
-            'q3b': '-7',        
-            'q3c': '9000',      
-            'q4': '1256',      
-            'q5a': '0.5',       
-            'q5b': '3.5',        
-            'q6b': '0.5',       
-            'q7': '5'          
+            'q1a': '9',
+            'q1b': '2',
+            'q2': '-8',
+            'q3a': '4',
+            'q3b': '39',
+            'q3c': '9000',
+            'q4': '37.68',
+            'q5a': '1',
+            'q5b': '6',
+            'q6b': '0.4',
+            'q7': '35'
         };
 
         function gradeExam() {
-            clearInterval(timerInterval); 
-            document.getElementById('submit-btn').style.display = 'none'; 
-            
+            clearInterval(timerInterval);
+            document.getElementById('submit-btn').style.display = 'none';
+
             let correctCount = 0;
             let totalQuestions = Object.keys(answerKey).length;
 
@@ -234,7 +498,7 @@
                 let questionBox = document.getElementById(q + '-box') || document.getElementById(q).closest('.question');
 
                 feedbackSpan.style.display = 'inline';
-                document.getElementById(q).disabled = true;
+                document.getElementById(q).disabled = true; // Khóa không cho nhập nữa
 
                 if (userInput === answerKey[q]) {
                     correctCount++;
@@ -242,31 +506,32 @@
                     feedbackSpan.className = "feedback correct-text";
                     questionBox.classList.add('correct');
                 } else {
-                    feedbackSpan.innerHTML = "✘ Sai (Đáp án: " + answerKey[q] + ")";
+                    feedbackSpan.innerHTML = "✘ Sai (Đáp án đúng: " + answerKey[q] + ")";
                     feedbackSpan.className = "feedback incorrect-text";
                     questionBox.classList.add('incorrect');
                 }
             }
 
-            // Hiển thị điểm
+            // Hiển thị khung điểm
             let scoreDiv = document.getElementById('result');
             let score = (correctCount / totalQuestions) * 10;
-            scoreDiv.innerHTML = `Số câu đúng: ${correctCount} / ${totalQuestions} <br> Điểm tự động: ${score.toFixed(2)} / 10 <br><span style="font-size:0.8em; color:#555;">(Lưu ý: Học sinh đối chiếu phần tự luận trên giấy với giáo viên)</span>`;
+            scoreDiv.innerHTML = `🎯 Số câu điền đúng: ${correctCount} / ${totalQuestions} <br> ĐIỂM QUY ĐỔI PHẦN NHẬP: <span style="font-size: 1.2em; color:#dc3545;">${score.toFixed(2)} / 10</span> <br><br><span style="font-size:0.85em; color:#333; font-weight: normal;">(Lưu ý: Học sinh tự cộng thêm điểm các phần tự luận trình bày trên giấy dựa theo hướng dẫn giải chi tiết bên dưới)</span>`;
             scoreDiv.style.display = 'block';
 
-            // Hiển thị Lời giải
+            // Mở khóa phần Hướng dẫn giải (bao gồm cả giải tự luận)
             let solutions = document.querySelectorAll('.solution');
             solutions.forEach(sol => {
                 sol.style.display = 'block';
             });
-            
-            // Cập nhật lại công thức Toán học nếu cần
+
+            // Xử lý hiển thị lại công thức Toán (nếu MathJax chưa render kịp)
             if (window.MathJax) {
                 MathJax.typesetPromise();
             }
-            
+
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
     </script>
 </body>
+
 </html>
