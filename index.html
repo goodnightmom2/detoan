@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Đề Giữa Kì 2 Toán 9 - Chân Trời Sáng Tạo (Tự Luận)</title>
+    <title>Đề Giữa Kì 2 Toán 9 - Chân Trời Sáng Tạo (Đề Số 2)</title>
     <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>
@@ -12,26 +12,26 @@
       };
     </script>
     <style>
-        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #f4f6f9; color: #333; line-height: 1.6; padding: 20px; }
-        .container { max-width: 900px; margin: 0 auto; background: #fff; padding: 40px; border-radius: 10px; box-shadow: 0 4px 20px rgba(0,0,0,0.1); }
-        h1 { text-align: center; color: #2c3e50; font-size: 24px; text-transform: uppercase; margin-bottom: 5px; }
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #f9f9fb; color: #2c3e50; line-height: 1.6; padding: 20px; }
+        .container { max-width: 900px; margin: 0 auto; background: #fff; padding: 40px; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); }
+        h1 { text-align: center; color: #8e44ad; font-size: 24px; text-transform: uppercase; margin-bottom: 5px; }
         h2 { text-align: center; color: #7f8c8d; font-size: 18px; font-weight: normal; margin-top: 0; margin-bottom: 30px; }
-        .header-info { display: flex; justify-content: space-between; border-bottom: 2px solid #3498db; padding-bottom: 15px; margin-bottom: 30px; font-weight: bold; font-size: 16px; }
-        .timer { color: #e74c3c; background: #fadbd8; padding: 8px 15px; border-radius: 5px; display: inline-block; }
-        .question-block { margin-bottom: 25px; padding: 20px; background: #fafbfc; border-left: 5px solid #3498db; border-radius: 0 5px 5px 0; }
-        .question-title { font-weight: bold; color: #2980b9; margin-bottom: 10px; font-size: 18px; }
-        .btn-submit { display: block; width: 100%; padding: 15px; background-color: #27ae60; color: white; border: none; border-radius: 8px; font-size: 18px; font-weight: bold; cursor: pointer; margin-top: 40px; transition: background 0.3s; box-shadow: 0 4px 6px rgba(39, 174, 96, 0.3); }
-        .btn-submit:hover { background-color: #2ecc71; }
-        #solutions-section { display: none; margin-top: 50px; padding: 30px; background-color: #f0fdf4; border: 2px dashed #27ae60; border-radius: 10px; }
-        .solution-title { color: #16a085; text-align: center; border-bottom: 2px solid #16a085; padding-bottom: 10px; margin-bottom: 25px; }
-        .solution-item { margin-bottom: 20px; padding-bottom: 20px; border-bottom: 1px solid #d1d5db; }
+        .header-info { display: flex; justify-content: space-between; border-bottom: 2px solid #8e44ad; padding-bottom: 15px; margin-bottom: 30px; font-weight: bold; font-size: 16px; }
+        .timer { color: #fff; background: #e74c3c; padding: 8px 15px; border-radius: 5px; display: inline-block; box-shadow: 0 2px 4px rgba(231, 76, 60, 0.4); }
+        .question-block { margin-bottom: 25px; padding: 20px; background: #fdfefe; border-left: 5px solid #9b59b6; border-radius: 0 5px 5px 0; border-top: 1px solid #eee; border-right: 1px solid #eee; border-bottom: 1px solid #eee; }
+        .question-title { font-weight: bold; color: #8e44ad; margin-bottom: 10px; font-size: 18px; }
+        .btn-submit { display: block; width: 100%; padding: 15px; background-color: #3498db; color: white; border: none; border-radius: 8px; font-size: 18px; font-weight: bold; cursor: pointer; margin-top: 40px; transition: background 0.3s; box-shadow: 0 4px 6px rgba(52, 152, 219, 0.3); }
+        .btn-submit:hover { background-color: #2980b9; }
+        #solutions-section { display: none; margin-top: 50px; padding: 30px; background-color: #f4f6f7; border: 2px dashed #3498db; border-radius: 10px; }
+        .solution-title { color: #2980b9; text-align: center; border-bottom: 2px solid #2980b9; padding-bottom: 10px; margin-bottom: 25px; }
+        .solution-item { margin-bottom: 20px; padding-bottom: 20px; border-bottom: 1px dotted #bdc3c7; }
         .solution-item:last-child { border-bottom: none; }
     </style>
 </head>
 <body>
 
 <div class="container">
-    <h1>ĐỀ KIỂM TRA GIỮA KÌ 2 - MÔN TOÁN 9</h1>
+    <h1>ĐỀ KIỂM TRA GIỮA KÌ 2 - MÔN TOÁN 9 (ĐỀ SỐ 2)</h1>
     <h2>Sách: Chân trời sáng tạo - Hình thức: 100% Tự luận</h2>
     
     <div class="header-info">
@@ -40,57 +40,58 @@
     </div>
 
     <div id="exam-content">
-        <p><em>* Học sinh làm bài ra giấy kiểm tra. Trình bày rõ ràng các bước giải. Sau khi làm xong, nhấn nút "NỘP BÀI" để xem hướng dẫn chấm.</em></p>
+        <p><em>* Học sinh làm bài ra giấy kiểm tra. Trình bày rõ ràng các bước giải. Khi hết giờ hoặc làm xong, nhấn nút "NỘP BÀI" để xem đáp án.</em></p>
 
         <div class="question-block">
             <div class="question-title">Bài 1 (2.0 điểm) - Hàm số và Đồ thị</div>
-            <p>a) Vẽ đồ thị (P) của hàm số $y = \frac{1}{2}x^2$.</p>
-            <p>b) Bằng phép tính, hãy kiểm tra xem các điểm $A(2; 2)$ và $B(-4; -8)$ có thuộc đồ thị (P) hay không?</p>
+            <p>Cho hàm số $y = ax^2$ ($a \neq 0$) có đồ thị là parabol (P).</p>
+            <p>a) Tìm hệ số $a$, biết đồ thị (P) đi qua điểm $M(2; -4)$.</p>
+            <p>b) Vẽ đồ thị (P) của hàm số với hệ số $a$ vừa tìm được.</p>
         </div>
 
         <div class="question-block">
             <div class="question-title">Bài 2 (2.0 điểm) - Phương trình bậc hai một ẩn</div>
-            <p>Giải các phương trình bậc hai sau:</p>
-            <p>a) $x^2 - 7x + 12 = 0$</p>
-            <p>b) $3x^2 + 5x - 2 = 0$</p>
+            <p>Giải các phương trình bậc hai sau bằng công thức nghiệm (hoặc nhẩm nghiệm nếu được):</p>
+            <p>a) $2x^2 - 5x + 3 = 0$</p>
+            <p>b) $-x^2 + 4x + 5 = 0$</p>
         </div>
 
         <div class="question-block">
-            <div class="question-title">Bài 3 (2.0 điểm) - Thống kê: Biểu diễn số liệu ghép nhóm</div>
-            <p>Thời gian tự học ở nhà trong một ngày của 40 học sinh lớp 9A được ghi lại và ghép nhóm thành bảng tần số sau:</p>
+            <div class="question-title">Bài 3 (2.0 điểm) - Thống kê: Số liệu ghép nhóm</div>
+            <p>Điểm kiểm tra giữa kì môn Toán của 40 học sinh lớp 9B được giáo viên thống kê và ghép nhóm thành bảng sau:</p>
             <table border="1" cellpadding="8" cellspacing="0" style="width: 100%; text-align: center; margin-top: 10px; margin-bottom: 10px; background: #fff;">
-                <tr style="background: #ecf0f1;">
-                    <th>Thời gian (phút)</th>
-                    <th>$[0; 30)$</th>
-                    <th>$[30; 60)$</th>
-                    <th>$[60; 90)$</th>
-                    <th>$[90; 120)$</th>
+                <tr style="background: #e8daef;">
+                    <th>Điểm số (x)</th>
+                    <th>$[0; 4)$</th>
+                    <th>$[4; 6)$</th>
+                    <th>$[6; 8)$</th>
+                    <th>$[8; 10]$</th>
                     <th>Tổng</th>
                 </tr>
                 <tr>
                     <td><strong>Tần số (n)</strong></td>
                     <td>4</td>
-                    <td>14</td>
+                    <td>10</td>
                     <td>16</td>
-                    <td>6</td>
+                    <td>10</td>
                     <td>40</td>
                 </tr>
             </table>
             <p>a) Lập bảng tần số tương đối ghép nhóm cho mẫu số liệu trên.</p>
-            <p>b) Vẽ biểu đồ tần số tương đối ghép nhóm dạng cột (histogram) biểu diễn mẫu số liệu này.</p>
+            <p>b) Hãy vẽ biểu đồ tần số tương đối ghép nhóm dạng cột (histogram) để biểu diễn dữ liệu.</p>
         </div>
 
         <div class="question-block">
-            <div class="question-title">Bài 4 (1.0 điểm) - Giải toán bằng cách lập phương trình</div>
-            <p>Một khu vườn hình chữ nhật có chiều dài lớn hơn chiều rộng 4 m. Biết diện tích của khu vườn là 320 m². Tính chiều dài và chiều rộng của khu vườn đó.</p>
+            <div class="question-title">Bài 4 (1.0 điểm) - Giải toán bằng lập phương trình</div>
+            <p>Một mảnh vườn hình chữ nhật có chiều dài lớn hơn chiều rộng 5m. Biết diện tích của mảnh vườn là 150 $m^2$. Tính chu vi của mảnh vườn đó.</p>
         </div>
 
         <div class="question-block">
             <div class="question-title">Bài 5 (3.0 điểm) - Hình học: Tứ giác nội tiếp</div>
-            <p>Cho tam giác nhọn $ABC$ ($AB < AC$) nội tiếp đường tròn $(O)$. Các đường cao $AD, BE, CF$ của tam giác $ABC$ cắt nhau tại trực tâm $H$.</p>
-            <p>a) Chứng minh tứ giác $BFEC$ là tứ giác nội tiếp.</p>
-            <p>b) Chứng minh tứ giác $AEHF$ là tứ giác nội tiếp và xác định tâm $I$ của đường tròn ngoại tiếp tứ giác đó.</p>
-            <p>c) Kẻ tiếp tuyến $Ax$ của đường tròn $(O)$ tại $A$. Chứng minh $Ax \parallel EF$, từ đó suy ra $OA \perp EF$.</p>
+            <p>Cho đường tròn $(O; R)$ và một điểm $A$ nằm ngoài đường tròn. Kẻ hai tiếp tuyến $AB$ và $AC$ với đường tròn $(O)$ ($B, C$ là các tiếp điểm).</p>
+            <p>a) Chứng minh tứ giác $ABOC$ là tứ giác nội tiếp.</p>
+            <p>b) Kẻ một cát tuyến $ADE$ của đường tròn $(O)$ sao cho $D$ nằm giữa $A$ và $E$, tia $AD$ nằm giữa hai tia $AB$ và $AO$. Chứng minh $AB^2 = AD \cdot AE$.</p>
+            <p>c) Gọi $H$ là giao điểm của $AO$ và $BC$. Chứng minh tứ giác $DHOE$ là tứ giác nội tiếp.</p>
         </div>
 
         <button type="button" class="btn-submit" onclick="submitExam()">NỘP BÀI & XEM HƯỚNG DẪN GIẢI</button>
@@ -101,87 +102,87 @@
         
         <div class="solution-item">
             <div class="question-title">Bài 1 (2.0 điểm)</div>
-            <p><strong>a) (1.0đ) Vẽ đồ thị:</strong></p>
+            <p><strong>a) Tìm hệ số a (1.0đ):</strong></p>
+            <p>Vì đồ thị (P) của hàm số $y = ax^2$ đi qua điểm $M(2; -4)$, thay $x = 2$ và $y = -4$ vào hàm số, ta được:<br>
+            $-4 = a \cdot (2)^2$<br>
+            $\Leftrightarrow 4a = -4 \Rightarrow a = -1$.<br>
+            Vậy hàm số cần tìm là $y = -x^2$.</p>
+            
+            <p><strong>b) Vẽ đồ thị (P) (1.0đ):</strong></p>
             <ul>
-                <li>Lập bảng giá trị: Chọn các giá trị $x \in \{-4; -2; 0; 2; 4\}$.<br>
-                Tính được các giá trị $y$ tương ứng: $y \in \{8; 2; 0; 2; 8\}$.</li>
-                <li>Vẽ hệ trục toạ độ Oxy, biểu diễn các điểm và vẽ đường Parabol đi qua gốc toạ độ, nhận trục tung làm trục đối xứng, nằm phía trên trục hoành.</li>
-            </ul>
-            <p><strong>b) (1.0đ) Kiểm tra điểm:</strong></p>
-            <ul>
-                <li>Thay toạ độ $A(2; 2)$ vào hàm số: $2 = \frac{1}{2}(2)^2 \Leftrightarrow 2 = 2$ (Đúng). Vậy $A$ thuộc (P).</li>
-                <li>Thay toạ độ $B(-4; -8)$ vào hàm số: $-8 = \frac{1}{2}(-4)^2 \Leftrightarrow -8 = 8$ (Sai). Vậy $B$ không thuộc (P).</li>
+                <li>Lập bảng giá trị: Chọn $x \in \{-2; -1; 0; 1; 2\}$. Tính $y \in \{-4; -1; 0; -1; -4\}$.</li>
+                <li>Vẽ hệ trục toạ độ Oxy. Vẽ đường cong Parabol đi qua các điểm trên bảng giá trị. Bề lõm của đồ thị hướng xuống dưới (do $a = -1 < 0$), nhận Oy làm trục đối xứng và điểm cao nhất là gốc toạ độ $O(0;0)$.</li>
             </ul>
         </div>
 
         <div class="solution-item">
             <div class="question-title">Bài 2 (2.0 điểm)</div>
-            <p><strong>a) $x^2 - 7x + 12 = 0$ (1.0đ)</strong></p>
-            <p>Ta có: $\Delta = (-7)^2 - 4.1.12 = 49 - 48 = 1 > 0$.<br>
-            Phương trình có hai nghiệm phân biệt: <br>
-            $x_1 = \frac{7 + \sqrt{1}}{2} = 4$<br>
-            $x_2 = \frac{7 - \sqrt{1}}{2} = 3$</p>
-            
-            <p><strong>b) $3x^2 + 5x - 2 = 0$ (1.0đ)</strong></p>
-            <p>Ta có: $\Delta = 5^2 - 4.3.(-2) = 25 + 24 = 49 > 0$.<br>
-            Phương trình có hai nghiệm phân biệt: <br>
-            $x_1 = \frac{-5 + \sqrt{49}}{2.3} = \frac{-5 + 7}{6} = \frac{1}{3}$<br>
-            $x_2 = \frac{-5 - 7}{6} = -2$</p>
+            <p><strong>a) $2x^2 - 5x + 3 = 0$ (1.0đ)</strong></p>
+            <p>Cách 1: Nhẩm nghiệm. Ta thấy $a + b + c = 2 + (-5) + 3 = 0$.<br>
+            Do đó phương trình có 2 nghiệm: $x_1 = 1$; $x_2 = \frac{c}{a} = \frac{3}{2}$.</p>
+            <p>Cách 2: Dùng công thức nghiệm $\Delta = (-5)^2 - 4.2.3 = 25 - 24 = 1 > 0$.</p>
+
+            <p><strong>b) $-x^2 + 4x + 5 = 0$ (1.0đ)</strong></p>
+            <p>Nhẩm nghiệm: Ta thấy $a - b + c = -1 - 4 + 5 = 0$.<br>
+            Do đó phương trình có 2 nghiệm: $x_1 = -1$; $x_2 = -\frac{c}{a} = -\frac{5}{-1} = 5$.</p>
         </div>
 
         <div class="solution-item">
             <div class="question-title">Bài 3 (2.0 điểm)</div>
-            <p><strong>a) Lập bảng tần số tương đối ghép nhóm (1.0đ)</strong></p>
-            <p>Công thức tính tần số tương đối: $f_i = \frac{n_i}{N} \cdot 100\%$</p>
+            <p><strong>a) Bảng tần số tương đối ghép nhóm (1.0đ):</strong></p>
+            <p>Công thức: $f_i = \frac{n_i}{N} \cdot 100\%$</p>
             <ul>
-                <li>Nhóm $[0; 30)$: $f_1 = \frac{4}{40} \cdot 100\% = 10\%$</li>
-                <li>Nhóm $[30; 60)$: $f_2 = \frac{14}{40} \cdot 100\% = 35\%$</li>
-                <li>Nhóm $[60; 90)$: $f_3 = \frac{16}{40} \cdot 100\% = 40\%$</li>
-                <li>Nhóm $[90; 120)$: $f_4 = \frac{6}{40} \cdot 100\% = 15\%$</li>
+                <li>Nhóm $[0; 4)$: $f_1 = \frac{4}{40} \cdot 100\% = 10\%$</li>
+                <li>Nhóm $[4; 6)$: $f_2 = \frac{10}{40} \cdot 100\% = 25\%$</li>
+                <li>Nhóm $[6; 8)$: $f_3 = \frac{16}{40} \cdot 100\% = 40\%$</li>
+                <li>Nhóm $[8; 10]$: $f_4 = \frac{10}{40} \cdot 100\% = 25\%$</li>
             </ul>
-            <p><strong>b) Vẽ biểu đồ Histogram (1.0đ)</strong></p>
-            <p>Học sinh vẽ trục hoành (thời gian) và trục tung (tần số tương đối %). Vẽ các cột hình chữ nhật liền nhau, đáy tương ứng với các khoảng thời gian, chiều cao tương ứng với tần số tương đối vừa tính ở câu a.<br>
-            
-            </p>
+            <p><strong>b) Vẽ biểu đồ (1.0đ):</strong></p>
+            <p>Học sinh vẽ hệ trục toạ độ. Trục hoành biểu diễn các khoảng điểm số. Trục tung biểu diễn tần số tương đối (%).<br>
+            Vẽ 4 cột hình chữ nhật liền kề nhau: Cột 1 cao 10%, cột 2 cao 25%, cột 3 cao 40%, cột 4 cao 25%.</p>
         </div>
 
         <div class="solution-item">
             <div class="question-title">Bài 4 (1.0 điểm)</div>
-            <p>Gọi chiều rộng của khu vườn là $x$ (m), điều kiện $x > 0$.</p>
-            <p>Chiều dài của khu vườn là: $x + 4$ (m).</p>
-            <p>Vì diện tích khu vườn là 320 m² nên ta có phương trình:<br>
-            $x(x + 4) = 320$<br>
-            $\Leftrightarrow x^2 + 4x - 320 = 0$</p>
-            <p>Giải phương trình bậc hai này ($\Delta' = 4 - (-320) = 324$, $\sqrt{\Delta'} = 18$), ta được:<br>
-            $x_1 = -2 + 18 = 16$ (thỏa mãn)<br>
-            $x_2 = -2 - 18 = -20$ (loại)</p>
-            <p>Vậy chiều rộng là 16 m, chiều dài là $16 + 4 = 20$ m.</p>
+            <p>Gọi chiều rộng của mảnh vườn là $x$ (m) ($x > 0$).<br>
+            Khi đó, chiều dài của mảnh vườn là: $x + 5$ (m).</p>
+            <p>Do diện tích mảnh vườn là $150 m^2$, ta có phương trình:<br>
+            $x(x + 5) = 150 \Leftrightarrow x^2 + 5x - 150 = 0$</p>
+            <p>Giải phương trình:<br>
+            $\Delta = 5^2 - 4.1.(-150) = 25 + 600 = 625 > 0$ ($\sqrt{\Delta} = 25$).<br>
+            $x_1 = \frac{-5 + 25}{2} = 10$ (nhận)<br>
+            $x_2 = \frac{-5 - 25}{2} = -15$ (loại vì $x > 0$)</p>
+            <p>Vậy chiều rộng là 10m, chiều dài là $10 + 5 = 15m$.<br>
+            Chu vi mảnh vườn là: $(10 + 15) \cdot 2 = 50$ (m).</p>
         </div>
 
         <div class="solution-item">
             <div class="question-title">Bài 5 (3.0 điểm)</div>
-            <p></p>
-            <p><strong>a) Chứng minh tứ giác BFEC nội tiếp (1.0đ)</strong><br>
-            Xét tứ giác $BFEC$, ta có:<br>
-            $\widehat{BFC} = 90^\circ$ (do $CF \perp AB$)<br>
-            $\widehat{BEC} = 90^\circ$ (do $BE \perp AC$)<br>
-            Hai đỉnh kề nhau $F$ và $E$ cùng nhìn cạnh $BC$ dưới một góc vuông. Vậy $BFEC$ là tứ giác nội tiếp (đường tròn đường kính $BC$).</p>
+            <p><strong>a) Chứng minh tứ giác ABOC nội tiếp (1.0đ)</strong><br>
+            Vì $AB, AC$ là tiếp tuyến của $(O)$ nên $AB \perp OB$ và $AC \perp OC$.<br>
+            Suy ra $\widehat{ABO} = 90^\circ$ và $\widehat{ACO} = 90^\circ$.<br>
+            Xét tứ giác $ABOC$ có: $\widehat{ABO} + \widehat{ACO} = 90^\circ + 90^\circ = 180^\circ$.<br>
+            Mà hai góc này ở vị trí đối nhau, do đó tứ giác $ABOC$ nội tiếp đường tròn (đường kính $AO$).</p>
             
-            <p><strong>b) Chứng minh AEHF nội tiếp và xác định tâm I (1.0đ)</strong><br>
-            Xét tứ giác $AEHF$, ta có:<br>
-            $\widehat{AFH} = 90^\circ$ (do $CF \perp AB$)<br>
-            $\widehat{AEH} = 90^\circ$ (do $BE \perp AC$)<br>
-            Suy ra $\widehat{AFH} + \widehat{AEH} = 90^\circ + 90^\circ = 180^\circ$.<br>
-            Mà đây là hai góc đối nhau, nên tứ giác $AEHF$ nội tiếp đường tròn. <br>
-            Vì $\widehat{AFH} = 90^\circ$ nên tam giác $AFH$ vuông tại $F$, nội tiếp đường tròn đường kính $AH$. Do đó tâm $I$ của đường tròn ngoại tiếp tứ giác $AEHF$ là trung điểm của đoạn thẳng $AH$.</p>
+            <p><strong>b) Chứng minh $AB^2 = AD \cdot AE$ (1.0đ)</strong><br>
+            Xét $\Delta ABD$ và $\Delta AEB$ có:<br>
+            $\widehat{A}$ chung.<br>
+            $\widehat{ABD} = \widehat{AEB}$ (Góc tạo bởi tia tiếp tuyến và dây cung và góc nội tiếp cùng chắn cung $BD$).<br>
+            Suy ra $\Delta ABD \sim \Delta AEB$ (g-g).<br>
+            $\Rightarrow \frac{AB}{AE} = \frac{AD}{AB} \Rightarrow AB^2 = AD \cdot AE$ (đpcm).</p>
 
-            <p><strong>c) Chứng minh OA vuông góc với EF (1.0đ)</strong><br>
-            Kẻ tiếp tuyến $Ax$ với đường tròn $(O)$, ta có $OA \perp Ax$. (1)<br>
-            Xét đường tròn $(O)$, ta có $\widehat{xAB} = \widehat{ACB}$ (góc tạo bởi tiếp tuyến và dây cung và góc nội tiếp cùng chắn cung $AB$).<br>
-            Lại có tứ giác $BFEC$ nội tiếp (chứng minh câu a) nên $\widehat{AFE} = \widehat{ACB}$ (góc ngoài tại một đỉnh bằng góc trong của đỉnh đối diện).<br>
-            Từ đó suy ra $\widehat{xAB} = \widehat{AFE}$.<br>
-            Mà hai góc này ở vị trí so le trong nên suy ra $Ax \parallel EF$. (2)<br>
-            Từ (1) và (2) suy ra $OA \perp EF$ (điều phải chứng minh).</p>
+            <p><strong>c) Chứng minh tứ giác DHOE nội tiếp (1.0đ)</strong><br>
+            Xét $\Delta ABO$ vuông tại $B$ (do $AB \perp OB$), có $BH \perp AO$ (tính chất hai tiếp tuyến cắt nhau).<br>
+            Áp dụng hệ thức lượng trong tam giác vuông: $AB^2 = AH \cdot AO$.<br>
+            Từ câu b, ta có $AB^2 = AD \cdot AE$.<br>
+            Suy ra: $AH \cdot AO = AD \cdot AE \Rightarrow \frac{AH}{AE} = \frac{AD}{AO}$.<br>
+            Xét $\Delta ADH$ và $\Delta AOE$ có:<br>
+            $\widehat{A}$ chung.<br>
+            $\frac{AH}{AE} = \frac{AD}{AO}$ (cmt).<br>
+            Suy ra $\Delta ADH \sim \Delta AOE$ (c-g-c).<br>
+            $\Rightarrow \widehat{AHD} = \widehat{AEO}$ (hai góc tương ứng).<br>
+            Xét tứ giác $DHOE$ có góc ngoài tại đỉnh $H$ ($\widehat{AHD}$) bằng góc trong tại đỉnh đối diện ($\widehat{AEO}$).<br>
+            Vậy tứ giác $DHOE$ là tứ giác nội tiếp.</p>
         </div>
     </div>
 </div>
@@ -209,8 +210,8 @@
         // Dừng đồng hồ
         clearInterval(timerInterval);
         document.getElementById('timer').innerText = "Đã nộp bài";
-        document.getElementById('timer').style.backgroundColor = "#d4edda";
-        document.getElementById('timer').style.color = "#155724";
+        document.getElementById('timer').style.backgroundColor = "#27ae60";
+        document.getElementById('timer').style.color = "#fff";
 
         // Ẩn nút nộp bài
         document.querySelector('.btn-submit').style.display = 'none';
@@ -219,12 +220,12 @@
         const solutionsSection = document.getElementById('solutions-section');
         solutionsSection.style.display = 'block';
 
-        // Render lại MathJax để các công thức Toán trong phần đáp án (được hiện ra) hiển thị sắc nét
+        // Render lại MathJax
         if (window.MathJax) {
             MathJax.typesetPromise();
         }
 
-        // Tự động cuộn trang xuống phần đáp án
+        // Tự động cuộn trang xuống
         solutionsSection.scrollIntoView({ behavior: 'smooth' });
     }
 </script>
