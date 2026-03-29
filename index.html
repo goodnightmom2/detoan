@@ -5,6 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Đề Thi Tuyển Sinh 10 - Môn Toán (Hệ Không Chuyên)</title>
     <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    
+    <script>
+        MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['$$', '$$'], ['\\[', '\\]']]
+            }
+        };
+    </script>
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <style>
         body {
@@ -134,10 +143,10 @@
             </div>
         </div>
         <div class="sub-question">
-            b) Rút gọn biểu thức $B=\left(\frac{1}{\sqrt{x}-1}-\frac{1}{\sqrt{x}+1}\right)\cdot\frac{x-1}{2}$ với $x\gt0$ và $x\neq1$.
+            b) Rút gọn biểu thức $B=\left(\frac{1}{\sqrt{x}-1}-\frac{1}{\sqrt{x}+1}\right)\cdot\frac{x-1}{2}$ với $x > 0$ và $x\neq1$.
             <div class="solution">
                 <div class="solution-title">Hướng dẫn giải:</div>
-                Với $x\gt0,x\neq1$, ta quy đồng trong ngoặc:<br>
+                Với $x > 0, x\neq1$, ta quy đồng trong ngoặc:<br>
                 $$B=\left(\frac{\sqrt{x}+1-(\sqrt{x}-1)}{(\sqrt{x}-1)(\sqrt{x}+1)}\right)\cdot\frac{x-1}{2}$$
                 $$B=\frac{2}{x-1}\cdot\frac{x-1}{2}=1$$
                 Vậy $B=1$.
@@ -159,7 +168,7 @@
             a) Giải phương trình $x^2-5x+6=0$.
             <div class="solution">
                 <div class="solution-title">Hướng dẫn giải:</div>
-                Ta có $\Delta=(-5)^2-4\cdot1\cdot6=25-24=1\gt0$.<br>
+                Ta có $\Delta=(-5)^2-4\cdot1\cdot6=25-24=1 > 0$.<br>
                 Phương trình có hai nghiệm phân biệt: $x_1=\frac{5+1}{2}=3$ và $x_2=\frac{5-1}{2}=2$.
             </div>
         </div>
@@ -176,7 +185,7 @@
             c) Tháng thứ nhất, cả hai đội làm được 1200 sản phẩm. Tháng thứ hai, đội I làm vượt mức 15% và đội II làm vượt mức 20% so với tháng thứ nhất. Vì vậy cả hai đội đã làm được 1525 sản phẩm. Hỏi tháng thứ nhất, mỗi đội làm được bao nhiêu sản phẩm?
             <div class="solution">
                 <div class="solution-title">Hướng dẫn giải:</div>
-                Gọi $x,y$ lần lượt là số sản phẩm làm được trong tháng thứ nhất của đội I và đội II ($x,y\in\mathbb{N}^*,x,y\lt1200$).<br>
+                Gọi $x,y$ lần lượt là số sản phẩm làm được trong tháng thứ nhất của đội I và đội II ($x,y\in\mathbb{N}^*,x,y < 1200$).<br>
                 Theo đề bài, ta có hệ phương trình:
                 $$\begin{cases}x+y=1200\\1,15x+1,2y=1525\end{cases}$$<br>
                 Giải hệ phương trình, ta được $x=350$ và $y=850$ (thỏa mãn).<br>
