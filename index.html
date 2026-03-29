@@ -9,11 +9,11 @@
     <style>
         body {
             font-family: 'Times New Roman', Times, serif;
-            line-height: 1.5;
-            max-width: 850px;
+            line-height: 1.6;
+            max-width: 900px;
             margin: 0 auto;
             padding: 20px;
-            color: #000;
+            color: #333;
         }
         .header-section {
             text-align: center;
@@ -21,14 +21,14 @@
         }
         .title-main {
             color: #d81b60;
-            font-size: 20px;
+            font-size: 22px;
             font-weight: bold;
             text-transform: uppercase;
             margin-bottom: 5px;
         }
         .title-sub {
             color: #2e7d32;
-            font-size: 16px;
+            font-size: 18px;
             font-weight: bold;
             font-style: italic;
             margin-bottom: 15px;
@@ -48,12 +48,13 @@
         }
         .question-title {
             font-weight: bold;
-            margin-top: 20px;
+            margin-top: 25px;
             margin-bottom: 10px;
+            font-size: 17px;
         }
         .sub-question {
             margin-left: 20px;
-            margin-bottom: 8px;
+            margin-bottom: 10px;
         }
         table {
             width: 80%;
@@ -68,7 +69,7 @@
         .image-box {
             width: 300px;
             height: 150px;
-            border: 1px solid #000;
+            border: 1px dashed #000;
             margin: 10px auto;
             display: flex;
             align-items: center;
@@ -76,6 +77,40 @@
             font-style: italic;
             color: #555;
             background-color: #f9f9f9;
+        }
+        
+        /* CSS cho nút nộp bài và phần đáp án */
+        .btn-submit {
+            display: block;
+            width: 200px;
+            margin: 40px auto;
+            padding: 15px;
+            background-color: #d81b60;
+            color: white;
+            font-size: 18px;
+            font-weight: bold;
+            text-align: center;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .btn-submit:hover {
+            background-color: #ad144b;
+        }
+        .solution {
+            display: none; /* Ẩn mặc định */
+            background-color: #e8f5e9;
+            padding: 15px;
+            margin-top: 10px;
+            margin-left: 20px;
+            border-left: 4px solid #2e7d32;
+            border-radius: 0 5px 5px 0;
+        }
+        .solution-title {
+            font-weight: bold;
+            color: #2e7d32;
+            margin-bottom: 10px;
         }
     </style>
 </head>
@@ -92,48 +127,111 @@
     <div class="exam-content">
         <div class="question-title">Câu 1 (1,5 điểm) Căn thức</div>
         <div class="sub-question">
-            a) Tính giá trị biểu thức $A = \sqrt{36} - \sqrt{9}$. [cite: 2]
+            a) Tính giá trị biểu thức $A = \sqrt{36} - \sqrt{9}$.
+            <div class="solution">
+                <div class="solution-title">Hướng dẫn giải:</div>
+                Ta có: $A = \sqrt{36} - \sqrt{9} = 6 - 3 = 3$.<br>
+                Vậy $A = 3$.
+            </div>
         </div>
         <div class="sub-question">
-            b) Rút gọn biểu thức $B = \left( \frac{1}{\sqrt{x} - 1} - \frac{1}{\sqrt{x} + 1} \right) \cdot \frac{x - 1}{2}$ với $x > 0$ và $x \neq 1$. [cite: 2, 35]
+            b) Rút gọn biểu thức $B = \left( \frac{1}{\sqrt{x} - 1} - \frac{1}{\sqrt{x} + 1} \right) \cdot \frac{x - 1}{2}$ với $x > 0$ và $x \neq 1$.
+            <div class="solution">
+                <div class="solution-title">Hướng dẫn giải:</div>
+                Với $x > 0, x \neq 1$, ta quy đồng trong ngoặc:<br>
+                $$B = \left( \frac{\sqrt{x} + 1 - (\sqrt{x} - 1)}{(\sqrt{x} - 1)(\sqrt{x} + 1)} \right) \cdot \frac{x - 1}{2}$$
+                $$B = \frac{2}{x - 1} \cdot \frac{x - 1}{2} = 1$$
+                Vậy $B = 1$.
+            </div>
         </div>
 
         <div class="question-title">Câu 2 (0,5 điểm) Hàm số và đồ thị</div>
         <div class="sub-question">
-            Trong mặt phẳng tọa độ $Oxy$, vẽ đồ thị của hàm số $y = x^2$. [cite: 116]
+            Trong mặt phẳng tọa độ $Oxy$, vẽ đồ thị của hàm số $y = x^2$.
+            <div class="solution">
+                <div class="solution-title">Hướng dẫn giải:</div>
+                - Lập bảng giá trị: Cho $x \in \{-2, -1, 0, 1, 2\}$, ta tính được $y \in \{4, 1, 0, 1, 4\}$.<br>
+                - Vẽ hệ trục tọa độ $Oxy$, xác định các điểm $(-2; 4), (-1; 1), (0; 0), (1; 1), (2; 4)$ và vẽ đường cong Parabol đi qua các điểm này. Đồ thị nhận trục $Oy$ làm trục đối xứng và bề lõm hướng lên trên. [cite: 138]
+            </div>
         </div>
 
         <div class="question-title">Câu 3 (1,5 điểm) Phương trình và hệ phương trình</div>
         <div class="sub-question">
-            a) Giải phương trình $x^2 - 5x + 6 = 0$. [cite: 116]
+            a) Giải phương trình $x^2 - 5x + 6 = 0$.
+            <div class="solution">
+                <div class="solution-title">Hướng dẫn giải:</div>
+                Ta có $\Delta = (-5)^2 - 4 \cdot 1 \cdot 6 = 25 - 24 = 1 > 0$.<br>
+                Phương trình có hai nghiệm phân biệt: $x_1 = \frac{5 + 1}{2} = 3$ và $x_2 = \frac{5 - 1}{2} = 2$.
+            </div>
         </div>
         <div class="sub-question">
-            b) Biết phương trình $x^2 - 3x + 1 = 0$ có hai nghiệm phân biệt $x_1$ và $x_2$. Tính giá trị của biểu thức $T = x_1^2 + x_2^2$. [cite: 122, 123]
+            b) Biết phương trình $x^2 - 3x + 1 = 0$ có hai nghiệm phân biệt $x_1$ và $x_2$. Tính giá trị của biểu thức $T = x_1^2 + x_2^2$.
+            <div class="solution">
+                <div class="solution-title">Hướng dẫn giải:</div>
+                Theo hệ thức Vi-ét, ta có: $x_1 + x_2 = 3$ và $x_1 x_2 = 1$.<br>
+                Biến đổi biểu thức: $T = x_1^2 + x_2^2 = (x_1 + x_2)^2 - 2x_1 x_2$.<br>
+                Thay số: $T = 3^2 - 2(1) = 9 - 2 = 7$.
+            </div>
         </div>
         <div class="sub-question">
-            c) Tháng thứ nhất, cả hai đội làm được 1200 sản phẩm. [cite: 5] Tháng thứ hai, đội I làm vượt mức 15% và đội II làm vượt mức 20% so với tháng thứ nhất. [cite: 6] Vì vậy cả hai đội đã làm được 1525 sản phẩm. [cite: 7] Hỏi tháng thứ nhất, mỗi đội làm được bao nhiêu sản phẩm? [cite: 8]
+            c) Tháng thứ nhất, cả hai đội làm được 1200 sản phẩm. Tháng thứ hai, đội I làm vượt mức 15% và đội II làm vượt mức 20% so với tháng thứ nhất. Vì vậy cả hai đội đã làm được 1525 sản phẩm. Hỏi tháng thứ nhất, mỗi đội làm được bao nhiêu sản phẩm?
+            <div class="solution">
+                <div class="solution-title">Hướng dẫn giải:</div>
+                Gọi $x, y$ lần lượt là số sản phẩm làm được trong tháng thứ nhất của đội I và đội II ($x, y \in \mathbb{N}^*$, $x,y < 1200$). [cite: 51]<br>
+                Theo đề bài, ta có hệ phương trình:
+                $$ \begin{cases} x + y = 1200 \\ 1,15x + 1,2y = 1525 \end{cases} $$ [cite: 51]<br>
+                Giải hệ phương trình, ta được $x = 350$ và $y = 850$ (thỏa mãn). [cite: 52]<br>
+                Vậy trong tháng thứ nhất, đội I làm được 350 sản phẩm và đội II làm được 850 sản phẩm. [cite: 52]
+            </div>
         </div>
 
         <div class="question-title">Câu 4 (1,0 điểm) Hình học trực quan</div>
         <div class="sub-question">
-            Tính thể tích, diện tích xung quanh và diện tích toàn phần của một hình trụ biết bán kính đáy bằng 5 cm và chiều cao bằng 15 cm. [cite: 121]
+            Tính thể tích, diện tích xung quanh và diện tích toàn phần của một hình trụ biết bán kính đáy bằng 5 cm và chiều cao bằng 15 cm.
+            <div class="solution">
+                <div class="solution-title">Hướng dẫn giải:</div>
+                Ta có: Bán kính đáy $R = 5$ cm, chiều cao $h = 15$ cm.<br>
+                - Thể tích hình trụ: $V = \pi R^2 h = \pi \cdot 5^2 \cdot 15 = 375\pi \text{ (cm}^3\text{)}$. [cite: 139]<br>
+                - Diện tích xung quanh: $S_{xq} = 2\pi R h = 2\pi \cdot 5 \cdot 15 = 150\pi \text{ (cm}^2\text{)}$. [cite: 139]<br>
+                - Diện tích toàn phần: $S_{tp} = S_{xq} + 2\pi R^2 = 150\pi + 2\pi \cdot 5^2 = 200\pi \text{ (cm}^2\text{)}$. [cite: 139]
+            </div>
         </div>
 
         <div class="question-title">Câu 5 (3,0 điểm) Hình học phẳng</div>
         <div class="sub-question">
-            a) Tính giá trị biểu thức $M = \sin 30^\circ + \cos 60^\circ$. [cite: 59] <span class="red-text">(0,5 điểm)</span>.
+            a) Tính giá trị biểu thức $M = \sin 30^\circ + \cos 60^\circ$. <span class="red-text">(0,5 điểm)</span>.
+            <div class="solution">
+                <div class="solution-title">Hướng dẫn giải:</div>
+                Ta có $\sin 30^\circ = \frac{1}{2}$ và $\cos 60^\circ = \frac{1}{2}$.<br>
+                Suy ra: $M = \frac{1}{2} + \frac{1}{2} = 1$.
+            </div>
         </div>
         <div class="sub-question">
-            b) Từ vị trí $C$ của một tòa nhà cao 50m, một tia sáng chiếu xuống một ô tô đang đỗ tại vị trí $B$, góc tạo bởi tia sáng và phương nằm ngang là $30^\circ$ (như hình bên). [cite: 60] Hỏi ô tô đỗ cách chân tòa nhà (ở vị trí $A$) là bao nhiêu mét? [cite: 61] (kết quả làm tròn đến hàng đơn vị). [cite: 62] <span class="red-text">(0,5 điểm)</span>.
-            <div class="image-box">[Hình minh họa ô tô đỗ cách chân tòa nhà]</div>
+            b) Từ vị trí $C$ của một tòa nhà cao 50m, một tia sáng chiếu xuống một ô tô đang đỗ tại vị trí $B$, góc tạo bởi tia sáng và phương nằm ngang là $30^\circ$ (như hình bên). Hỏi ô tô đỗ cách chân tòa nhà (ở vị trí $A$) là bao nhiêu mét? (kết quả làm tròn đến hàng đơn vị). <span class="red-text">(0,5 điểm)</span>.
+            <div class="image-box">[Hình minh họa tòa nhà $AC = 50m$, $\widehat{CBA} = 30^\circ$]</div>
+            <div class="solution">
+                <div class="solution-title">Hướng dẫn giải:</div>
+                Xét tam giác $ABC$ vuông tại $A$ có $AC = 50$m, $\widehat{CBA} = 30^\circ$. [cite: 67]<br>
+                Ta có: $\tan \widehat{CBA} = \frac{AC}{AB} \Rightarrow AB = \frac{AC}{\tan 30^\circ} = \frac{50}{\frac{\sqrt{3}}{3}} = 50\sqrt{3} \approx 87$ (m). [cite: 68]<br>
+                Vậy ô tô đỗ cách chân tòa nhà khoảng 87 mét. [cite: 68]
+            </div>
         </div>
         <div class="sub-question">
-            c) Cho tam giác $ABC$ vuông tại $A$. [cite: 129] Gọi $D, E$ lần lượt là trung điểm của cạnh $AC$ và $AB$. [cite: 130] Đường tròn đường kính $AC$ cắt cạnh $BC$ tại $F$. [cite: 131] Chứng minh $A, E, F, D$ cùng thuộc một đường tròn. [cite: 132] <span class="red-text">(2,0 điểm)</span>.
+            c) Cho tam giác $ABC$ vuông tại $A$. Gọi $D, E$ lần lượt là trung điểm của cạnh $AC$ và $AB$. Đường tròn đường kính $AC$ cắt cạnh $BC$ tại $F$. Chứng minh $A, E, F, D$ cùng thuộc một đường tròn. <span class="red-text">(2,0 điểm)</span>.
+            <div class="solution">
+                <div class="solution-title">Hướng dẫn giải:</div>
+                Do $F$ thuộc đường tròn đường kính $AC$ nên $\widehat{AFC} = 90^\circ$ (góc nội tiếp chắn nửa đường tròn). [cite: 141]<br>
+                Suy ra $\Delta AFB$ vuông tại $F$. Lại có $E$ là trung điểm của $AB$ nên $EF$ là đường trung tuyến ứng với cạnh huyền. Do đó $EF = EA = EB$ (tính chất trung tuyến). [cite: 141]<br>
+                Suy ra $\Delta AEF$ cân tại $E$, do đó $\widehat{EAF} = \widehat{EFA}$. [cite: 141]<br>
+                Chứng minh tương tự đối với $\Delta AFC$ vuông tại $F$ có $D$ là trung điểm $AC$, ta có $\Delta DAF$ cân tại $D$, suy ra $\widehat{DAF} = \widehat{DFA}$. [cite: 142]<br>
+                Ta có: $\widehat{DFE} = \widehat{DFA} + \widehat{EFA} = \widehat{DAF} + \widehat{EAF} = \widehat{DAE} = 90^\circ$. [cite: 142]<br>
+                Tứ giác $AEFD$ có $\widehat{DAE} = 90^\circ$ và $\widehat{DFE} = 90^\circ$, tổng hai góc đối bằng $180^\circ$ nên $A, E, F, D$ cùng thuộc đường tròn đường kính $DE$.
+            </div>
         </div>
 
         <div class="question-title">Câu 6 (1,5 điểm) Một số yếu tố Thống kê và Xác suất</div>
         <div class="sub-question">
-            a) Số lượt học sinh đi học trễ của các lớp trong một tuần được khảo sát tại một trường trung học cơ sở cho trong bảng sau: [cite: 117]
+            a) Số lượt học sinh đi học trễ của các lớp trong một tuần được khảo sát tại một trường trung học cơ sở cho trong bảng sau:
             <table>
                 <tr>
                     <th>Số lượt đi học trễ</th>
@@ -154,17 +252,64 @@
                     <td>1</td>
                 </tr>
             </table>
-            Hãy lập bảng tần số tương đối của mẫu số liệu trên. [cite: 119]
+            Hãy lập bảng tần số tương đối của mẫu số liệu trên.
+            <div class="solution">
+                <div class="solution-title">Hướng dẫn giải:</div>
+                Tổng số lớp khảo sát là: $N = 5 + 4 + 5 + 3 + 2 + 1 = 20$ (lớp). [cite: 139]<br>
+                Tần số tương đối cho các giá trị lần lượt là: [cite: 139]<br>
+                - 0 lượt: $\frac{5}{20} \cdot 100\% = 25\%$ [cite: 139]<br>
+                - 1 lượt: $\frac{4}{20} \cdot 100\% = 20\%$ [cite: 139]<br>
+                - 2 lượt: $\frac{5}{20} \cdot 100\% = 25\%$ [cite: 139]<br>
+                - 3 lượt: $\frac{3}{20} \cdot 100\% = 15\%$ [cite: 139]<br>
+                - 4 lượt: $\frac{2}{20} \cdot 100\% = 10\%$ [cite: 139]<br>
+                - 5 lượt: $\frac{1}{20} \cdot 100\% = 5\%$ [cite: 139]<br>
+            </div>
         </div>
         <div class="sub-question">
-            b) Chọn ngẫu nhiên một lớp. Tính xác suất của biến cố A: "Chọn được lớp không có học sinh đi trễ". [cite: 120]
+            b) Chọn ngẫu nhiên một lớp. Tính xác suất của biến cố A: "Chọn được lớp không có học sinh đi trễ".
+            <div class="solution">
+                <div class="solution-title">Hướng dẫn giải:</div>
+                Số kết quả thuận lợi cho biến cố A ("Lớp không có học sinh đi trễ" - tức là 0 lượt) là: 5. [cite: 139]<br>
+                Tổng số kết quả có thể xảy ra (tổng số lớp) là 20. [cite: 139]<br>
+                Xác suất của biến cố A là: $P(A) = \frac{5}{20} = 0,25$. [cite: 139]<br>
+                Vậy xác suất để chọn được lớp không có học sinh đi trễ là $25\%$. [cite: 139]
+            </div>
         </div>
 
         <div class="question-title">Câu 7 (1,0 điểm) Bất phương trình bậc nhất một ẩn</div>
         <div class="sub-question">
-            Đến ngày 31/05/2024, gia đình Bác An đã tiết kiệm được số tiền là 20 triệu đồng. [cite: 105] Sau thời điểm đó, mỗi tháng gia đình Bác An đều tiết kiệm được 3 triệu đồng. [cite: 106] Gia đình Bác An dự định mua một chiếc xe SH Mode để sử dụng với giá tối thiểu là 66 triệu đồng. [cite: 107] Hỏi sau ít nhất bao nhiêu tháng thì gia đình Bác An có thể mua được chiếc xe SH Mode đó bằng số tiền tiết kiệm được? [cite: 108]
+            Đến ngày 31/05/2024, gia đình Bác An đã tiết kiệm được số tiền là 20 triệu đồng. Sau thời điểm đó, mỗi tháng gia đình Bác An đều tiết kiệm được 3 triệu đồng. Gia đình Bác An dự định mua một chiếc xe SH Mode để sử dụng với giá tối thiểu là 66 triệu đồng. Hỏi sau ít nhất bao nhiêu tháng thì gia đình Bác An có thể mua được chiếc xe SH Mode đó bằng số tiền tiết kiệm được?
+            <div class="solution">
+                <div class="solution-title">Hướng dẫn giải:</div>
+                Gọi $x$ là số tháng tiết kiệm của gia đình Bác An để mua được chiếc xe ($x \in \mathbb{N}^*$). [cite: 110]<br>
+                Số tiền gia đình Bác An có được sau $x$ tháng tiết kiệm là: $20 + 3x$ (triệu đồng). [cite: 111]<br>
+                Theo đề bài, ta có bất phương trình: $20 + 3x \geq 66$. [cite: 111]<br>
+                $\Leftrightarrow 3x \geq 46$<br>
+                $\Leftrightarrow x \geq \frac{46}{3} \approx 15,33$. [cite: 112]<br>
+                Vì $x$ là số nguyên nên $x \geq 16$. [cite: 112]<br>
+                Vậy sau ít nhất 16 tháng thì gia đình Bác An có thể mua được chiếc xe SH Mode. [cite: 112]
+            </div>
         </div>
+
+        <button id="submitBtn" class="btn-submit" onclick="showSolutions()">Nộp Bài</button>
     </div>
 
+    <script>
+        function showSolutions() {
+            // Hiển thị tất cả các thẻ div có class 'solution'
+            const solutions = document.querySelectorAll('.solution');
+            solutions.forEach(function(sol) {
+                sol.style.display = 'block';
+            });
+            
+            // Ẩn nút "Nộp Bài" sau khi đã click
+            document.getElementById('submitBtn').style.display = 'none';
+
+            // Yêu cầu MathJax render lại (trong trường hợp công thức bị ẩn chưa được render)
+            if (typeof MathJax !== 'undefined') {
+                MathJax.typesetPromise();
+            }
+        }
+    </script>
 </body>
 </html>
