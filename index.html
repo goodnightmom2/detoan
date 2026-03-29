@@ -3,443 +3,168 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Đề Giữa Kì 2 Toán 9 - Cơ Bản (Đề Số 7)</title>
+    <title>Đề Thi Tuyển Sinh 10 - Môn Toán (Hệ Không Chuyên)</title>
     <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <script>
-      window.MathJax = {
-        tex: { inlineMath: [['$', '$'], ['\\(', '\\)']] }
-      };
-    </script>
     <style>
-        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #f2fbf9; color: #2c3e50; line-height: 1.6; padding: 20px; }
-        .container { max-width: 900px; margin: 0 auto; background: #fff; padding: 40px; border-radius: 12px; box-shadow: 0 8px 20px rgba(0,0,0,0.06); }
-        h1 { text-align: center; color: #008080; font-size: 26px; text-transform: uppercase; margin-bottom: 5px; }
-        h2 { text-align: center; color: #7f8c8d; font-size: 18px; font-weight: normal; margin-top: 0; margin-bottom: 30px; }
-        .header-info { display: flex; justify-content: space-between; border-bottom: 2px solid #008080; padding-bottom: 15px; margin-bottom: 30px; font-weight: bold; font-size: 16px; }
-        .timer { color: #fff; background: #e67e22; padding: 8px 20px; border-radius: 20px; display: inline-block; box-shadow: 0 4px 6px rgba(230, 126, 34, 0.3); }
-        .question-block { margin-bottom: 25px; padding: 20px; background: #fdfefe; border-left: 5px solid #008080; border-radius: 0 8px 8px 0; border: 1px solid #e8f6f3; box-shadow: 0 2px 5px rgba(0,0,0,0.02); }
-        .question-title { font-weight: bold; color: #008080; margin-bottom: 10px; font-size: 18px; }
-        .btn-submit { display: block; width: 100%; padding: 16px; background-color: #008080; color: white; border: none; border-radius: 8px; font-size: 18px; font-weight: bold; cursor: pointer; margin-top: 40px; transition: background 0.3s; box-shadow: 0 4px 6px rgba(0, 128, 128, 0.3); text-transform: uppercase; }
-        .btn-submit:hover { background-color: #006666; }
-        #solutions-section { display: none; margin-top: 50px; padding: 30px; background-color: #f4fbf9; border: 2px solid #008080; border-radius: 10px; }
-        .solution-title { color: #008080; text-align: center; border-bottom: 2px solid #008080; padding-bottom: 10px; margin-bottom: 25px; text-transform: uppercase; }
-        .solution-item { margin-bottom: 25px; padding-bottom: 20px; border-bottom: 1px dashed #bdc3c7; }
-        .solution-item:last-child { border-bottom: none; }
-        table.stats-table { width: 100%; text-align: center; border-collapse: collapse; margin: 15px 0; background-color: #fff; }
-        table.stats-table th, table.stats-table td { border: 1px solid #bdc3c7; padding: 12px; }
-        table.stats-table th { background-color: #e8f6f3; color: #008080; }
+        body {
+            font-family: 'Times New Roman', Times, serif;
+            line-height: 1.5;
+            max-width: 850px;
+            margin: 0 auto;
+            padding: 20px;
+            color: #000;
+        }
+        .header-section {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .title-main {
+            color: #d81b60;
+            font-size: 20px;
+            font-weight: bold;
+            text-transform: uppercase;
+            margin-bottom: 5px;
+        }
+        .title-sub {
+            color: #2e7d32;
+            font-size: 16px;
+            font-weight: bold;
+            font-style: italic;
+            margin-bottom: 15px;
+        }
+        .title-exam {
+            font-size: 18px;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+        .info-text {
+            font-style: italic;
+            margin-bottom: 10px;
+        }
+        .red-text {
+            color: red;
+            font-weight: bold;
+        }
+        .question-title {
+            font-weight: bold;
+            margin-top: 20px;
+            margin-bottom: 10px;
+        }
+        .sub-question {
+            margin-left: 20px;
+            margin-bottom: 8px;
+        }
+        table {
+            width: 80%;
+            margin: 15px auto;
+            border-collapse: collapse;
+        }
+        th, td {
+            border: 1px solid #000;
+            padding: 8px;
+            text-align: center;
+        }
+        .image-box {
+            width: 300px;
+            height: 150px;
+            border: 1px solid #000;
+            margin: 10px auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-style: italic;
+            color: #555;
+            background-color: #f9f9f9;
+        }
     </style>
 </head>
 <body>
 
-<div class="container">
-    <h1>ĐỀ KIỂM TRA GIỮA KÌ 2 - MÔN TOÁN 9 (ĐỀ SỐ 7)</h1>
-    <h2>Mức độ: Cơ Bản - Có điểm nhấn Hình học</h2>
-    
-    <div class="header-info">
-        <div>Họ và tên học sinh: .......................................................</div>
-        <div class="timer" id="timer">Thời gian: 90:00</div>
+    <div class="header-section">
+        <div class="title-main">PHẦN O. CẤU TRÚC THAM KHẢO</div>
+        <div class="title-sub">ĐỀ THI TUYỂN SINH VÀO LỚP 10 THPT<br>MÔN TOÁN (Không chuyên)</div>
+        <div class="title-exam">CẤU TRÚC ĐỀ THI KỲ THI TUYỂN SINH 10 HỆ KHÔNG CHUYÊN<br>NĂM HỌC 2026-2027 – Môn Toán</div>
+        <div class="info-text">(Kèm Công văn số: 707/SGDĐT-QLCL-GDTX ngày 03/02/2026 của Sở GD&ĐT)</div>
+        <div>Hình thức thi tự luận, đề thi gồm <span class="red-text">7 câu</span>; thang điểm 10; thời gian làm bài <span class="red-text">120 phút</span>.</div>
     </div>
 
-    <div id="exam-content">
-        <p><em>* Các em học sinh trình bày bài giải tự luận ra giấy. Sau khi làm xong hoặc hết thời gian, hãy nhấn "NỘP BÀI" để đối chiếu với đáp án chi tiết.</em></p>
-
-        <div class="question-block">
-            <div class="question-title">Bài 1 (2.0 điểm) - Hàm số và Đồ thị</div>
-            <p>Cho hàm số $y = -x^2$ có đồ thị là parabol (P).</p>
-            <p>a) Lập bảng giá trị và vẽ đồ thị (P).</p>
-            <p>b) Bằng phép tính, hãy cho biết các điểm $M(-1; -1)$ và $N(2; 4)$ có thuộc đồ thị (P) không?</p>
+    <div class="exam-content">
+        <div class="question-title">Câu 1 (1,5 điểm) Căn thức</div>
+        <div class="sub-question">
+            a) Tính giá trị biểu thức $A = \sqrt{36} - \sqrt{9}$. [cite: 2]
+        </div>
+        <div class="sub-question">
+            b) Rút gọn biểu thức $B = \left( \frac{1}{\sqrt{x} - 1} - \frac{1}{\sqrt{x} + 1} \right) \cdot \frac{x - 1}{2}$ với $x > 0$ và $x \neq 1$. [cite: 2, 35]
         </div>
 
-        <div class="question-block">
-            <div class="question-title">Bài 2 (2.0 điểm) - Giải phương trình bậc hai</div>
-            <p>Giải các phương trình bậc hai sau đây:</p>
-            <p>a) $x^2 + 6x + 5 = 0$</p>
-            <p>b) $3x^2 - 4x + 1 = 0$</p>
+        <div class="question-title">Câu 2 (0,5 điểm) Hàm số và đồ thị</div>
+        <div class="sub-question">
+            Trong mặt phẳng tọa độ $Oxy$, vẽ đồ thị của hàm số $y = x^2$. [cite: 116]
         </div>
 
-        <div class="question-block">
-            <div class="question-title">Bài 3 (2.0 điểm) - Thống kê</div>
-            <p>Thời gian đọc sách trong một tuần (đơn vị: phút) của 50 học sinh được giáo viên ghi lại trong bảng tần số ghép nhóm sau:</p>
-            <table class="stats-table">
+        <div class="question-title">Câu 3 (1,5 điểm) Phương trình và hệ phương trình</div>
+        <div class="sub-question">
+            a) Giải phương trình $x^2 - 5x + 6 = 0$. [cite: 116]
+        </div>
+        <div class="sub-question">
+            b) Biết phương trình $x^2 - 3x + 1 = 0$ có hai nghiệm phân biệt $x_1$ và $x_2$. Tính giá trị của biểu thức $T = x_1^2 + x_2^2$. [cite: 122, 123]
+        </div>
+        <div class="sub-question">
+            c) Tháng thứ nhất, cả hai đội làm được 1200 sản phẩm. [cite: 5] Tháng thứ hai, đội I làm vượt mức 15% và đội II làm vượt mức 20% so với tháng thứ nhất. [cite: 6] Vì vậy cả hai đội đã làm được 1525 sản phẩm. [cite: 7] Hỏi tháng thứ nhất, mỗi đội làm được bao nhiêu sản phẩm? [cite: 8]
+        </div>
+
+        <div class="question-title">Câu 4 (1,0 điểm) Hình học trực quan</div>
+        <div class="sub-question">
+            Tính thể tích, diện tích xung quanh và diện tích toàn phần của một hình trụ biết bán kính đáy bằng 5 cm và chiều cao bằng 15 cm. [cite: 121]
+        </div>
+
+        <div class="question-title">Câu 5 (3,0 điểm) Hình học phẳng</div>
+        <div class="sub-question">
+            a) Tính giá trị biểu thức $M = \sin 30^\circ + \cos 60^\circ$. [cite: 59] <span class="red-text">(0,5 điểm)</span>.
+        </div>
+        <div class="sub-question">
+            b) Từ vị trí $C$ của một tòa nhà cao 50m, một tia sáng chiếu xuống một ô tô đang đỗ tại vị trí $B$, góc tạo bởi tia sáng và phương nằm ngang là $30^\circ$ (như hình bên). [cite: 60] Hỏi ô tô đỗ cách chân tòa nhà (ở vị trí $A$) là bao nhiêu mét? [cite: 61] (kết quả làm tròn đến hàng đơn vị). [cite: 62] <span class="red-text">(0,5 điểm)</span>.
+            <div class="image-box">[Hình minh họa ô tô đỗ cách chân tòa nhà]</div>
+        </div>
+        <div class="sub-question">
+            c) Cho tam giác $ABC$ vuông tại $A$. [cite: 129] Gọi $D, E$ lần lượt là trung điểm của cạnh $AC$ và $AB$. [cite: 130] Đường tròn đường kính $AC$ cắt cạnh $BC$ tại $F$. [cite: 131] Chứng minh $A, E, F, D$ cùng thuộc một đường tròn. [cite: 132] <span class="red-text">(2,0 điểm)</span>.
+        </div>
+
+        <div class="question-title">Câu 6 (1,5 điểm) Một số yếu tố Thống kê và Xác suất</div>
+        <div class="sub-question">
+            a) Số lượt học sinh đi học trễ của các lớp trong một tuần được khảo sát tại một trường trung học cơ sở cho trong bảng sau: [cite: 117]
+            <table>
                 <tr>
-                    <th>Thời gian (phút)</th>
-                    <th>$[0; 20)$</th>
-                    <th>$[20; 40)$</th>
-                    <th>$[40; 60)$</th>
-                    <th>$[60; 80]$</th>
-                    <th>Tổng</th>
+                    <th>Số lượt đi học trễ</th>
+                    <td>0</td>
+                    <td>1</td>
+                    <td>2</td>
+                    <td>3</td>
+                    <td>4</td>
+                    <td>5</td>
                 </tr>
                 <tr>
-                    <td><strong>Số học sinh (n)</strong></td>
-                    <td>10</td>
-                    <td>20</td>
-                    <td>15</td>
+                    <th>Số lớp</th>
                     <td>5</td>
-                    <td><strong>N = 50</strong></td>
+                    <td>4</td>
+                    <td>5</td>
+                    <td>3</td>
+                    <td>2</td>
+                    <td>1</td>
                 </tr>
             </table>
-            <p>a) Tính tần số tương đối của từng nhóm và lập bảng tần số tương đối ghép nhóm.</p>
-            <p>b) Vẽ biểu đồ tần số tương đối ghép nhóm dạng cột (histogram).</p>
+            Hãy lập bảng tần số tương đối của mẫu số liệu trên. [cite: 119]
+        </div>
+        <div class="sub-question">
+            b) Chọn ngẫu nhiên một lớp. Tính xác suất của biến cố A: "Chọn được lớp không có học sinh đi trễ". [cite: 120]
         </div>
 
-        <div class="question-block">
-            <div class="question-title">Bài 4 (1.0 điểm) - Giải toán bằng cách lập phương trình</div>
-            <p>Một khu vườn hình chữ nhật có diện tích là 60 m². Biết chiều dài của khu vườn lớn hơn chiều rộng 4 m. Hãy tính chiều rộng và chiều dài của khu vườn đó.</p>
-        </div>
-
-        <div class="question-block">
-            <div class="question-title">Bài 5 (3.0 điểm) - Hình học (Tâm đường tròn nội tiếp)</div>
-            <p>Cho tam giác nhọn $ABC$ ($AB < AC$) có ba đường cao $AD, BE, CF$ cắt nhau tại trực tâm $H$.</p>
-            <p>a) Chứng minh tứ giác $AEHF$ là tứ giác nội tiếp.</p>
-            <p>b) Chứng minh tứ giác $BFEC$ là tứ giác nội tiếp.</p>
-            <p>c) Nối $D$ với $E, F$. Chứng minh rằng $H$ chính là tâm đường tròn nội tiếp của tam giác $DEF$.</p>
-        </div>
-
-        <button type="button" class="btn-submit" onclick="submitExam()">NỘP BÀI & XEM HƯỚNG DẪN GIẢI CHI TIẾT</button>
-    </div>
-
-    <div id="solutions-section">
-        <h2 class="solution-title">HƯỚNG DẪN CHẤM VÀ LỜI GIẢI CHI TIẾT</h2>
-        
-        <div class="solution-item">
-            <div class="question-title">Bài 1 (2.0 điểm)</div>
-            <p><strong>a) Vẽ đồ thị (1.0đ):</strong></p>
-            <ul>
-                <li>Lập bảng giá trị: Chọn $x \in \{-2; -1; 0; 1; 2\} \Rightarrow y \in \{-4; -1; 0; -1; -4\}$.</li>
-                <li>Vẽ Parabol (P) đi qua 5 điểm trên. Đồ thị nhận $Oy$ làm trục đối xứng, bề lõm hướng xuống dưới (do $a = -1 < 0$).</li>
-            </ul>
-            <p><strong>b) Kiểm tra điểm (1.0đ):</strong></p>
-            <ul>
-                <li><strong>Điểm $M(-1; -1)$:</strong> Thay $x = -1$ vào hàm số $y = -x^2$, ta có: $y = -(-1)^2 = -1$. Bằng đúng tung độ của M. Vậy điểm $M$ <strong>thuộc</strong> đồ thị (P).</li>
-                <li><strong>Điểm $N(2; 4)$:</strong> Thay $x = 2$ vào hàm số $y = -x^2$, ta có: $y = -(2)^2 = -4$. Giá trị này khác tung độ của N ($-4 \neq 4$). Vậy điểm $N$ <strong>không thuộc</strong> đồ thị (P).</li>
-            </ul>
-        </div>
-
-        <div class="solution-item">
-            <div class="question-title">Bài 2 (2.0 điểm)</div>
-            <p><strong>a) $x^2 + 6x + 5 = 0$ (1.0đ)</strong></p>
-            <p>Nhẩm nghiệm: Phương trình có các hệ số $a = 1, b = 6, c = 5$.<br>
-            Nhận thấy $a - b + c = 1 - 6 + 5 = 0$.<br>
-            Vậy phương trình có hai nghiệm: $x_1 = -1$ và $x_2 = -\frac{c}{a} = -5$.</p>
-
-            <p><strong>b) $3x^2 - 4x + 1 = 0$ (1.0đ)</strong></p>
-            <p>Nhẩm nghiệm: Phương trình có các hệ số $a = 3, b = -4, c = 1$.<br>
-            Nhận thấy $a + b + c = 3 + (-4) + 1 = 0$.<br>
-            Vậy phương trình có hai nghiệm: $x_1 = 1$ và $x_2 = \frac{c}{a} = \frac{1}{3}$.</p>
-        </div>
-
-        <div class="solution-item">
-            <div class="question-title">Bài 3 (2.0 điểm)</div>
-            <p><strong>a) Lập bảng tần số tương đối ghép nhóm (1.0đ):</strong></p>
-            <p>Cỡ mẫu $N = 50$. Áp dụng công thức $f_i = \frac{n_i}{N} \cdot 100\%$:</p>
-            <ul>
-                <li>Nhóm $[0; 20)$: $f_1 = \frac{10}{50} \cdot 100\% = 20\%$</li>
-                <li>Nhóm $[20; 40)$: $f_2 = \frac{20}{50} \cdot 100\% = 40\%$</li>
-                <li>Nhóm $[40; 60)$: $f_3 = \frac{15}{50} \cdot 100\% = 30\%$</li>
-                <li>Nhóm $[60; 80]$: $f_4 = \frac{5}{50} \cdot 100\% = 10\%$</li>
-            </ul>
-            <p><em>(Học sinh tự kẻ lại bảng gồm dòng Thời gian và dòng Tần số tương đối %)</em></p>
-            
-            <p><strong>b) Vẽ biểu đồ Histogram (1.0đ):</strong></p>
-            <p>Vẽ trục hoành là Thời gian (chia vạch 0, 20, 40, 60, 80). Vẽ trục tung là Tần số tương đối (%).<br>
-            Vẽ 4 cột liền kề có chiều cao lần lượt là: 20%, 40%, 30% và 10%.</p>
-        </div>
-
-        <div class="solution-item">
-            <div class="question-title">Bài 4 (1.0 điểm)</div>
-            <p>Gọi chiều rộng của khu vườn là $x$ (m). Điều kiện: $x > 0$.<br>
-            Chiều dài của khu vườn là: $x + 4$ (m).</p>
-            <p>Vì diện tích khu vườn bằng 60 m² nên ta có phương trình:<br>
-            $x(x + 4) = 60$<br>
-            $\Leftrightarrow x^2 + 4x - 60 = 0$</p>
-            <p>Giải phương trình ($\Delta' = 2^2 - 1.(-60) = 64 > 0, \sqrt{\Delta'} = 8$):<br>
-            $x_1 = -2 + 8 = 6$ (Thỏa mãn ĐK)<br>
-            $x_2 = -2 - 8 = -10$ (Loại)</p>
-            <p>Vậy chiều rộng là 6 m, chiều dài là $6 + 4 = 10$ m.</p>
-        </div>
-
-        <div class="solution-item">
-            <div class="question-title">Bài 5 (3.0 điểm)</div>
-            <p><strong>a) Chứng minh tứ giác AEHF nội tiếp (1.0đ)</strong><br>
-            Vì $BE, CF$ là các đường cao của $\Delta ABC$ nên $BE \perp AC$ và $CF \perp AB$.<br>
-            Suy ra $\widehat{AEH} = 90^\circ$ và $\widehat{AFH} = 90^\circ$.<br>
-            Xét tứ giác $AEHF$ có tổng hai góc đối: $\widehat{AEH} + \widehat{AFH} = 90^\circ + 90^\circ = 180^\circ$.<br>
-            Vậy $AEHF$ là tứ giác nội tiếp.</p>
-            
-            <p><strong>b) Chứng minh tứ giác BFEC nội tiếp (1.0đ)</strong><br>
-            Xét tứ giác $BFEC$ có:<br>
-            $\widehat{BFC} = 90^\circ$ (do $CF \perp AB$)<br>
-            $\widehat{BEC} = 90^\circ$ (do $BE \perp AC$)<br>
-            Hai đỉnh kề $F$ và $E$ cùng nhìn cạnh $BC$ dưới góc $90^\circ$.<br>
-            Vậy tứ giác $BFEC$ là tứ giác nội tiếp (đường tròn đường kính $BC$).</p>
-
-            <p><strong>c) Chứng minh H là tâm đường tròn nội tiếp tam giác DEF (1.0đ)</strong><br>
-            <em>Tâm đường tròn nội tiếp của một tam giác là giao điểm của 3 đường phân giác trong. Ta cần chứng minh $DA, EB, FC$ là các đường phân giác của $\Delta DEF$.</em><br>
-            - Xét tứ giác $CDHE$, có $\widehat{CDH} = 90^\circ$ ($AD \perp BC$) và $\widehat{CEH} = 90^\circ$ ($BE \perp AC$). Tổng 2 góc bằng $180^\circ$ nên $CDHE$ nội tiếp.<br>
-            $\Rightarrow \widehat{HDE} = \widehat{HCE}$ (hai góc nội tiếp cùng chắn cung $HE$). (1)<br>
-            - Xét tứ giác $BDHF$, có $\widehat{BDH} = 90^\circ$ và $\widehat{BFH} = 90^\circ$. Tổng bằng $180^\circ$ nên $BDHF$ nội tiếp.<br>
-            $\Rightarrow \widehat{HDF} = \widehat{HBF}$ (hai góc nội tiếp cùng chắn cung $HF$). (2)<br>
-            - Xét $\Delta ABE$ (vuông tại $E$) và $\Delta ACF$ (vuông tại $F$), có góc $\widehat{A}$ chung.<br>
-            $\Rightarrow \widehat{ABE} = \widehat{ACF}$ (cùng phụ với góc $\widehat{A}$). Hay $\widehat{HBF} = \widehat{HCE}$. (3)<br>
-            Từ (1), (2) và (3) suy ra $\widehat{HDF} = \widehat{HDE}$.<br>
-            Điều này chứng tỏ $DH$ là tia phân giác của góc $\widehat{FDE}$.<br>
-            - Chứng minh hoàn toàn tương tự, ta cũng có $EH$ là tia phân giác của góc $\widehat{DEF}$ và $FH$ là tia phân giác của góc $\widehat{DFE}$.<br>
-            Vì $H$ là giao điểm của các đường phân giác trong của tam giác $DEF$, nên $H$ chính là <strong>tâm đường tròn nội tiếp</strong> của tam giác $DEF$. (Điều phải chứng minh).</p>
+        <div class="question-title">Câu 7 (1,0 điểm) Bất phương trình bậc nhất một ẩn</div>
+        <div class="sub-question">
+            Đến ngày 31/05/2024, gia đình Bác An đã tiết kiệm được số tiền là 20 triệu đồng. [cite: 105] Sau thời điểm đó, mỗi tháng gia đình Bác An đều tiết kiệm được 3 triệu đồng. [cite: 106] Gia đình Bác An dự định mua một chiếc xe SH Mode để sử dụng với giá tối thiểu là 66 triệu đồng. [cite: 107] Hỏi sau ít nhất bao nhiêu tháng thì gia đình Bác An có thể mua được chiếc xe SH Mode đó bằng số tiền tiết kiệm được? [cite: 108]
         </div>
     </div>
-</div>
-
-<script>
-    let timeInSeconds = 5400; // 90 phút
-    let timerInterval = setInterval(updateTimer, 1000);
-
-    function updateTimer() {
-        let minutes = Math.floor(timeInSeconds / 60);
-        let seconds = timeInSeconds % 60;
-        document.getElementById('timer').innerText = `Thời gian: ${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
-        
-        if (timeInSeconds <= 0) {
-            clearInterval(timerInterval);
-            alert("Đã hết thời gian làm bài! Hệ thống tự động nộp bài và hiển thị đáp án.");
-            submitExam();
-        } else {
-            timeInSeconds--;
-        }
-    }
-
-    function submitExam() {
-        clearInterval(timerInterval);
-        document.getElementById('timer').innerText = "ĐÃ NỘP BÀI";
-        document.getElementById('timer').style.backgroundColor = "#27ae60";
-
-        document.querySelector('.btn-submit').style.display = 'none';
-
-        const solutionsSection = document.getElementById('solutions-section');
-        solutionsSection.style.display = 'block';
-
-        if (window.MathJax) {
-            MathJax.typesetPromise();
-        }
-
-        solutionsSection.scrollIntoView({ behavior: 'smooth' });
-    }
-</script>
-
-</body>
-</html>
-
-<div class="container">
-    <h1>ĐỀ KIỂM TRA GIỮA KÌ 2 - MÔN TOÁN 9 (ĐỀ SỐ 4)</h1>
-    <h2>Mức độ: Khá - Giỏi (Theo SGK Chân trời sáng tạo)</h2>
-    
-    <div class="header-info">
-        <div>Họ và tên học sinh: .......................................................</div>
-        <div class="timer" id="timer">Thời gian: 90:00</div>
-    </div>
-
-    <div id="exam-content">
-        <p><em>* Chú ý: Học sinh làm bài tự luận ra giấy kiểm tra. Trình bày rõ ràng, lập luận chặt chẽ. Khi làm xong, nhấn nút "NỘP BÀI" để đối chiếu với đáp án chi tiết.</em></p>
-
-        <div class="question-block">
-            <div class="question-title">Bài 1 (2.0 điểm) - Hàm số và Đồ thị</div>
-            <p>Cho hàm số $y = -\frac{1}{2}x^2$ có đồ thị là parabol (P).</p>
-            <p>a) Vẽ đồ thị (P) của hàm số trên hệ trục tọa độ Oxy.</p>
-            <p>b) Bằng phép tính, hãy tìm tọa độ các điểm thuộc đồ thị (P) biết tung độ của chúng bằng $-2$.</p>
-        </div>
-
-        <div class="question-block">
-            <div class="question-title">Bài 2 (2.0 điểm) - Phương trình bậc hai một ẩn</div>
-            <p>Giải các phương trình sau:</p>
-            <p>a) $3x^2 - 7x + 4 = 0$</p>
-            <p>b) $x^4 - 13x^2 + 36 = 0$ <em>(Phương trình trùng phương - Gợi ý: Đặt ẩn phụ $t = x^2$)</em></p>
-        </div>
-
-        <div class="question-block">
-            <div class="question-title">Bài 3 (2.0 điểm) - Thống kê: Biểu diễn số liệu ghép nhóm</div>
-            <p>Trong đợt kiểm tra thể lực, giáo viên thể dục đã ghi lại thời gian chạy cự ly 100m (tính bằng giây) của 50 học sinh lớp 9D và lập được bảng tần số ghép nhóm sau:</p>
-            <table class="stats-table">
-                <tr>
-                    <th>Thời gian (giây)</th>
-                    <th>$[12; 14)$</th>
-                    <th>$[14; 16)$</th>
-                    <th>$[16; 18)$</th>
-                    <th>$[18; 20]$</th>
-                    <th>Tổng</th>
-                </tr>
-                <tr>
-                    <td><strong>Số học sinh (n)</strong></td>
-                    <td>5</td>
-                    <td>15</td>
-                    <td>20</td>
-                    <td>10</td>
-                    <td><strong>N = 50</strong></td>
-                </tr>
-            </table>
-            <p>a) Lập bảng tần số tương đối ghép nhóm cho mẫu số liệu trên.</p>
-            <p>b) Vẽ biểu đồ tần số tương đối ghép nhóm dạng cột (histogram) biểu diễn dữ liệu thời gian chạy của học sinh lớp 9D.</p>
-        </div>
-
-        <div class="question-block">
-            <div class="question-title">Bài 4 (1.0 điểm) - Giải bài toán bằng cách lập phương trình</div>
-            <p>Một người đi xe máy từ điểm A đến điểm B cách nhau 60 km với vận tốc dự định. Khi đi từ B về A, người đó tăng vận tốc thêm 5 km/h so với lúc đi. Do đó, thời gian về ít hơn thời gian đi là 30 phút. Tính vận tốc dự định của người đi xe máy lúc đi từ A đến B.</p>
-        </div>
-
-        <div class="question-block">
-            <div class="question-title">Bài 5 (3.0 điểm) - Hình học tổng hợp</div>
-            <p>Từ điểm $M$ nằm ngoài đường tròn tâm $O$, kẻ hai tiếp tuyến $MA$ và $MB$ với đường tròn ($A, B$ là các tiếp điểm). Vẽ cát tuyến $MCD$ không đi qua tâm $O$ sao cho điểm $C$ nằm giữa $M$ và $D$; tia $MD$ nằm giữa hai tia $MA$ và $MO$.</p>
-            <p>a) Chứng minh tứ giác $MAOB$ là tứ giác nội tiếp.</p>
-            <p>b) Chứng minh $\Delta MAC \sim \Delta MDA$ và $MC \cdot MD = MA^2$.</p>
-            <p>c) Gọi $H$ là giao điểm của $AB$ và $MO$. Chứng minh $MC \cdot MD = MH \cdot MO$, từ đó suy ra tứ giác $CHOD$ là tứ giác nội tiếp.</p>
-        </div>
-
-        <button type="button" class="btn-submit" onclick="submitExam()">NỘP BÀI & XEM HƯỚNG DẪN CHẤM</button>
-    </div>
-
-    <div id="solutions-section">
-        <h2 class="solution-title">HƯỚNG DẪN CHẤM VÀ LỜI GIẢI CHI TIẾT</h2>
-        
-        <div class="solution-item">
-            <div class="question-title">Bài 1 (2.0 điểm)</div>
-            <p><strong>a) Vẽ đồ thị (1.0đ):</strong></p>
-            <ul>
-                <li>Lập bảng giá trị: Chọn $x \in \{-4; -2; 0; 2; 4\}$. Ta tính được $y \in \{-8; -2; 0; -2; -8\}$.</li>
-                <li>Vẽ Parabol (P) đi qua các điểm trên, nhận trục tung $Oy$ làm trục đối xứng. Bề lõm của đồ thị hướng xuống dưới do $a = -\frac{1}{2} < 0$, điểm cao nhất là gốc tọa độ $O(0;0)$.</li>
-            </ul>
-            <p><strong>b) Tìm tọa độ điểm (1.0đ):</strong></p>
-            <p>Gọi $M(x; y)$ là điểm thuộc (P). Do tung độ của điểm bằng $-2$ nên ta có $y = -2$.<br>
-            Thay $y = -2$ vào phương trình hàm số $y = -\frac{1}{2}x^2$, ta được:<br>
-            $-\frac{1}{2}x^2 = -2$<br>
-            $\Leftrightarrow x^2 = 4$<br>
-            $\Leftrightarrow x = 2$ hoặc $x = -2$.<br>
-            Vậy có hai điểm thỏa mãn yêu cầu bài toán là $(2; -2)$ và $(-2; -2)$.</p>
-        </div>
-
-        <div class="solution-item">
-            <div class="question-title">Bài 2 (2.0 điểm)</div>
-            <p><strong>a) $3x^2 - 7x + 4 = 0$ (1.0đ)</strong></p>
-            <p>Ta thấy phương trình có dạng $a + b + c = 3 + (-7) + 4 = 0$.<br>
-            Do đó, phương trình có hai nghiệm: <br>
-            $x_1 = 1$<br>
-            $x_2 = \frac{c}{a} = \frac{4}{3}$</p>
-
-            <p><strong>b) $x^4 - 13x^2 + 36 = 0$ (1.0đ)</strong></p>
-            <p>Đặt $t = x^2$ (điều kiện $t \ge 0$). Phương trình trở thành:<br>
-            $t^2 - 13t + 36 = 0$<br>
-            Tính $\Delta = (-13)^2 - 4.1.36 = 169 - 144 = 25 > 0$ ($\sqrt{\Delta} = 5$).<br>
-            Phương trình theo $t$ có 2 nghiệm phân biệt:<br>
-            $t_1 = \frac{13 + 5}{2} = 9$ (Thỏa mãn)<br>
-            $t_2 = \frac{13 - 5}{2} = 4$ (Thỏa mãn)<br>
-            - Với $t = 9 \Rightarrow x^2 = 9 \Leftrightarrow x = \pm 3$.<br>
-            - Với $t = 4 \Rightarrow x^2 = 4 \Leftrightarrow x = \pm 2$.<br>
-            Vậy phương trình ban đầu có tập nghiệm $S = \{-3; -2; 2; 3\}$.</p>
-        </div>
-
-        <div class="solution-item">
-            <div class="question-title">Bài 3 (2.0 điểm)</div>
-            <p><strong>a) Lập bảng tần số tương đối ghép nhóm (1.0đ):</strong></p>
-            <p>Áp dụng công thức $f_i = \frac{n_i}{N} \cdot 100\%$ (với cỡ mẫu $N = 50$):</p>
-            <ul>
-                <li>Nhóm $[12; 14)$: $f_1 = \frac{5}{50} \cdot 100\% = 10\%$</li>
-                <li>Nhóm $[14; 16)$: $f_2 = \frac{15}{50} \cdot 100\% = 30\%$</li>
-                <li>Nhóm $[16; 18)$: $f_3 = \frac{20}{50} \cdot 100\% = 40\%$</li>
-                <li>Nhóm $[18; 20]$: $f_4 = \frac{10}{50} \cdot 100\% = 20\%$</li>
-            </ul>
-            
-            <p><strong>b) Vẽ biểu đồ Histogram (1.0đ):</strong></p>
-            <p>Học sinh vẽ hệ trục toạ độ. Trục hoành biểu diễn Thời gian (giây), chia thành các mốc 12, 14, 16, 18, 20. Trục tung biểu diễn Tần số tương đối (%).<br>
-            Vẽ 4 cột hình chữ nhật liền kề, đáy nằm trên trục hoành, chiều cao tương ứng với các giá trị: 10%, 30%, 40% và 20%.</p>
-        </div>
-
-        <div class="solution-item">
-            <div class="question-title">Bài 4 (1.0 điểm)</div>
-            <p>Đổi: 30 phút = $\frac{1}{2}$ giờ.</p>
-            <p>Gọi vận tốc dự định của người đó đi từ A đến B là $x$ (km/h). Điều kiện: $x > 0$.<br>
-            Thời gian đi từ A đến B là: $\frac{60}{x}$ (giờ).</p>
-            <p>Vận tốc lúc về là: $x + 5$ (km/h).<br>
-            Thời gian đi từ B về A là: $\frac{60}{x+5}$ (giờ).</p>
-            <p>Vì thời gian về ít hơn thời gian đi 30 phút ($\frac{1}{2}$ giờ), ta có phương trình:<br>
-            $\frac{60}{x} - \frac{60}{x+5} = \frac{1}{2}$</p>
-            <p>Quy đồng và khử mẫu:<br>
-            $120(x + 5) - 120x = x(x + 5)$<br>
-            $\Leftrightarrow 120x + 600 - 120x = x^2 + 5x$<br>
-            $\Leftrightarrow x^2 + 5x - 600 = 0$</p>
-            <p>Giải phương trình ($\Delta = 5^2 - 4.1.(-600) = 2425$, $\sqrt{\Delta} = 50$, wait... $2425$ không phải bình phương đúng! Thử lại: $\Delta = 25 + 2400 = 2425$.<br>
-            <em>(Giải thích tính nhẩm: $x \cdot (x+5) = 600 \Rightarrow 20 \cdot 25 = 500$, $24 \cdot (29) = 696$ ... Tính lại số liệu: $60 / 20 = 3$ giờ, $60 / (20+5) = 60/25 = 2.4$ giờ. 3 - 2.4 = 0.6 giờ $\neq$ 0.5 giờ. Xin lỗi, ta kiểm tra phương trình: $\Delta = 25 - 4(-600) = 2425$ là số lẻ).</em></p>
-            <p>Thực ra, nếu $\Delta = 2425 \Rightarrow x = \frac{-5 \pm \sqrt{2425}}{2}$. Ở đề bài này, vận tốc sẽ có nghiệm chứa căn. (Nếu bài thi ra số đẹp thì $x^2 + 5x - 600 = 0$ ta dùng công thức nghiệm. Nghiệm đúng là: $x_1 = \frac{-5 + 5\sqrt{97}}{2} \approx 22.1$ km/h (Nhận); $x_2 = \frac{-5 - 5\sqrt{97}}{2}$ (Loại)).</p>
-            <p><em>(Ghi chú: Bài toán đánh giá khả năng giải quyết số liệu thực tế, học sinh giữ nguyên kết quả chứa căn).</em></p>
-        </div>
-
-        <div class="solution-item">
-            <div class="question-title">Bài 5 (3.0 điểm)</div>
-            <p><strong>a) Chứng minh tứ giác MAOB nội tiếp (1.0đ)</strong><br>
-            Do $MA, MB$ là hai tiếp tuyến của đường tròn $(O)$ nên $MA \perp OA$ và $MB \perp OB$.<br>
-            $\Rightarrow \widehat{MAO} = 90^\circ$ và $\widehat{MBO} = 90^\circ$.<br>
-            Xét tứ giác $MAOB$ có: $\widehat{MAO} + \widehat{MBO} = 90^\circ + 90^\circ = 180^\circ$.<br>
-            Mà đây là hai góc đối diện nên tứ giác $MAOB$ nội tiếp đường tròn (đường kính $MO$).</p>
-            
-            <p><strong>b) Chứng minh $MC \cdot MD = MA^2$ (1.0đ)</strong><br>
-            Xét $\Delta MAC$ và $\Delta MDA$ có:<br>
-            $\widehat{AMD}$ chung.<br>
-            $\widehat{MAC} = \widehat{MDA}$ (Góc tạo bởi tia tiếp tuyến và dây cung và góc nội tiếp cùng chắn cung $AC$).<br>
-            Suy ra $\Delta MAC \sim \Delta MDA$ (g-g).<br>
-            $\Rightarrow \frac{MA}{MD} = \frac{MC}{MA} \Rightarrow MA^2 = MC \cdot MD$ (1).</p>
-
-            <p><strong>c) Chứng minh tứ giác CHOD nội tiếp (1.0đ)</strong><br>
-            Theo tính chất hai tiếp tuyến cắt nhau, ta có $MO$ là đường trung trực của đoạn thẳng $AB \Rightarrow MO \perp AB$ tại $H$.<br>
-            Xét $\Delta MAO$ vuông tại $A$ (do $MA \perp OA$), đường cao $AH$.<br>
-            Áp dụng hệ thức lượng trong tam giác vuông: $MA^2 = MH \cdot MO$ (2).<br>
-            Từ (1) và (2) suy ra: $MC \cdot MD = MH \cdot MO \Rightarrow \frac{MC}{MO} = \frac{MH}{MD}$.<br>
-            Xét $\Delta MHC$ và $\Delta MDO$ có:<br>
-            $\widehat{OMD}$ chung.<br>
-            $\frac{MC}{MO} = \frac{MH}{MD}$ (chứng minh trên).<br>
-            Suy ra $\Delta MHC \sim \Delta MDO$ (c-g-c).<br>
-            $\Rightarrow \widehat{MHC} = \widehat{MDO}$ (hai góc tương ứng).<br>
-            Mà $\widehat{MHC} + \widehat{CHO} = 180^\circ$ (kề bù) $\Rightarrow \widehat{MDO} + \widehat{CHO} = 180^\circ$.<br>
-            Hay $\widehat{CDO} + \widehat{CHO} = 180^\circ$.<br>
-            Tứ giác $CHOD$ có tổng hai góc đối bằng $180^\circ$ nên là tứ giác nội tiếp.</p>
-        </div>
-    </div>
-</div>
-
-<script>
-    // Thiết lập thời gian (90 phút = 5400 giây)
-    let timeInSeconds = 5400;
-    let timerInterval = setInterval(updateTimer, 1000);
-
-    function updateTimer() {
-        let minutes = Math.floor(timeInSeconds / 60);
-        let seconds = timeInSeconds % 60;
-        document.getElementById('timer').innerText = `Thời gian: ${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
-        
-        if (timeInSeconds <= 0) {
-            clearInterval(timerInterval);
-            alert("Đã hết thời gian làm bài! Hệ thống tự động nộp bài và hiển thị đáp án.");
-            submitExam();
-        } else {
-            timeInSeconds--;
-        }
-    }
-
-    function submitExam() {
-        clearInterval(timerInterval);
-        document.getElementById('timer').innerText = "Đã nộp bài";
-        document.getElementById('timer').style.backgroundColor = "#1e8449";
-        document.getElementById('timer').style.color = "#fff";
-
-        document.querySelector('.btn-submit').style.display = 'none';
-
-        const solutionsSection = document.getElementById('solutions-section');
-        solutionsSection.style.display = 'block';
-
-        if (window.MathJax) {
-            MathJax.typesetPromise();
-        }
-
-        solutionsSection.scrollIntoView({ behavior: 'smooth' });
-    }
-</script>
 
 </body>
 </html>
