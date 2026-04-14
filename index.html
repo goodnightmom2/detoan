@@ -3,315 +3,233 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Đề Thi Tuyển Sinh 10 - Môn Toán (Đề số 2)</title>
-    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <title>Đề Thi Cuối Học Kỳ II - Toán 11</title>
     <style>
         body {
             font-family: 'Times New Roman', Times, serif;
             line-height: 1.6;
+            color: #000;
             max-width: 900px;
             margin: 0 auto;
-            padding: 20px;
-            color: #333;
+            padding: 30px;
+            background-color: #f4f6f8;
         }
-        .header-section {
+        .container {
+            background-color: #fff;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+        .header {
             text-align: center;
             margin-bottom: 30px;
+            border-bottom: 2px solid #2c3e50;
+            padding-bottom: 10px;
         }
-        .title-main {
-            color: #d81b60;
-            font-size: 22px;
+        h1 { font-size: 24px; color: #c0392b; margin: 5px 0;}
+        h2 { font-size: 18px; font-weight: normal; margin: 5px 0; font-style: italic; }
+        .section-title {
             font-weight: bold;
-            text-transform: uppercase;
-            margin-bottom: 5px;
-        }
-        .title-sub {
-            color: #2e7d32;
             font-size: 18px;
-            font-weight: bold;
-            font-style: italic;
+            margin-top: 30px;
             margin-bottom: 15px;
-        }
-        .title-exam {
-            font-size: 18px;
-            font-weight: bold;
             text-transform: uppercase;
+            color: #2980b9;
         }
-        .info-text {
-            font-style: italic;
-            margin-bottom: 10px;
-        }
-        .red-text {
-            color: red;
-            font-weight: bold;
-        }
-        .question-title {
-            font-weight: bold;
-            margin-top: 25px;
-            margin-bottom: 10px;
-            font-size: 17px;
-        }
-        .sub-question {
-            margin-left: 20px;
-            margin-bottom: 10px;
-        }
-        table {
-            width: 80%;
-            margin: 15px auto;
-            border-collapse: collapse;
-        }
-        th, td {
-            border: 1px solid #000;
-            padding: 8px;
-            text-align: center;
-        }
-        .image-box {
-            width: 300px;
-            height: 150px;
-            border: 1px dashed #000;
-            margin: 10px auto;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-style: italic;
-            color: #555;
-            background-color: #f9f9f9;
-        }
-        
-        .btn-submit {
-            display: block;
-            width: 200px;
-            margin: 40px auto;
-            padding: 15px;
-            background-color: #d81b60;
-            color: white;
-            font-size: 18px;
-            font-weight: bold;
-            text-align: center;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: background-color 0.3s;
-        }
-        .btn-submit:hover {
-            background-color: #ad144b;
-        }
-        .solution {
-            display: none;
-            background-color: #e8f5e9;
-            padding: 15px;
+        .instruction { font-style: italic; margin-bottom: 15px; color: #555; }
+        .question { margin-bottom: 20px; }
+        .question b { margin-right: 5px; }
+        .options {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
             margin-top: 10px;
-            margin-left: 20px;
-            border-left: 4px solid #2e7d32;
-            border-radius: 0 5px 5px 0;
-        }
-        .solution-title {
-            font-weight: bold;
-            color: #2e7d32;
             margin-bottom: 10px;
+            padding-left: 20px;
+        }
+        .true-false-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+        }
+        .true-false-table th, .true-false-table td {
+            border: 1px solid #bdc3c7;
+            padding: 10px;
+            text-align: left;
+        }
+        .true-false-table th { background-color: #ecf0f1; text-align: center; }
+        .tf-check { width: 80px; text-align: center !important; }
+        .short-answer-box {
+            margin-top: 10px;
+            padding: 10px 15px;
+            border: 1px dashed #7f8c8d;
+            background-color: #fdfdfd;
+        }
+        .footer {
+            text-align: center;
+            margin-top: 40px;
+            font-weight: bold;
         }
     </style>
+    <script>
+        MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['$$', '$$'], ['\\[', '\\]']]
+            }
+        };
+    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 </head>
 <body>
 
-    <div class="header-section">
-        <div class="title-main">PHẦN O. CẤU TRÚC THAM KHẢO</div>
-        <div class="title-sub">ĐỀ THI TUYỂN SINH VÀO LỚP 10 THPT<br>MÔN TOÁN (Không chuyên)</div>
-        <div class="title-exam">CẤU TRÚC ĐỀ THI KỲ THI TUYỂN SINH 10 HỆ KHÔNG CHUYÊN<br>NĂM HỌC 2026-2027 – Môn Toán (ĐỀ 2)</div>
-        <div>Hình thức thi tự luận, đề thi gồm <span class="red-text">7 câu</span>; thang điểm 10; thời gian làm bài <span class="red-text">120 phút</span>.</div>
+<div class="container">
+    <div class="header">
+        <h1>ĐỀ KIỂM TRA CUỐI HỌC KỲ II</h1>
+        <h2>Môn: Toán - Lớp 11 (Cấu trúc mới)</h2>
+        <h2>Thời gian làm bài: 90 phút (Không kể thời gian phát đề)</h2>
     </div>
 
-    <div class="exam-content">
-        <div class="question-title">Câu 1 (1,5 điểm) Căn thức</div>
-        <div class="sub-question">
-            a) Tính giá trị biểu thức $A = \sqrt{25} - \sqrt{16}$.
-            <div class="solution">
-                <div class="solution-title">Hướng dẫn giải:</div>
-                Ta có: $A = 5 - 4 = 1$.<br>
-                Vậy $A = 1$.
-            </div>
-        </div>
-        <div class="sub-question">
-            b) Rút gọn biểu thức $B = \left( \frac{1}{\sqrt{x}-1} + \frac{1}{\sqrt{x}+1} \right) \cdot \frac{x-1}{\sqrt{x}}$ với $x \gt 0$ và $x \neq 1$.
-            <div class="solution">
-                <div class="solution-title">Hướng dẫn giải:</div>
-                Với $x \gt 0, x \neq 1$, ta quy đồng biểu thức trong ngoặc:<br>
-                $$B = \left( \frac{\sqrt{x}+1 + \sqrt{x}-1}{(\sqrt{x}-1)(\sqrt{x}+1)} \right) \cdot \frac{x-1}{\sqrt{x}}$$
-                $$B = \frac{2\sqrt{x}}{x-1} \cdot \frac{x-1}{\sqrt{x}} = 2$$
-                Vậy $B = 2$.
-            </div>
-        </div>
+    <div class="section-title">PHẦN I. Câu trắc nghiệm nhiều phương án lựa chọn (10 Câu)</div>
+    <div class="instruction">Thí sinh trả lời từ câu 1 đến câu 10. Mỗi câu hỏi thí sinh chỉ chọn một phương án.</div>
 
-        <div class="question-title">Câu 2 (0,5 điểm) Hàm số và đồ thị</div>
-        <div class="sub-question">
-            Trong mặt phẳng tọa độ $Oxy$, vẽ đồ thị của hàm số $y = \frac{1}{2}x^2$.
-            <div class="solution">
-                <div class="solution-title">Hướng dẫn giải:</div>
-                - Lập bảng giá trị: Cho $x \in \{-4, -2, 0, 2, 4\}$, ta tính được tương ứng $y \in \{8, 2, 0, 2, 8\}$.<br>
-                - Đồ thị là đường cong Parabol đi qua các điểm $(-4; 8), (-2; 2), (0; 0), (2; 2), (4; 8)$.<br>
-                - Đồ thị nhận trục $Oy$ làm trục đối xứng và bề lõm hướng lên trên do hệ số $a = \frac{1}{2} \gt 0$.
-            </div>
+    <div class="question">
+        <b>Câu 1:</b> Với $a$ là số thực dương tùy ý, biểu thức $a^4 \cdot a^3$ bằng:
+        <div class="options">
+            <div>A. $a^{12}$</div><div>B. $a^7$</div><div>C. $a^1$</div><div>D. $a^{4/3}$</div>
         </div>
-
-        <div class="question-title">Câu 3 (1,5 điểm) Phương trình và hệ phương trình</div>
-        <div class="sub-question">
-            a) Giải phương trình $x^2 - 4x + 3 = 0$.
-            <div class="solution">
-                <div class="solution-title">Hướng dẫn giải:</div>
-                Phương trình có các hệ số $a = 1, b = -4, c = 3$.<br>
-                Nhận thấy $a + b + c = 1 + (-4) + 3 = 0$.<br>
-                Suy ra phương trình có hai nghiệm phân biệt: $x_1 = 1$ và $x_2 = \frac{c}{a} = 3$.
-            </div>
-        </div>
-        <div class="sub-question">
-            b) Biết phương trình $x^2 - 5x + 3 = 0$ có hai nghiệm phân biệt $x_1$ và $x_2$. Không giải phương trình, hãy tính giá trị của biểu thức $T = x_1^2 + x_2^2$.
-            <div class="solution">
-                <div class="solution-title">Hướng dẫn giải:</div>
-                Theo hệ thức Vi-ét, ta có: $x_1 + x_2 = 5$ và $x_1x_2 = 3$.<br>
-                Biến đổi biểu thức: $T = x_1^2 + x_2^2 = (x_1 + x_2)^2 - 2x_1x_2$.<br>
-                Thay số: $T = 5^2 - 2 \cdot 3 = 25 - 6 = 19$.
-            </div>
-        </div>
-        <div class="sub-question">
-            c) Trước khi sắp xếp, một tỉnh có tất cả 94 đơn vị hành chính cấp xã (gọi tắt là đơn vị). Sau khi sắp xếp, tỉnh dự kiến có 36 đơn vị. Trong đó có 2 đơn vị mới mà mỗi đơn vị được sáp nhập từ 5 đơn vị cũ và có 4 đơn vị mới mà mỗi đơn vị được sáp nhập từ 4 đơn vị cũ. Hỏi có bao nhiêu đơn vị mới mà mỗi đơn vị được sáp nhập từ 2 đơn vị cũ và bao nhiêu đơn vị được sáp nhập từ 3 đơn vị cũ? (Biết không còn trường hợp nào khác).
-            <div class="solution">
-                <div class="solution-title">Hướng dẫn giải:</div>
-                Số đơn vị cũ đã dùng cho nhóm sáp nhập 5 và 4 là: $2 \cdot 5 + 4 \cdot 4 = 10 + 16 = 26$ (đơn vị).<br>
-                Số đơn vị cũ còn lại để sáp nhập là: $94 - 26 = 68$ (đơn vị).<br>
-                Số đơn vị mới còn lại là: $36 - (2 + 4) = 30$ (đơn vị).<br>
-                Gọi $x, y$ lần lượt là số đơn vị mới được sáp nhập từ 2 và 3 đơn vị cũ ($x, y \in \mathbb{N}^*$).<br>
-                Ta có hệ phương trình:
-                $$\begin{cases} x + y = 30 \\ 2x + 3y = 68 \end{cases}$$<br>
-                Giải hệ ta được: $x = 22$ và $y = 8$.<br>
-                Vậy có 22 đơn vị sáp nhập từ 2 đơn vị cũ, và 8 đơn vị sáp nhập từ 3 đơn vị cũ.
-            </div>
-        </div>
-
-        <div class="question-title">Câu 4 (1,0 điểm) Hình học trực quan</div>
-        <div class="sub-question">
-            Một công ty sữa muốn làm nhãn mác cho hộp đựng sữa có dạng hình trụ. Mỗi hộp sữa có đường kính đáy 20 cm và chiều cao 30 cm. Khi đó cần dùng ít nhất bao nhiêu $cm^2$ giấy để dán phủ kín mặt xung quanh của 50 hộp sữa? (Lấy $\pi \approx 3,14$).
-            <div class="solution">
-                <div class="solution-title">Hướng dẫn giải:</div>
-                Bán kính đáy của hộp sữa là: $R = \frac{20}{2} = 10$ (cm).<br>
-                Diện tích xung quanh của một hộp sữa là: $S_{xq} = 2\pi R h = 2 \cdot \pi \cdot 10 \cdot 30 = 600\pi$ ($cm^2$).<br>
-                Diện tích giấy cần dùng cho 50 hộp là: $50 \cdot 600\pi = 30000\pi \approx 30000 \cdot 3,14 = 94200$ ($cm^2$).
-            </div>
-        </div>
-
-        <div class="question-title">Câu 5 (3,0 điểm) Hình học phẳng</div>
-        <div class="sub-question">
-            a) Tính giá trị biểu thức $M = \sin^2 30^\circ + \sin^2 60^\circ$. <span class="red-text">(0,5 điểm)</span>.
-            <div class="solution">
-                <div class="solution-title">Hướng dẫn giải:</div>
-                Ta có $\sin 60^\circ = \cos 30^\circ$ (hai góc phụ nhau).<br>
-                Nên $M = \sin^2 30^\circ + \cos^2 30^\circ = 1$.
-            </div>
-        </div>
-        <div class="sub-question">
-            b) Một cái thang dài 3,5m đặt gác lên một bức tường sao cho chân thang cách chân tường một khoảng 1,2m. Tính góc tạo bởi cái thang và phương nằm ngang (kết quả làm tròn đến độ). <span class="red-text">(0,5 điểm)</span>.
-            <div class="solution">
-                <div class="solution-title">Hướng dẫn giải:</div>
-                Giả sử chiếc thang là đoạn $AB = 3,5$m, chân thang cách tường là đoạn $BC = 1,2$m, tường vuông góc với mặt đất tại $C$.<br>
-                Xét tam giác $ABC$ vuông tại $C$, góc tạo bởi thang và mặt đất là góc $\widehat{ABC}$.<br>
-                Ta có $\cos \widehat{ABC} = \frac{BC}{AB} = \frac{1,2}{3,5} = \frac{12}{35}$.<br>
-                Bấm máy tính suy ra $\widehat{ABC} \approx 70^\circ$.
-            </div>
-        </div>
-        <div class="sub-question">
-            c) Cho tam giác $ABC$ vuông tại $A$. Vẽ đường tròn $(I)$ đường kính $AB$ và đường tròn $(K)$ đường kính $AC$. Gọi $D$ là giao điểm khác $A$ của hai đường tròn $(I)$ và $(K)$. <br>
-            1. Chứng minh rằng $D$ nằm trên cạnh huyền $BC$ của tam giác $ABC$.<br>
-            2. Chứng minh tứ giác $AIDK$ nội tiếp được một đường tròn. <span class="red-text">(2,0 điểm)</span>.
-            <div class="solution">
-                <div class="solution-title">Hướng dẫn giải:</div>
-                1. Ta có $D$ thuộc đường tròn $(I)$ đường kính $AB$ nên $\widehat{ADB} = 90^\circ$ (góc nội tiếp chắn nửa đường tròn).<br>
-                Tương tự, $D$ thuộc đường tròn $(K)$ đường kính $AC$ nên $\widehat{ADC} = 90^\circ$.<br>
-                Suy ra $\widehat{BDC} = \widehat{ADB} + \widehat{ADC} = 90^\circ + 90^\circ = 180^\circ$.<br>
-                Do đó 3 điểm $B, D, C$ thẳng hàng. Suy ra $D$ nằm trên cạnh huyền $BC$.<br><br>
-                2. Xét $\Delta AIK$ và $\Delta DIK$ có:<br>
-                $IA = ID$ (cùng là bán kính đường tròn $(I)$)<br>
-                $KA = KD$ (cùng là bán kính đường tròn $(K)$)<br>
-                Cạnh $IK$ chung.<br>
-                Suy ra $\Delta AIK = \Delta DIK$ (c-c-c) $\Rightarrow \widehat{IAK} = \widehat{IDK}$.<br>
-                Mà $\widehat{IAK} = 90^\circ$ (do tam giác ABC vuông tại A).<br>
-                Nên $\widehat{IDK} = 90^\circ$.<br>
-                Tứ giác $AIDK$ có $\widehat{IAK} + \widehat{IDK} = 90^\circ + 90^\circ = 180^\circ$ nên là tứ giác nội tiếp.
-            </div>
-        </div>
-
-        <div class="question-title">Câu 6 (1,5 điểm) Một số yếu tố Thống kê và Xác suất</div>
-        <div class="sub-question">
-            a) Một chủ trang trại cân ngẫu nhiên 40 quả dưa hấu để ước tính năng suất và thu được bảng tần số sau:
-            <table>
-                <tr>
-                    <th>Khối lượng (kg)</th>
-                    <td>1,5</td>
-                    <td>2,0</td>
-                    <td>2,5</td>
-                    <td>3,0</td>
-                    <td>3,5</td>
-                </tr>
-                <tr>
-                    <th>Tần số (số quả)</th>
-                    <td>3</td>
-                    <td>8</td>
-                    <td>12</td>
-                    <td>9</td>
-                    <td>8</td>
-                </tr>
-            </table>
-            Hãy cho biết khối lượng nào có tần số lớn nhất và tính tần số tương đối của khối lượng đó.
-            <div class="solution">
-                <div class="solution-title">Hướng dẫn giải:</div>
-                Dựa vào bảng, khối lượng $2,5$ kg có tần số lớn nhất là $12$.<br>
-                Tần số tương đối của giá trị $2,5$ kg là: $f = \frac{12}{40} \cdot 100\% = 30\%$.
-            </div>
-        </div>
-        <div class="sub-question">
-            b) Lớp 9A có 30 học sinh trong đó có 12 học sinh giỏi môn Toán. Chọn ngẫu nhiên một học sinh. Tính xác suất để học sinh được chọn là học sinh giỏi môn Toán.
-            <div class="solution">
-                <div class="solution-title">Hướng dẫn giải:</div>
-                Số kết quả thuận lợi cho biến cố "Chọn được học sinh giỏi Toán" là 12.<br>
-                Tổng số học sinh là 30 nên số kết quả có thể xảy ra là 30.<br>
-                Xác suất cần tìm là: $P = \frac{12}{30} = \frac{2}{5} = 0,4$ (hay $40\%$).
-            </div>
-        </div>
-
-        <div class="question-title">Câu 7 (1,0 điểm) Bất phương trình bậc nhất một ẩn</div>
-        <div class="sub-question">
-            Một chiếc xe tải có tải trọng (khối lượng hàng hóa tối đa có thể chở) là 5 tấn. Trên xe hiện đang có sẵn 2000 kg hàng hóa. Người ta muốn xếp thêm các kiện hàng lên xe, biết mỗi kiện hàng nặng 500 kg. Hỏi có thể xếp thêm lên xe nhiều nhất bao nhiêu kiện hàng nữa để không vượt quá tải trọng của xe?
-            <div class="solution">
-                <div class="solution-title">Hướng dẫn giải:</div>
-                Đổi 5 tấn = 5000 kg.<br>
-                Gọi $x$ là số kiện hàng có thể xếp thêm ($x \in \mathbb{N}^*$).<br>
-                Khối lượng của $x$ kiện hàng là $500x$ (kg).<br>
-                Theo đề bài, tổng khối lượng hàng hóa không được vượt quá 5000 kg nên ta có bất phương trình:<br>
-                $$2000 + 500x \le 5000$$
-                $$\Leftrightarrow 500x \le 3000$$
-                $$\Leftrightarrow x \le 6$$
-                Vậy có thể xếp thêm lên xe nhiều nhất là 6 kiện hàng.
-            </div>
-        </div>
-
-        <button id="submitBtn" class="btn-submit" onclick="showSolutions()">Nộp Bài</button>
     </div>
 
-    <script>
-        function showSolutions() {
-            // Hiển thị tất cả các thẻ div có class 'solution'
-            const solutions = document.querySelectorAll('.solution');
-            solutions.forEach(function(sol) {
-                sol.style.display = 'block';
-            });
-            
-            // Ẩn nút "Nộp Bài" sau khi đã click
-            document.getElementById('submitBtn').style.display = 'none';
+    <div class="question">
+        <b>Câu 2:</b> Cho $a > 0, a \neq 1$ và $x, y > 0$. Mệnh đề nào sau đây đúng?
+        <div class="options">
+            <div>A. $\log_a(xy) = \log_a x \cdot \log_a y$</div><div>B. $\log_a(x+y) = \log_a x + \log_a y$</div>
+            <div>C. $\log_a(xy) = \log_a x + \log_a y$</div><div>D. $\log_a \frac{x}{y} = \frac{\log_a x}{\log_a y}$</div>
+        </div>
+    </div>
 
-            // Yêu cầu MathJax render lại
-            if (typeof MathJax !== 'undefined') {
-                MathJax.typesetPromise();
-            }
-        }
-    </script>
+    <div class="question">
+        <b>Câu 3:</b> Hàm số nào dưới đây là hàm số mũ?
+        <div class="options">
+            <div>A. $y = x^3$</div><div>B. $y = 3^x$</div><div>C. $y = \log_3 x$</div><div>D. $y = x^{\frac{1}{3}}$</div>
+        </div>
+    </div>
+
+    <div class="question">
+        <b>Câu 4:</b> Đạo hàm của hàm số $y = x^5$ là:
+        <div class="options">
+            <div>A. $y' = 5x^4$</div><div>B. $y' = 4x^5$</div><div>C. $y' = \frac{x^6}{6}$</div><div>D. $y' = 5x$</div>
+        </div>
+    </div>
+
+    <div class="question">
+        <b>Câu 5:</b> Đạo hàm của hàm số $y = \cos x$ là:
+        <div class="options">
+            <div>A. $y' = \sin x$</div><div>B. $y' = -\sin x$</div><div>C. $y' = \frac{1}{\cos^2 x}$</div><div>D. $y' = -\cos x$</div>
+        </div>
+    </div>
+
+    <div class="question">
+        <b>Câu 6:</b> Công thức tính thể tích $V$ của khối chóp có diện tích đáy $S$ và chiều cao $h$ là:
+        <div class="options">
+            <div>A. $V = Sh$</div><div>B. $V = \frac{1}{2}Sh$</div><div>C. $V = \frac{1}{3}Sh$</div><div>D. $V = 3Sh$</div>
+        </div>
+    </div>
+
+    <div class="question">
+        <b>Câu 7:</b> Hai đường thẳng $a$ và $b$ trong không gian được gọi là vuông góc với nhau nếu góc giữa chúng bằng:
+        <div class="options">
+            <div>A. $30^\circ$</div><div>B. $45^\circ$</div><div>C. $60^\circ$</div><div>D. $90^\circ$</div>
+        </div>
+    </div>
+
+    <div class="question">
+        <b>Câu 8:</b> Cho hai biến cố $A$ và $B$ độc lập với nhau. Khẳng định nào sau đây là đúng?
+        <div class="options">
+            <div>A. $P(AB) = P(A) + P(B)$</div><div>B. $P(AB) = P(A) \cdot P(B)$</div>
+            <div>C. $P(A \cup B) = P(A) \cdot P(B)$</div><div>D. $P(A \cup B) = P(A) + P(B)$</div>
+        </div>
+    </div>
+
+    <div class="question">
+        <b>Câu 9:</b> Nghiệm của phương trình $2^x = 8$ là:
+        <div class="options">
+            <div>A. $x = 2$</div><div>B. $x = 3$</div><div>C. $x = 4$</div><div>D. $x = 8$</div>
+        </div>
+    </div>
+
+    <div class="question">
+        <b>Câu 10:</b> Một hộp có 10 tấm thẻ được đánh số từ 1 đến 10. Chọn ngẫu nhiên một tấm thẻ, xác suất để chọn được thẻ mang số chẵn là:
+        <div class="options">
+            <div>A. $\frac{1}{2}$</div><div>B. $\frac{1}{5}$</div><div>C. $\frac{2}{5}$</div><div>D. $\frac{3}{5}$</div>
+        </div>
+    </div>
+
+    <div class="section-title">PHẦN II. Câu trắc nghiệm đúng sai (3 Câu)</div>
+    <div class="instruction">Thí sinh xét tính Đúng hoặc Sai của từng ý a), b), c), d) trong mỗi câu.</div>
+
+    <div class="question">
+        <b>Câu 11:</b> Cho hàm số $f(x) = \frac{1}{3}x^3 - x^2 - 3x + 1$ có đồ thị là $(C)$.
+        <table class="true-false-table">
+            <tr><th>Mệnh đề</th><th class="tf-check">Đúng</th><th class="tf-check">Sai</th></tr>
+            <tr><td>a) Đạo hàm của hàm số là $f'(x) = x^2 - 2x - 3$.</td><td></td><td></td></tr>
+            <tr><td>b) Phương trình $f'(x) = 0$ có 2 nghiệm phân biệt là $x = -1$ và $x = 3$.</td><td></td><td></td></tr>
+            <tr><td>c) Tập nghiệm của bất phương trình $f'(x) \le 0$ là khoảng $(-1; 3)$.</td><td></td><td></td></tr>
+            <tr><td>d) Hệ số góc của tiếp tuyến của đồ thị $(C)$ tại điểm có hoành độ $x_0 = 0$ bằng $1$.</td><td></td><td></td></tr>
+        </table>
+    </div>
+
+    <div class="question">
+        <b>Câu 12:</b> Cho hình chóp $S.ABC$ có đáy $ABC$ là tam giác vuông tại $B$. Cạnh bên $SA$ vuông góc với mặt phẳng đáy $(ABC)$. Gọi $H$ là hình chiếu vuông góc của $A$ lên $SB$.
+        <table class="true-false-table">
+            <tr><th>Mệnh đề</th><th class="tf-check">Đúng</th><th class="tf-check">Sai</th></tr>
+            <tr><td>a) Đường thẳng $BC$ vuông góc với mặt phẳng $(SAB)$.</td><td></td><td></td></tr>
+            <tr><td>b) Góc giữa đường thẳng $SC$ và mặt phẳng đáy là góc $\widehat{SCA}$.</td><td></td><td></td></tr>
+            <tr><td>c) Đường thẳng $AH$ vuông góc với mặt phẳng $(SBC)$.</td><td></td><td></td></tr>
+            <tr><td>d) Khoảng cách từ điểm $A$ đến mặt phẳng $(SBC)$ chính là độ dài đoạn thẳng $AB$.</td><td></td><td></td></tr>
+        </table>
+    </div>
+
+    <div class="question">
+        <b>Câu 13:</b> Hai cầu thủ thực hiện sút phạt đền, mỗi người sút một quả. Xác suất sút trúng gôn của cầu thủ A là $0,8$; của cầu thủ B là $0,7$. Biết rằng hai biến cố sút trúng gôn của hai cầu thủ là độc lập.
+        <table class="true-false-table">
+            <tr><th>Mệnh đề</th><th class="tf-check">Đúng</th><th class="tf-check">Sai</th></tr>
+            <tr><td>a) Xác suất để cả hai cầu thủ cùng sút trúng gôn là $0,56$.</td><td></td><td></td></tr>
+            <tr><td>b) Xác suất để cầu thủ A trúng gôn và cầu thủ B trượt gôn là $0,24$.</td><td></td><td></td></tr>
+            <tr><td>c) Xác suất để có đúng một cầu thủ sút trúng gôn là $0,38$.</td><td></td><td></td></tr>
+            <tr><td>d) Xác suất để có ít nhất một cầu thủ sút trúng gôn là $0,95$.</td><td></td><td></td></tr>
+        </table>
+    </div>
+
+    <div class="section-title">PHẦN III. Câu trắc nghiệm trả lời ngắn (3 Câu - Toán thực tế)</div>
+    <div class="instruction">Thí sinh thực hiện giải quyết bài toán thực tế và điền kết quả cuối cùng vào ô trả lời.</div>
+
+    <div class="question">
+        <b>Câu 14 (Ứng dụng Đạo hàm):</b> Một chất điểm chuyển động theo phương trình $s(t) = -\frac{1}{3}t^3 + 4t^2 + 20t$, trong đó quãng đường $s$ tính bằng mét và thời gian $t$ tính bằng giây kể từ lúc bắt đầu chuyển động ($t > 0$). Hỏi trong quá trình chuyển động, vận tốc lớn nhất mà chất điểm đạt được là bao nhiêu m/s?
+        <div class="short-answer-box">
+            <b>Trả lời:</b> .......................................................................................
+        </div>
+    </div>
+
+    <div class="question">
+        <b>Câu 15 (Ứng dụng Hàm số Mũ & Lôgarit):</b> Tại một xí nghiệp, số lượng sản phẩm sản xuất được sau $t$ ngày làm việc được mô hình hóa bởi công thức $N(t) = 500 \cdot e^{0.02t}$. Hỏi sau ít nhất bao nhiêu ngày thì xí nghiệp đó sản xuất được đạt mốc 1000 sản phẩm? (Biết $\ln 2 \approx 0.693$, làm tròn kết quả đến hàng đơn vị).
+        <div class="short-answer-box">
+            <b>Trả lời:</b> .......................................................................................
+        </div>
+    </div>
+
+    <div class="question">
+        <b>Câu 16 (Ứng dụng Hình học không gian):</b> Để lắp đặt một trụ anten thu phát sóng, người ta cần đúc một chân đế bằng bê tông tươi có dạng hình chóp tứ giác đều (đáy là hình vuông và chân đường cao trùng với tâm đáy). Biết rằng phần chân đế này có cạnh đáy dài $4\text{ m}$ và chiều cao là $3\text{ m}$. Nếu giá của mỗi khối (m$^3$) bê tông tươi là $1.500.000$ VNĐ, hỏi nhà thầu phải trả bao nhiêu tiền (đơn vị: triệu đồng) để mua đủ số bê tông đổ chân đế nói trên?
+        <div class="short-answer-box">
+            <b>Trả lời:</b> .......................................................................................
+        </div>
+    </div>
+
+    <div class="footer">
+        --- HẾT ---<br>
+        <i>Cán bộ coi thi không giải thích gì thêm.</i>
+    </div>
+</div>
+
 </body>
 </html>
