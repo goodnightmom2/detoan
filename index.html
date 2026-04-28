@@ -3,232 +3,227 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Đề Thi Cuối Học Kỳ II - Toán 11</title>
+    <title>Đề Thi Cuối Học Kỳ II - Toán 11 - Đề Số 2</title>
     <style>
         body {
             font-family: 'Times New Roman', Times, serif;
             line-height: 1.6;
-            color: #000;
+            color: #1a1a1a;
             max-width: 900px;
             margin: 0 auto;
             padding: 30px;
-            background-color: #f4f6f8;
+            background-color: #f0f2f5;
         }
-        .container {
+        .exam-paper {
             background-color: #fff;
-            padding: 40px;
-            border-radius: 8px;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            padding: 50px;
+            border-radius: 4px;
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+            border: 1px solid #ddd;
         }
-        .header {
+        .header-table {
+            width: 100%;
+            margin-bottom: 20px;
+            border-bottom: 2px solid #000;
+        }
+        .header-table td { vertical-align: top; }
+        .title {
             text-align: center;
-            margin-bottom: 30px;
-            border-bottom: 2px solid #2c3e50;
-            padding-bottom: 10px;
+            text-transform: uppercase;
+            font-weight: bold;
+            margin: 20px 0;
         }
-        h1 { font-size: 24px; color: #c0392b; margin: 5px 0;}
-        h2 { font-size: 18px; font-weight: normal; margin: 5px 0; font-style: italic; }
         .section-title {
             font-weight: bold;
-            font-size: 18px;
-            margin-top: 30px;
-            margin-bottom: 15px;
-            text-transform: uppercase;
-            color: #2980b9;
+            background-color: #f8f9fa;
+            padding: 8px;
+            border-left: 4px solid #2c3e50;
+            margin: 25px 0 15px 0;
         }
-        .instruction { font-style: italic; margin-bottom: 15px; color: #555; }
-        .question { margin-bottom: 20px; }
-        .question b { margin-right: 5px; }
+        .question { margin-bottom: 18px; text-align: justify; }
         .options {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 10px;
-            margin-top: 10px;
-            margin-bottom: 10px;
+            display: flex;
+            flex-wrap: wrap;
+            margin-top: 8px;
             padding-left: 20px;
         }
-        .true-false-table {
+        .options div { width: 50%; margin-bottom: 5px; }
+        .tf-table {
             width: 100%;
             border-collapse: collapse;
             margin-top: 10px;
         }
-        .true-false-table th, .true-false-table td {
-            border: 1px solid #bdc3c7;
-            padding: 10px;
-            text-align: left;
+        .tf-table th, .tf-table td {
+            border: 1px solid #000;
+            padding: 8px;
         }
-        .true-false-table th { background-color: #ecf0f1; text-align: center; }
-        .tf-check { width: 80px; text-align: center !important; }
-        .short-answer-box {
-            margin-top: 10px;
-            padding: 10px 15px;
+        .tf-table th { background-color: #eee; }
+        .answer-area {
             border: 1px dashed #7f8c8d;
-            background-color: #fdfdfd;
+            padding: 10px;
+            margin-top: 10px;
+            background-color: #fafafa;
+            min-height: 40px;
         }
-        .footer {
-            text-align: center;
-            margin-top: 40px;
-            font-weight: bold;
-        }
+        .footer { text-align: center; margin-top: 50px; font-style: italic; }
     </style>
     <script>
         MathJax = {
-            tex: {
-                inlineMath: [['$', '$'], ['\\(', '\\)']],
-                displayMath: [['$$', '$$'], ['\\[', '\\]']]
-            }
+            tex: { inlineMath: [['$', '$'], ['\\(', '\\)']] }
         };
     </script>
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 </head>
 <body>
 
-<div class="container">
-    <div class="header">
-        <h1>ĐỀ KIỂM TRA CUỐI HỌC KỲ II</h1>
-        <h2>Môn: Toán - Lớp 11 (Cấu trúc mới)</h2>
-        <h2>Thời gian làm bài: 90 phút (Không kể thời gian phát đề)</h2>
-    </div>
+<div class="exam-paper">
+    <table class="header-table">
+        <tr>
+            <td style="width: 40%; text-align: center;">
+                SỞ GIÁO DỤC VÀ ĐÀO TẠO<br>
+                <b>TRƯỜNG THPT</b>
+            </td>
+            <td style="text-align: center;">
+                <b>KIỂM TRA CUỐI HỌC KỲ II</b><br>
+                Năm học: 2024 - 2025<br>
+                Môn: TOÁN 11
+            </td>
+        </tr>
+    </table>
 
-    <div class="section-title">PHẦN I. Câu trắc nghiệm nhiều phương án lựa chọn (10 Câu)</div>
-    <div class="instruction">Thí sinh trả lời từ câu 1 đến câu 10. Mỗi câu hỏi thí sinh chỉ chọn một phương án.</div>
+    <div class="title">ĐỀ THI SỐ 2</div>
+    <div style="text-align: center; margin-bottom: 20px;"><i>Thời gian: 90 phút (không kể phát đề)</i></div>
+
+    <div class="section-title">PHẦN I. CÂU TRẮC NGHIỆM NHIỀU PHƯƠNG ÁN LỰA CHỌN</div>
+    <p><i>Thí sinh chọn duy nhất một phương án trả lời cho mỗi câu hỏi.</i></p>
 
     <div class="question">
-        <b>Câu 1:</b> Với $a$ là số thực dương tùy ý, biểu thức $a^4 \cdot a^3$ bằng:
+        <b>Câu 1:</b> Với $a$ là số thực dương tùy ý, biểu thức $\sqrt{a \cdot \sqrt{a}}$ dưới dạng lũy thừa với số mũ hữu tỉ là:
         <div class="options">
-            <div>A. $a^{12}$</div><div>B. $a^7$</div><div>C. $a^1$</div><div>D. $a^{4/3}$</div>
+            <div>A. $a^{3/4}$</div><div>B. $a^{1/4}$</div><div>C. $a^{1/2}$</div><div>D. $a^{3/2}$</div>
         </div>
     </div>
 
     <div class="question">
-        <b>Câu 2:</b> Cho $a > 0, a \neq 1$ và $x, y > 0$. Mệnh đề nào sau đây đúng?
+        <b>Câu 2:</b> Nghiệm của phương trình $\log_3(2x - 1) = 2$ là:
         <div class="options">
-            <div>A. $\log_a(xy) = \log_a x \cdot \log_a y$</div><div>B. $\log_a(x+y) = \log_a x + \log_a y$</div>
-            <div>C. $\log_a(xy) = \log_a x + \log_a y$</div><div>D. $\log_a \frac{x}{y} = \frac{\log_a x}{\log_a y}$</div>
+            <div>A. $x = 5$</div><div>B. $x = 4$</div><div>C. $x = 9$</div><div>D. $x = \frac{11}{2}$</div>
         </div>
     </div>
 
     <div class="question">
-        <b>Câu 3:</b> Hàm số nào dưới đây là hàm số mũ?
+        <b>Câu 3:</b> Hàm số nào sau đây nghịch biến trên tập xác định của nó?
         <div class="options">
-            <div>A. $y = x^3$</div><div>B. $y = 3^x$</div><div>C. $y = \log_3 x$</div><div>D. $y = x^{\frac{1}{3}}$</div>
+            <div>A. $y = 2^x$</div><div>B. $y = \log_2 x$</div><div>C. $y = (0,5)^x$</div><div>D. $y = e^x$</div>
         </div>
     </div>
 
     <div class="question">
-        <b>Câu 4:</b> Đạo hàm của hàm số $y = x^5$ là:
+        <b>Câu 4:</b> Đạo hàm của hàm số $y = \ln(2x)$ là:
         <div class="options">
-            <div>A. $y' = 5x^4$</div><div>B. $y' = 4x^5$</div><div>C. $y' = \frac{x^6}{6}$</div><div>D. $y' = 5x$</div>
+            <div>A. $y' = \frac{1}{2x}$</div><div>B. $y' = \frac{1}{x}$</div><div>C. $y' = \frac{2}{x}$</div><div>D. $y' = 2x$</div>
         </div>
     </div>
 
     <div class="question">
-        <b>Câu 5:</b> Đạo hàm của hàm số $y = \cos x$ là:
+        <b>Câu 5:</b> Đạo hàm của hàm số $y = \tan x$ (tại những điểm xác định) là:
         <div class="options">
-            <div>A. $y' = \sin x$</div><div>B. $y' = -\sin x$</div><div>C. $y' = \frac{1}{\cos^2 x}$</div><div>D. $y' = -\cos x$</div>
+            <div>A. $y' = \frac{1}{\sin^2 x}$</div><div>B. $y' = -\frac{1}{\cos^2 x}$</div><div>C. $y' = 1 + \tan^2 x$</div><div>D. $y' = \cot x$</div>
         </div>
     </div>
 
     <div class="question">
-        <b>Câu 6:</b> Công thức tính thể tích $V$ của khối chóp có diện tích đáy $S$ và chiều cao $h$ là:
+        <b>Câu 6:</b> Thể tích khối lăng trụ có diện tích đáy $B$ và chiều cao $h$ được tính theo công thức:
         <div class="options">
-            <div>A. $V = Sh$</div><div>B. $V = \frac{1}{2}Sh$</div><div>C. $V = \frac{1}{3}Sh$</div><div>D. $V = 3Sh$</div>
+            <div>A. $V = Bh$</div><div>B. $V = \frac{1}{3}Bh$</div><div>C. $V = \frac{1}{2}Bh$</div><div>D. $V = \frac{4}{3}Bh$</div>
         </div>
     </div>
 
     <div class="question">
-        <b>Câu 7:</b> Hai đường thẳng $a$ và $b$ trong không gian được gọi là vuông góc với nhau nếu góc giữa chúng bằng:
+        <b>Câu 7:</b> Cho đường thẳng $a$ vuông góc với mặt phẳng $(P)$. Mệnh đề nào sau đây <b>sai</b>?
         <div class="options">
-            <div>A. $30^\circ$</div><div>B. $45^\circ$</div><div>C. $60^\circ$</div><div>D. $90^\circ$</div>
+            <div>A. $a$ vuông góc với mọi đường thẳng nằm trong $(P)$.</div>
+            <div>B. $a$ song song với mọi đường thẳng nằm trong $(P)$.</div>
+            <div>C. Nếu $b // a$ thì $b \perp (P)$.</div>
+            <div>D. Có vô số đường thẳng trong $(P)$ vuông góc với $a$.</div>
         </div>
     </div>
 
     <div class="question">
-        <b>Câu 8:</b> Cho hai biến cố $A$ và $B$ độc lập với nhau. Khẳng định nào sau đây là đúng?
+        <b>Câu 8:</b> Một hộp đựng 5 quả cầu xanh và 3 quả cầu đỏ. Lấy ngẫu nhiên đồng thời 2 quả cầu. Xác suất để lấy được 2 quả cầu cùng màu là:
         <div class="options">
-            <div>A. $P(AB) = P(A) + P(B)$</div><div>B. $P(AB) = P(A) \cdot P(B)$</div>
-            <div>C. $P(A \cup B) = P(A) \cdot P(B)$</div><div>D. $P(A \cup B) = P(A) + P(B)$</div>
+            <div>A. $\frac{13}{28}$</div><div>B. $\frac{15}{28}$</div><div>C. $\frac{1}{2}$</div><div>D. $\frac{3}{7}$</div>
         </div>
     </div>
 
     <div class="question">
-        <b>Câu 9:</b> Nghiệm của phương trình $2^x = 8$ là:
+        <b>Câu 9:</b> Cho hai biến cố $A$ và $B$ có $P(A)=0,4; P(B)=0,5$. Nếu $A$ và $B$ độc lập thì $P(A \cup B)$ bằng:
         <div class="options">
-            <div>A. $x = 2$</div><div>B. $x = 3$</div><div>C. $x = 4$</div><div>D. $x = 8$</div>
+            <div>A. $0,9$</div><div>B. $0,2$</div><div>C. $0,7$</div><div>D. $0,1$</div>
         </div>
     </div>
 
     <div class="question">
-        <b>Câu 10:</b> Một hộp có 10 tấm thẻ được đánh số từ 1 đến 10. Chọn ngẫu nhiên một tấm thẻ, xác suất để chọn được thẻ mang số chẵn là:
+        <b>Câu 10:</b> Đạo hàm cấp hai của hàm số $y = x^3$ là:
         <div class="options">
-            <div>A. $\frac{1}{2}$</div><div>B. $\frac{1}{5}$</div><div>C. $\frac{2}{5}$</div><div>D. $\frac{3}{5}$</div>
+            <div>A. $y'' = 3x^2$</div><div>B. $y'' = 6x$</div><div>C. $y'' = 6$</div><div>D. $y'' = x$</div>
         </div>
     </div>
 
-    <div class="section-title">PHẦN II. Câu trắc nghiệm đúng sai (3 Câu)</div>
-    <div class="instruction">Thí sinh xét tính Đúng hoặc Sai của từng ý a), b), c), d) trong mỗi câu.</div>
+    <div class="section-title">PHẦN II. CÂU HỎI ĐÚNG SAI</div>
+    <p><i>Thí sinh ghi chữ Đ (Đúng) hoặc S (Sai) vào ô tương ứng.</i></p>
 
     <div class="question">
-        <b>Câu 11:</b> Cho hàm số $f(x) = \frac{1}{3}x^3 - x^2 - 3x + 1$ có đồ thị là $(C)$.
-        <table class="true-false-table">
-            <tr><th>Mệnh đề</th><th class="tf-check">Đúng</th><th class="tf-check">Sai</th></tr>
-            <tr><td>a) Đạo hàm của hàm số là $f'(x) = x^2 - 2x - 3$.</td><td></td><td></td></tr>
-            <tr><td>b) Phương trình $f'(x) = 0$ có 2 nghiệm phân biệt là $x = -1$ và $x = 3$.</td><td></td><td></td></tr>
-            <tr><td>c) Tập nghiệm của bất phương trình $f'(x) \le 0$ là khoảng $(-1; 3)$.</td><td></td><td></td></tr>
-            <tr><td>d) Hệ số góc của tiếp tuyến của đồ thị $(C)$ tại điểm có hoành độ $x_0 = 0$ bằng $1$.</td><td></td><td></td></tr>
+        <b>Câu 11:</b> Cho hàm số $f(x) = x^4 - 2x^2 + 3$.
+        <table class="tf-table">
+            <tr><th>Mệnh đề</th><th style="width: 60px;">Đ/S</th></tr>
+            <tr><td>a) Đạo hàm của hàm số tại $x=1$ bằng 0.</td><td></td></tr>
+            <tr><td>b) Hàm số đồng biến trên khoảng $(0; 1)$.</td><td></td></tr>
+            <tr><td>c) Tiếp tuyến của đồ thị hàm số tại điểm có hoành độ $x=0$ song song với trục hoành.</td><td></td></tr>
+            <tr><td>d) Đồ thị hàm số nhận trục tung làm trục đối xứng.</td><td></td></tr>
         </table>
     </div>
 
     <div class="question">
-        <b>Câu 12:</b> Cho hình chóp $S.ABC$ có đáy $ABC$ là tam giác vuông tại $B$. Cạnh bên $SA$ vuông góc với mặt phẳng đáy $(ABC)$. Gọi $H$ là hình chiếu vuông góc của $A$ lên $SB$.
-        <table class="true-false-table">
-            <tr><th>Mệnh đề</th><th class="tf-check">Đúng</th><th class="tf-check">Sai</th></tr>
-            <tr><td>a) Đường thẳng $BC$ vuông góc với mặt phẳng $(SAB)$.</td><td></td><td></td></tr>
-            <tr><td>b) Góc giữa đường thẳng $SC$ và mặt phẳng đáy là góc $\widehat{SCA}$.</td><td></td><td></td></tr>
-            <tr><td>c) Đường thẳng $AH$ vuông góc với mặt phẳng $(SBC)$.</td><td></td><td></td></tr>
-            <tr><td>d) Khoảng cách từ điểm $A$ đến mặt phẳng $(SBC)$ chính là độ dài đoạn thẳng $AB$.</td><td></td><td></td></tr>
+        <b>Câu 12:</b> Cho hình chóp $S.ABCD$ có đáy $ABCD$ là hình vuông tâm $O$, cạnh $a$. Cạnh bên $SA \perp (ABCD)$ và $SA = a$.
+        <table class="tf-table">
+            <tr><th>Mệnh đề</th><th style="width: 60px;">Đ/S</th></tr>
+            <tr><td>a) Đường thẳng $BD$ vuông góc với mặt phẳng $(SAC)$.</td><td></td></tr>
+            <tr><td>b) Góc giữa đường thẳng $SO$ và mặt phẳng $(ABCD)$ là góc $\widehat{SOA}$.</td><td></td></tr>
+            <tr><td>c) Khoảng cách từ điểm $A$ đến mặt phẳng $(SCD)$ bằng $a$.</td><td></td></tr>
+            <tr><td>d) Mặt phẳng $(SBC)$ vuông góc với mặt phẳng $(SAB)$.</td><td></td></tr>
         </table>
     </div>
 
     <div class="question">
-        <b>Câu 13:</b> Hai cầu thủ thực hiện sút phạt đền, mỗi người sút một quả. Xác suất sút trúng gôn của cầu thủ A là $0,8$; của cầu thủ B là $0,7$. Biết rằng hai biến cố sút trúng gôn của hai cầu thủ là độc lập.
-        <table class="true-false-table">
-            <tr><th>Mệnh đề</th><th class="tf-check">Đúng</th><th class="tf-check">Sai</th></tr>
-            <tr><td>a) Xác suất để cả hai cầu thủ cùng sút trúng gôn là $0,56$.</td><td></td><td></td></tr>
-            <tr><td>b) Xác suất để cầu thủ A trúng gôn và cầu thủ B trượt gôn là $0,24$.</td><td></td><td></td></tr>
-            <tr><td>c) Xác suất để có đúng một cầu thủ sút trúng gôn là $0,38$.</td><td></td><td></td></tr>
-            <tr><td>d) Xác suất để có ít nhất một cầu thủ sút trúng gôn là $0,95$.</td><td></td><td></td></tr>
+        <b>Câu 13:</b> Hai máy bay cùng ném bom một mục tiêu một cách độc lập. Xác suất để máy bay thứ nhất ném trúng là $0,7$; máy bay thứ hai ném trúng là $0,8$.
+        <table class="tf-table">
+            <tr><th>Mệnh đề</th><th style="width: 60px;">Đ/S</th></tr>
+            <tr><td>a) Xác suất để cả hai máy bay ném trượt mục tiêu là $0,06$.</td><td></td></tr>
+            <tr><td>b) Xác suất để chỉ có một máy bay ném trúng mục tiêu là $0,38$.</td><td></td></tr>
+            <tr><td>c) Xác suất mục tiêu bị trúng bom (ít nhất 1 máy bay trúng) là $0,94$.</td><td></td></tr>
+            <tr><td>d) Nếu mục tiêu bị trúng bom, xác suất để cả hai máy bay cùng trúng lớn hơn $0,5$.</td><td></td></tr>
         </table>
     </div>
 
-    <div class="section-title">PHẦN III. Câu trắc nghiệm trả lời ngắn (3 Câu - Toán thực tế)</div>
-    <div class="instruction">Thí sinh thực hiện giải quyết bài toán thực tế và điền kết quả cuối cùng vào ô trả lời.</div>
+    <div class="section-title">PHẦN III. CÂU HỎI TRẢ LỜI NGẮN (TOÁN THỰC TẾ)</div>
 
     <div class="question">
-        <b>Câu 14 (Ứng dụng Đạo hàm):</b> Một chất điểm chuyển động theo phương trình $s(t) = -\frac{1}{3}t^3 + 4t^2 + 20t$, trong đó quãng đường $s$ tính bằng mét và thời gian $t$ tính bằng giây kể từ lúc bắt đầu chuyển động ($t > 0$). Hỏi trong quá trình chuyển động, vận tốc lớn nhất mà chất điểm đạt được là bao nhiêu m/s?
-        <div class="short-answer-box">
-            <b>Trả lời:</b> .......................................................................................
-        </div>
+        <b>Câu 14:</b> Một đoàn tàu hỏa bắt đầu rời ga và chuyển động nhanh dần đều với phương trình quãng đường $s(t) = \frac{1}{2}t^2 + 2t$ (trong đó $s$ tính bằng mét, $t$ tính bằng giây). Hãy tính vận tốc tức thời của đoàn tàu tại thời điểm đoàn tàu đi được quãng đường $48\text{ m}$.
+        <div class="answer-area"><b>Trả lời:</b> .................................... m/s</div>
     </div>
 
     <div class="question">
-        <b>Câu 15 (Ứng dụng Hàm số Mũ & Lôgarit):</b> Tại một xí nghiệp, số lượng sản phẩm sản xuất được sau $t$ ngày làm việc được mô hình hóa bởi công thức $N(t) = 500 \cdot e^{0.02t}$. Hỏi sau ít nhất bao nhiêu ngày thì xí nghiệp đó sản xuất được đạt mốc 1000 sản phẩm? (Biết $\ln 2 \approx 0.693$, làm tròn kết quả đến hàng đơn vị).
-        <div class="short-answer-box">
-            <b>Trả lời:</b> .......................................................................................
-        </div>
+        <b>Câu 15:</b> Sự tăng trưởng của một loại vi khuẩn được dự báo theo công thức $S = S_0 \cdot 2^{t/3}$, trong đó $S_0$ là số lượng vi khuẩn ban đầu, $t$ là thời gian tính bằng giờ. Sau 12 giờ, từ một lượng vi khuẩn ban đầu là 500 con thì số lượng vi khuẩn sẽ là bao nhiêu con?
+        <div class="answer-area"><b>Trả lời:</b> .................................... con</div>
     </div>
 
     <div class="question">
-        <b>Câu 16 (Ứng dụng Hình học không gian):</b> Để lắp đặt một trụ anten thu phát sóng, người ta cần đúc một chân đế bằng bê tông tươi có dạng hình chóp tứ giác đều (đáy là hình vuông và chân đường cao trùng với tâm đáy). Biết rằng phần chân đế này có cạnh đáy dài $4\text{ m}$ và chiều cao là $3\text{ m}$. Nếu giá của mỗi khối (m$^3$) bê tông tươi là $1.500.000$ VNĐ, hỏi nhà thầu phải trả bao nhiêu tiền (đơn vị: triệu đồng) để mua đủ số bê tông đổ chân đế nói trên?
-        <div class="short-answer-box">
-            <b>Trả lời:</b> .......................................................................................
-        </div>
+        <b>Câu 16:</b> Một bể chứa nước có dạng hình hộp chữ nhật không nắp với chiều dài $2\text{ m}$, chiều rộng $1,5\text{ m}$ và chiều cao $1\text{ m}$. Người thợ cần dùng các tấm nhựa phẳng để lót toàn bộ 5 mặt bên trong của bể. Biết giá mỗi mét vuông tấm nhựa là $120.000$ đồng. Tổng chi phí mua tấm nhựa (đơn vị: nghìn đồng) để hoàn thành công việc là bao nhiêu?
+        <div class="answer-area"><b>Trả lời:</b> .................................... nghìn đồng</div>
     </div>
 
-    <div class="footer">
-        --- HẾT ---<br>
-        <i>Cán bộ coi thi không giải thích gì thêm.</i>
-    </div>
+    <div class="footer">--- HẾT ---<br><i>Học sinh không được sử dụng tài liệu. Giám thị không giải thích gì thêm.</i></div>
 </div>
 
 </body>
