@@ -3,265 +3,344 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Đề Thi Cuối Học Kỳ II - Toán 11 - Đề Số 2</title>
+    <title>Tuyển Tập 3 Đề Thi Và Đáp Án Toán Lớp 10 Nâng Cao - Tây Ninh</title>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <style>
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.6;
-            color: #333;
-            max-width: 900px;
-            margin: 20px auto;
-            padding: 20px;
-            background-color: #f4f7f6;
-        }
-        .exam-container {
-            background-color: #fff;
-            padding: 40px;
-            border-radius: 8px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-        }
-        h1, h2 {
-            text-align: center;
-            color: #2c3e50;
-            text-transform: uppercase;
-        }
-        .header-info {
-            display: flex;
-            justify-content: space-between;
-            border-bottom: 2px solid #2c3e50;
-            margin-bottom: 30px;
-            padding-bottom: 10px;
-        }
-        .section-title {
-            background-color: #2c3e50;
-            color: #fff;
-            padding: 10px;
-            margin-top: 30px;
-            border-radius: 4px;
-            font-weight: bold;
-        }
-        .question {
-            margin-bottom: 20px;
-            padding: 15px;
-            border-left: 4px solid #e67e22;
-            background-color: #fafafa;
-        }
-        .options {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 10px;
-            margin-top: 10px;
-        }
-        .option {
-            padding: 5px;
-        }
-        .true-false-table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 10px;
-        }
-        .true-false-table td, .true-false-table th {
-            border: 1px solid #ddd;
-            padding: 8px;
-            text-align: left;
-        }
-        .true-false-table th {
-            background-color: #eee;
-        }
-        .math {
-            font-style: italic;
-            font-family: "Times New Roman", Times, serif;
-            font-weight: bold;
-        }
-        .footer {
-            margin-top: 50px;
-            text-align: center;
-            font-style: italic;
-            color: #7f8c8d;
-        }
+        body { font-family: 'Times New Roman', Times, serif; line-height: 1.6; margin: 40px auto; max-width: 900px; padding: 20px; color: #333; font-size: 18px; background-color: #f8f9fa; }
+        .box { background: #fff; padding: 40px; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); margin-bottom: 30px; }
+        h1 { text-align: center; font-size: 26px; color: #b71c1c; margin-bottom: 10px; text-transform: uppercase; font-weight: bold; }
+        h2 { text-align: center; font-size: 22px; color: #2c3e50; margin-top: 20px; font-weight: bold; }
+        h3 { font-size: 18px; font-weight: normal; font-style: italic; text-align: center; margin-top: 0; margin-bottom: 30px; color: #555; }
+        .section-title { background: #b71c1c; color: #fff; padding: 12px; font-size: 22px; text-align: center; font-weight: bold; border-radius: 4px; margin-top: 40px; text-transform: uppercase; letter-spacing: 1px; }
+        .section-title.solution-title { background: #2c3e50; }
+        .de-title { font-size: 20px; font-weight: bold; color: #d35400; margin-top: 30px; border-bottom: 2px solid #d35400; padding-bottom: 5px; text-transform: uppercase; }
+        .question { font-weight: bold; margin-top: 25px; font-size: 1.1em; color: #0d47a1; }
+        .sub-question { margin-left: 20px; margin-top: 12px; text-align: justify; }
+        .step { margin-left: 20px; margin-top: 10px; text-align: justify; }
+        .answer-q { font-weight: bold; color: #c0392b; margin-top: 25px; font-size: 1.1em; border-bottom: 1px solid #ecf0f1; padding-bottom: 5px; }
+        .highlight-box { background-color: #fff3cd; padding: 15px; border-left: 4px solid #f39c12; margin: 20px 0; border-radius: 4px; font-size: 0.95em; }
+        table { border-collapse: collapse; width: 80%; margin: 15px auto; background: #fff; }
+        th, td { border: 1px solid #bdc3c7; padding: 10px; text-align: center; }
+        th { background-color: #f2f4f4; font-weight: bold; }
+        hr { border: 0; border-top: 2px dashed #bdc3c7; margin: 40px 0; }
+        .quick-nav { text-align: center; margin-bottom: 30px; }
+        .quick-nav a { display: inline-block; margin: 5px 10px; padding: 8px 15px; background: #e1f5fe; color: #0288d1; text-decoration: none; border-radius: 4px; font-weight: bold; font-size: 0.9em; transition: 0.3s; }
+        .quick-nav a:hover { background: #0288d1; color: #fff; }
     </style>
 </head>
 <body>
 
-<div class="exam-container">
-    <h1>KIỂM TRA CUỐI HỌC KỲ II - ĐỀ SỐ 2</h1>
-    <h2>MÔN: TOÁN 11 - NĂM HỌC 2024 - 2025</h2>
+<div class="box">
+    <h1>Tuyển Tập Đề Thi Và Đáp Án Môn Toán Vào Lớp 10</h1>
+    <h2>Cấu Trúc Đề Thi Tuyển Sinh Tỉnh Tây Ninh</h2>
+    <h3>Mức độ: Nâng cao — Thời gian làm bài: 120 phút/đề</h3>
+
+    <div class="quick-nav">
+        <b>Chuyển nhanh đến:</b><br>
+        <a href="#phan-de">PHẦN I: ĐỀ THI TRẮC NGHIỆM TỰ LUẬN (3 ĐỀ)</a>
+        <a href="#phan-dapan">PHẦN II: ĐÁP ÁN VÀ HƯỚNG DẪN GIẢI CHI TIẾT</a>
+    </div>
+
+    <div class="highlight-box">
+        <b>Thông tin cấu trúc đề:</b> Đề thi gồm 7 câu hỏi tự luận theo ma trận mới nhất của Sở GD&ĐT. Các câu hỏi phân hóa hình học và đại số chứa tham số \(m\) đã được nâng cao năng lực tư duy. Đặc biệt, các bài toán Xác suất (Câu 6b) tuân thủ nghiêm ngặt chương trình Toán 9 mới, giải hoàn toàn bằng phương pháp liệt kê và quy tắc đếm (không dùng tổ hợp, chỉnh hợp lớp 11).
+    </div>
+
+    <!-- ========================================== -->
+    <!-- PHẦN I: ĐỀ THI                             -->
+    <!-- ========================================== -->
+    <div id="phan-de" class="section-title">PHẦN I: NỘI DUNG 3 BỘ ĐỀ THI CHÍNH THỨC</div>
+
+    <!-- ĐỀ SỐ 1 -->
+    <div class="de-title">ĐỀ THI SỐ 1</div>
     
-    <div class="header-info">
-        <div><strong>Họ và tên:</strong> .....................................................</div>
-        <div><strong>Lớp:</strong> CNTT48 - Yến Bình</div>
+    <div class="question">Câu 1 (1,5 điểm) Căn thức</div>
+    <div class="sub-question">a) Tính giá trị của biểu thức: \( A = \sqrt{7 - 4\sqrt{3}} + \sqrt{3} \)</div>
+    <div class="sub-question">b) Rút gọn biểu thức sau: \( P = \left( \frac{\sqrt{x}}{\sqrt{x}-1} - \frac{1}{x-\sqrt{x}} \right) : \left( \frac{1}{\sqrt{x}+1} + \frac{2}{x-1} \right) \) với \( x > 0 \) và \( x \neq 1 \).</div>
+
+    <div class="question">Câu 2 (0,5 điểm) Hàm số và đồ thị</div>
+    <div class="sub-question">Vẽ đồ thị (Parabol) của hàm số \( y = -2x^2 \) trên hệ trục tọa độ \( Oxy \).</div>
+
+    <div class="question">Câu 3 (1,5 điểm) Phương trình và hệ phương trình</div>
+    <div class="sub-question">a) Giải phương trình bậc hai: \( 2x^2 - 3x - 5 = 0 \).</div>
+    <div class="sub-question">b) Cho phương trình (với \( m \) là tham số): \( x^2 - 2(m-1)x + m^2 - 3m = 0 \). Tìm tất cả các giá trị của \( m \) để phương trình có hai nghiệm phân biệt \( x_1, x_2 \) thỏa mãn hệ thức: \( x_1^2 + x_2^2 = 8 \).</div>
+    <div class="sub-question">c) Giải bài toán bằng cách lập hệ phương trình: Quãng đường AB dài 120 km. Hai ô tô khởi hành cùng một lúc từ A và B. Nếu chúng đi ngược chiều nhau thì sẽ gặp nhau sau 1 giờ 30 phút. Nếu chúng đi cùng chiều nhau (ô tô từ A đuổi theo ô tô từ B) thì ô tô từ A sẽ đuổi kịp ô tô từ B sau 6 giờ. Tính vận tốc của mỗi ô tô.</div>
+
+    <div class="question">Câu 4 (1,0 điểm) Hình học trực quan</div>
+    <div class="sub-question">Một chiếc nón lá có dạng hình nón. Biết bán kính đáy của chiếc nón là \( 15 \text{ cm} \) và độ dài đường sinh là \( 25 \text{ cm} \). Tính thể tích của phần không gian bên trong chiếc nón đó (Lấy \( \pi \approx 3,14 \) và làm tròn kết quả đến hàng đơn vị).</div>
+
+    <div class="question">Câu 5 (3,0 điểm) Hình học phẳng</div>
+    <div class="sub-question">a) Cho tam giác \( ABC \) vuông tại \( A \), biết cạnh huyền \( BC = 13 \text{ cm} \) và cạnh góc vuông \( AB = 5 \text{ cm} \). Hãy tính tỉ số lượng giác \( \sin B \) và \( \cot C \).</div>
+    <div class="sub-question">b) Một thân cây đang đứng thẳng bị gãy ngang gập xuống mặt đất do bão. Ngọn cây chạm đất cách gốc cây 6 mét và tạo với mặt đất một góc \( 30^\circ \). Hỏi trước khi bị gãy, thân cây cao bao nhiêu mét? (Kết quả làm tròn đến chữ số thập phân thứ nhất).</div>
+    <div class="sub-question">c) Cho đường tròn \( (O; R) \) và một điểm \( M \) nằm ngoài đường tròn. Kẻ hai tiếp tuyến \( MA, MB \) with \( (O) \) (\( A, B \) là các tiếp điểm). Kẻ cát tuyến \( MCD \) không đi qua tâm \( O \) của đường tròn sao cho tia \( MC \) nằm giữa tia \( MO \) và tia \( MA \) (\( C \) nằm giữa \( M \) và \( D \)).<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;i. Chứng minh tứ giác \( MAOB \) nội tiếp đường tròn.<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;ii. Chứng minh hệ thức: \( MA^2 = MC \cdot MD \).
     </div>
 
-    <p><em>Thời gian làm bài: 90 phút (Không kể thời gian phát đề)</em></p>
+    <div class="question">Câu 6 (1,5 điểm) Một số yếu tố Thống kê và Xác suất</div>
+    <div class="sub-question">a) Bảng điểm kiểm tra môn Toán của 40 học sinh được thống kê như sau: 8 bạn đạt điểm trong khoảng \( [4; 6) \), 20 bạn đạt điểm trong khoảng \( [6; 8) \), và 12 bạn đạt điểm trong khoảng \( [8; 10] \). Hãy lập bảng tần số tương đối ghép nhóm.</div>
+    <div class="sub-question">b) Gieo đồng thời hai con xúc xắc cân đối và đồng chất. Tính xác suất của biến cố: "Tổng số chấm xuất hiện trên hai mặt con xúc xắc là một số chia hết cho 5".</div>
 
-    <!-- PHẦN 1 -->
-    <div class="section-title">PHẦN I. CÂU TRẮC NGHIỆM NHIỀU PHƯƠNG ÁN LỰA CHỌN (10 Câu - 5.0 điểm)</div>
-    <p><em>Thí sinh trả lời từ câu 1 đến câu 10. Mỗi câu hỏi chỉ chọn một phương án trả lời.</em></p>
+    <div class="question">Câu 7 (1,0 điểm) Bất phương trình bậc nhất một ẩn</div>
+    <div class="sub-question">Một công ty cho thuê xe du lịch tính phí theo hai khoản: Phí cố định ban đầu (phí bảo hiểm và thủ tục) là 500.000 đồng, và phí tính theo quãng đường di chuyển là 12.000 đồng cho mỗi kilômét. Một nhóm bạn thuê xe đi dã ngoại dự định tổng chi phí thuê xe không được vượt quá 3.500.000 đồng. Gọi \( x \) là quãng đường di chuyển (tính bằng km). Viết bất phương trình và tìm xem nhóm bạn có thể đi được quãng đường tối đa là bao nhiêu kilômét?</div>
 
-    <div class="question">
-        <strong>Câu 1:</strong> Đạo hàm của hàm số <span class="math">y = x<sup>5</sup></span> là:
-        <div class="options">
-            <div class="option">A. <span class="math">y' = 5x<sup>4</sup></span></div>
-            <div class="option">B. <span class="math">y' = 4x<sup>5</sup></span></div>
-            <div class="option">C. <span class="math">y' = x<sup>4</sup></span></div>
-            <div class="option">D. <span class="math">y' = 5x</span></div>
-        </div>
+    <hr>
+
+    <!-- ĐỀ SỐ 2 -->
+    <div class="de-title">ĐỀ THI SỐ 2</div>
+    
+    <div class="question">Câu 1 (1,5 điểm) Căn thức</div>
+    <div class="sub-question">a) Tính giá trị của biểu thức: \( A = \sqrt{(\sqrt{5}-3)^2} - \sqrt{20} \)</div>
+    <div class="sub-question">b) Rút gọn biểu thức sau: \( P = \left( \frac{\sqrt{x}+2}{\sqrt{x}-2} - \frac{\sqrt{x}-2}{\sqrt{x}+2} \right) \cdot \frac{x-4}{4\sqrt{x}} \) với \( x > 0 \) và \( x \neq 4 \).</div>
+
+    <div class="question">Câu 2 (0,5 điểm) Hàm số và đồ thị</div>
+    <div class="sub-question">Vẽ đồ thị (Parabol) của hàm số \( y = \frac{3}{2}x^2 \) trên hệ trục tọa độ \( Oxy \).</div>
+
+    <div class="question">Câu 3 (1,5 điểm) Phương trình và hệ phương trình</div>
+    <div class="sub-question">a) Giải phương trình bậc hai: \( -x^2 + 4x + 5 = 0 \).</div>
+    <div class="sub-question">b) Cho phương trình (với \( m \) là tham số): \( x^2 - (2m+1)x + m^2 + m - 2 = 0 \). Tìm các giá trị của \( m \) để phương trình có hai nghiệm phân biệt \( x_1, x_2 \) thỏa mãn hệ thức: \( x_1(x_1 - 2x_2) + x_2(x_2 - 2x_1) = 9 \).</div>
+    <div class="sub-question">c) Hai vòi nước cùng chảy vào một bể không có nước thì sau 12 giờ sẽ đầy bể. Nếu mở vòi 1 chảy một mình trong 4 giờ, sau đó khóa lại và mở vòi 2 chảy tiếp trong 6 giờ thì cả hai vòi chảy được 40% thể tích bể. Hỏi nếu mỗi vòi chảy một mình thì phải mất bao lâu mới đầy bể?</div>
+
+    <div class="question">Câu 4 (1,0 điểm) Hình học trực quan</div>
+    <div class="sub-question">Một bồn chứa nước hình trụ có chiều cao là 2 mét và đường kính đáy là 1 mét. Người ta muốn sơn toàn bộ mặt ngoài phần xung quanh của bồn nước (không sơn hai mặt đáy). Tính chi phí sơn biết giá nhân công và vật tư là 50.000 đồng/m\(^2\) (Lấy \( \pi \approx 3,14 \), làm tròn đến nghìn đồng).</div>
+
+    <div class="question">Câu 5 (3,0 điểm) Hình học phẳng</div>
+    <div class="sub-question">a) Cho góc nhọn \( \alpha \) biết \( \cos \alpha = 0,8 \). Hãy tính \( \sin \alpha \) và \( \tan \alpha \).</div>
+    <div class="sub-question">b) Từ sân thượng của một tòa nhà cao 30 mét, một người nhìn thấy hai chiếc ô tô đang đỗ thẳng hàng trên đường với các góc hạ lần lượt là \( 45^\circ \) và \( 30^\circ \). Tính khoảng cách giữa hai chiếc ô tô đó (kết quả làm tròn đến chữ số thập phân thứ hai).</div>
+    <div class="sub-question">c) Cho nửa đường tròn \( (O) \) đường kính \( AB \). Kẻ các tia tiếp tuyến \( Ax \) và \( By \) cùng vuông góc với \( AB \) và nằm trên cùng một nửa mặt phẳng bờ \( AB \) chứa nửa đường tròn. Lấy điểm \( M \) bất kỳ trên nửa đường tròn (M khác A và B). Tiếp tuyến tại \( M \) của nửa đường tròn cắt \( Ax \) tại \( C \) và cắt \( By \) tại \( D \).<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;i. Chứng minh tứ giác \( ACOM \) nội tiếp.<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;ii. Chứng minh góc \( \widehat{COD} = 90^\circ \) và tích \( AC \cdot BD \) không phụ thuộc vào vị trí của điểm M.
     </div>
 
-    <div class="question">
-        <strong>Câu 2:</strong> Với số thực <span class="math">a > 0, a ≠ 1</span>, giá trị của <span class="math">log<sub>a</sub>a<sup>3</sup></span> bằng:
-        <div class="options">
-            <div class="option">A. 1/3</div>
-            <div class="option">B. 3</div>
-            <div class="option">C. 1</div>
-            <div class="option">D. 0</div>
-        </div>
+    <div class="question">Câu 6 (1,5 điểm) Một số yếu tố Thống kê và Xác suất</div>
+    <div class="sub-question">a) Chiều cao (cm) của 50 học sinh được chia thành các nhóm: \( [150; 160) \) có 15 học sinh, \( [160; 170) \) có 25 học sinh, \( [170; 180] \) có 10 học sinh. Hãy lập bảng tần số tương đối ghép nhóm.</div>
+    <div class="sub-question">b) Trong một hộp kín có 3 quả bóng màu Đỏ (được đánh số 1, 2, 3) và 2 quả bóng màu Xanh (được đánh số 1, 2). Các quả bóng có cùng kích thước và khối lượng. Lấy ngẫu nhiên lần lượt 2 quả bóng từ hộp (lấy quả thứ nhất không trả lại, rồi lấy quả thứ hai). Bằng quy tắc đếm, hãy tính xác suất để lấy được 2 quả bóng khác màu.</div>
+
+    <div class="question">Câu 7 (1,0 điểm) Bất phương trình bậc nhất một ẩn</div>
+    <div class="sub-question">Một người bán hàng nhập về lô áo thun với giá vốn là 120.000 đồng/chiếc. Chi phí vận chuyển cho cả lô hàng là 300.000 đồng. Người đó dự định bán lẻ mỗi chiếc áo với giá 180.000 đồng. Gọi \( x \) là số chiếc áo được nhập và bán hết. Hãy viết bất phương trình và tìm số lượng áo thun ít nhất người đó cần kinh doanh để thu được mức lợi nhuận (sau khi trừ hết chi phí) tối thiểu là 2.000.000 đồng.</div>
+
+    <hr>
+
+    <!-- ĐỀ SỐ 3 -->
+    <div class="de-title">ĐỀ THI SỐ 3</div>
+    
+    <div class="question">Câu 1 (1,5 điểm) Căn thức</div>
+    <div class="sub-question">a) Tính giá trị của biểu thức: \( A = \frac{3}{\sqrt{2}-1} - \sqrt{18} \)</div>
+    <div class="sub-question">b) Rút gọn biểu thức sau: \( P = \left( \frac{x\sqrt{x}-8}{x+2\sqrt{x}+4} \right) - \sqrt{x} \) với \( x \ge 0 \).</div>
+
+    <div class="question">Câu 2 (0,5 điểm) Hàm số và đồ thị</div>
+    <div class="sub-question">Vẽ đồ thị (Parabol) của hàm số \( y = -\frac{3}{4}x^2 \) trên hệ trục tọa độ \( Oxy \).</div>
+
+    <div class="question">Câu 3 (1,5 điểm) Phương trình và hệ phương trình</div>
+    <div class="sub-question">a) Giải phương trình bậc hai: \( 4x^2 + 7x - 2 = 0 \).</div>
+    <div class="sub-question">b) Cho phương trình (với \( m \) là tham số): \( x^2 - (m+2)x + 2m = 0 \). Tìm tất cả các giá trị của \( m \) để phương trình có hai nghiệm phân biệt \( x_1, x_2 \) (khác 0) thỏa mãn hệ thức: \( \frac{1}{x_1} + \frac{1}{x_2} = \frac{5}{4} \).</div>
+    <div class="sub-question">c) Giải bài toán bằng cách lập hệ phương trình: Đầu năm học, bạn Hoa mua 15 quyển vở và 10 cây bút bi hết tổng cộng 160.000 đồng. Nếu Hoa mua 20 quyển vở và 5 cây bút bi cùng loại thì sẽ phải trả 180.000 đồng. Tính giá tiền của một quyển vở và một cây bút bi.</div>
+
+    <div class="question">Câu 4 (1,0 điểm) Hình học trực quan</div>
+    <div class="sub-question">Người ta thiết kế một mô hình quả địa cầu có dạng hình cầu hoàn hảo với bán kính là 10 cm. Tính thể tích không gian bên trong quả địa cầu đó (Lấy \( \pi \approx 3,14 \) và làm tròn kết quả đến chữ số thập phân thứ nhất).</div>
+
+    <div class="question">Câu 5 (3,0 điểm) Hình học phẳng</div>
+    <div class="sub-question">a) Cho tam giác \( MNP \) vuông tại \( M \), có \( MN = 6 \text{ cm} \), \( NP = 10 \text{ cm} \). Hãy tính độ dài đoạn \( MP \) và các tỉ số lượng giác \( \cos N, \tan P \).</div>
+    <div class="sub-question">b) Từ một khinh khí cầu đang bay ở độ cao 800 mét so với mặt đất, người ta quan sát thấy một thị trấn dưới góc hạ là \( 35^\circ \). Tính khoảng cách theo đường chim bay từ khinh khí cầu đến thị trấn đó (kết quả làm tròn đến mét).</div>
+    <div class="sub-question">c) Cho đường tròn \( (O) \) và tam giác nhọn \( ABC \) nội tiếp đường tròn. Vẽ hai đường cao \( BE \) và \( CF \) của tam giác \( ABC \) cắt nhau tại trực tâm \( H \).<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;i. Chứng minh tứ giác \( AEHF \) nội tiếp một đường tròn.<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;ii. Kẻ đường kính \( AD \) của đường tròn \( (O) \). Chứng minh tứ giác \( BHCD \) là hình bình hành.
     </div>
 
-    <div class="question">
-        <strong>Câu 3:</strong> Tập xác định của hàm số <span class="math">y = log<sub>2</sub>(x - 1)</span> là:
-        <div class="options">
-            <div class="option">A. <span class="math">[1; +∞)</span></div>
-            <div class="option">B. <span class="math">(-∞; 1)</span></div>
-            <div class="option">C. <span class="math">R \ {1}</span></div>
-            <div class="option">D. <span class="math">(1; +∞)</span></div>
-        </div>
+    <div class="question">Câu 6 (1,5 điểm) Một số yếu tố Thống kê và Xác suất</div>
+    <div class="sub-question">a) Bảng thống kê thời gian truy cập internet (giờ/tuần) của 30 học sinh: 6 học sinh thuộc nhóm \( [5; 10) \), 15 học sinh thuộc nhóm \( [10; 15) \), 9 học sinh thuộc nhóm \( [15; 20] \). Hãy lập bảng tần số ghép nhóm.</div>
+    <div class="sub-question">b) Rút ngẫu nhiên một tấm thẻ từ một hộp kín chứa 15 tấm thẻ được đánh số từ 1 đến 15 (các thẻ giống hệt nhau). Tính xác suất để tấm thẻ được rút ra ghi một số nguyên tố.</div>
+
+    <div class="question">Câu 7 (1,0 điểm) Bất phương trình bậc nhất một ẩn</div>
+    <div class="sub-question">Một hãng taxi đưa ra mức giá cước như sau: Giá mở cửa là 15.000 đồng/km đầu tiên. Từ kilômét thứ hai trở đi, giá cước là 11.500 đồng cho mỗi kilômét. Hành khách có trong túi 200.000 đồng. Gọi \( x \) là số kilômét hành khách có thể di chuyển (\( x > 1 \)). Viết bất phương trình để biểu diễn số tiền hành khách phải trả và tìm số kilômét tối đa (làm tròn đến hàng phần mười) người đó có thể đi được.</div>
+
+
+    <!-- ========================================== -->
+    <!-- PHẦN II: ĐÁP ÁN                            -->
+    <!-- ========================================== -->
+    <div id="phan-dapan" class="section-title solution-title">PHẦN II: ĐÁP ÁN VÀ HƯỚNG DẪN GIẢI CHI TIẾT</div>
+
+    <!-- ĐÁP ÁN ĐỀ 1 -->
+    <div class="de-title">ĐÁP ÁN ĐỀ SỐ 1</div>
+    
+    <div class="answer-q">Câu 1 (1,5 điểm)</div>
+    <div class="step"><b>a)</b> \( A = \sqrt{4 - 2\cdot 2\cdot \sqrt{3} + 3} + \sqrt{3} = \sqrt{(2-\sqrt{3})^2} + \sqrt{3} \)<br>
+        \( A = |2-\sqrt{3}| + \sqrt{3} = 2-\sqrt{3} + \sqrt{3} = 2 \) (vì \( 2 > \sqrt{3} \)).
+    </div>
+    <div class="step"><b>b)</b> Rút gọn ngoặc thứ nhất: \( \frac{\sqrt{x}}{\sqrt{x}-1} - \frac{1}{\sqrt{x}(\sqrt{x}-1)} = \frac{x-1}{\sqrt{x}(\sqrt{x}-1)} = \frac{(\sqrt{x}-1)(\sqrt{x}+1)}{\sqrt{x}(\sqrt{x}-1)} = \frac{\sqrt{x}+1}{\sqrt{x}} \).<br>
+        Rút gọn ngoặc thứ hai: \( \frac{1}{\sqrt{x}+1} + \frac{2}{(\sqrt{x}-1)(\sqrt{x}+1)} = \frac{\sqrt{x}-1+2}{(\sqrt{x}-1)(\sqrt{x}+1)} = \frac{\sqrt{x}+1}{x-1} = \frac{1}{\sqrt{x}-1} \).<br>
+        Vậy \( P = \frac{\sqrt{x}+1}{\sqrt{x}} : \frac{1}{\sqrt{x}-1} = \frac{(\sqrt{x}+1)(\sqrt{x}-1)}{\sqrt{x}} = \frac{x-1}{\sqrt{x}} \).
     </div>
 
-    <div class="question">
-        <strong>Câu 4:</strong> Cho hàm số <span class="math">y = cos(x) - sin(x)</span>. Đạo hàm <span class="math">y'</span> là:
-        <div class="options">
-            <div class="option">A. <span class="math">sin(x) - cos(x)</span></div>
-            <div class="option">B. <span class="math">-sin(x) - cos(x)</span></div>
-            <div class="option">C. <span class="math">cos(x) + sin(x)</span></div>
-            <div class="option">D. <span class="math">sin(x) + cos(x)</span></div>
-        </div>
+    <div class="answer-q">Câu 2 (0,5 điểm)</div>
+    <div class="step">Học sinh lập bảng giá trị với các điểm \( (-2; -8), (-1; -2), (0; 0), (1; -2), (2; -8) \) và vẽ đồ thị cong Parabol bề lõm hướng xuống dưới, nhận trục Oy làm trục đối xứng.</div>
+
+    <div class="answer-q">Câu 3 (1,5 điểm)</div>
+    <div class="step"><b>a)</b> \( 2x^2 - 3x - 5 = 0 \). Nhẩm nghiệm \( a - b + c = 2 - (-3) - 5 = 0 \Rightarrow x_1 = -1, x_2 = \frac{5}{2} \).</div>
+    <div class="step"><b>b)</b> \( \Delta' = (m-1)^2 - (m^2-3m) = m^2 - 2m + 1 - m^2 + 3m = m + 1 \).<br>
+        Để phương trình có 2 nghiệm phân biệt thì \( \Delta' > 0 \Leftrightarrow m > -1 \).<br>
+        Hệ thức Viète: \( x_1+x_2 = 2m-2 \); \( x_1x_2 = m^2-3m \).<br>
+        Ta có: \( x_1^2 + x_2^2 = 8 \Leftrightarrow (x_1+x_2)^2 - 2x_1x_2 = 8 \Leftrightarrow (2m-2)^2 - 2(m^2-3m) = 8 \)<br>
+        \( \Leftrightarrow 4m^2 - 8m + 4 - 2m^2 + 6m - 8 = 0 \Leftrightarrow 2m^2 - 2m - 4 = 0 \Leftrightarrow m^2 - m - 2 = 0 \).<br>
+        Giải phương trình bậc hai theo m ta được \( m = -1 \) (loại vì không thỏa mãn điều kiện \( m > -1 \)) và \( m = 2 \) (nhận). Vậy <b>\( m = 2 \)</b>.
+    </div>
+    <div class="step"><b>c)</b> Gọi vận tốc ô tô đi từ A là \( x \) (km/h) và từ B là \( y \) (km/h) (\( x > y > 0 \)). Đổi 1 giờ 30 phút = 1,5 giờ.<br>
+        - Đi ngược chiều gặp nhau sau 1,5 giờ: \( 1,5x + 1,5y = 120 \Leftrightarrow x + y = 80 \) (1).<br>
+        - Đi cùng chiều đuổi kịp sau 6 giờ: \( 6x - 6y = 120 \Leftrightarrow x - y = 20 \) (2).<br>
+        Giải hệ phương trình từ (1) và (2), ta có: \( x = 50 \) và \( y = 30 \) (thỏa mãn). Vận tốc xe từ A là 50 km/h, xe từ B là 30 km/h.
     </div>
 
-    <div class="question">
-        <strong>Câu 5:</strong> Trong không gian, điều kiện cần và đủ để đường thẳng <span class="math">d</span> vuông góc với mặt phẳng <span class="math">(P)</span> là đường thẳng <span class="math">d</span> vuông góc với:
-        <div class="options">
-            <div class="option">A. Hai đường thẳng cắt nhau nằm trong <span class="math">(P)</span>.</div>
-            <div class="option">B. Một đường thẳng bất kỳ nằm trong <span class="math">(P)</span>.</div>
-            <div class="option">C. Hai đường thẳng song song nằm trong <span class="math">(P)</span>.</div>
-            <div class="option">D. Ba đường thẳng nằm trong <span class="math">(P)</span>.</div>
-        </div>
+    <div class="answer-q">Câu 4 (1,0 điểm)</div>
+    <div class="step">Chiều cao hình nón là: \( h = \sqrt{l^2 - r^2} = \sqrt{25^2 - 15^2} = 20 \) (cm).<br>
+        Thể tích không gian bên trong nón là: \( V = \frac{1}{3}\pi r^2 h \approx \frac{1}{3} \cdot 3,14 \cdot 15^2 \cdot 20 = 4710 \) (cm\(^3\)).
     </div>
 
-    <div class="question">
-        <strong>Câu 6:</strong> Thể tích <span class="math">V</span> của khối lăng trụ có diện tích đáy <span class="math">S</span> và chiều cao <span class="math">h</span> được tính theo công thức:
-        <div class="options">
-            <div class="option">A. <span class="math">V = 1/3 S.h</span></div>
-            <div class="option">B. <span class="math">V = S.h</span></div>
-            <div class="option">C. <span class="math">V = 1/2 S.h</span></div>
-            <div class="option">D. <span class="math">V = 3 S.h</span></div>
-        </div>
+    <div class="answer-q">Câu 5 (3,0 điểm)</div>
+    <div class="step"><b>a)</b> Áp dụng định lý Pytago trong tam giác vuông ABC: \( AC = \sqrt{BC^2 - AB^2} = \sqrt{13^2 - 5^2} = 12 \text{ cm} \).<br>
+        Các tỉ số lượng giác cần tính: \( \sin B = \frac{AC}{BC} = \frac{12}{13} \); \( \cot C = \frac{AC}{AB} = \frac{12}{5} \).
+    </div>
+    <div class="step"><b>b)</b> Chiều cao từ mặt đất đến vị trí bị gãy (cạnh đối diện góc 30°): \( h_1 = 6 \cdot \tan 30^\circ \approx 3,46 \text{ m} \).<br>
+        Chiều dài đoạn thân cây bị gập xuống đất (cạnh huyền): \( h_2 = \frac{6}{\cos 30^\circ} \approx 6,93 \text{ m} \).<br>
+        Chiều cao ban đầu của thân cây là: \( h = h_1 + h_2 = 3,46 + 6,93 = 10,39 \approx 10,4 \text{ m} \).
+    </div>
+    <div class="step"><b>c)</b> i. Xét tứ giác MAOB có \( \widehat{MAO} = \widehat{MBO} = 90^\circ \) (do MA, MB là tiếp tuyến). Tổng hai góc đối bằng 180° nên tứ giác nội tiếp.<br>
+        ii. Xét \( \Delta MAC \) và \( \Delta MDA \) có góc \( \widehat{AMD} \) chung, \( \widehat{MAC} = \widehat{MDA} \) (góc tạo bởi tiếp tuyến và dây cung bằng góc nội tiếp cùng chắn cung AC). Suy ra \( \Delta MAC \sim \Delta MDA \) (g.g) \( \Rightarrow \frac{MA}{MD} = \frac{MC}{MA} \Rightarrow MA^2 = MC \cdot MD \) (đpcm).
     </div>
 
-    <div class="question">
-        <strong>Câu 7:</strong> Đạo hàm của hàm số <span class="math">y = e<sup>x</sup></span> là:
-        <div class="options">
-            <div class="option">A. <span class="math">y' = x.e<sup>x-1</sup></span></div>
-            <div class="option">B. <span class="math">y' = e<sup>x</sup> / ln(e)</span></div>
-            <div class="option">C. <span class="math">y' = e<sup>x</sup>.ln(x)</span></div>
-            <div class="option">D. <span class="math">y' = e<sup>x</sup></span></div>
-        </div>
+    <div class="answer-q">Câu 6 (1,5 điểm)</div>
+    <div class="step"><b>a)</b> Tổng số học sinh là N = 40. Bảng tần số tương đối ghép nhóm:<br>
+        - Nhóm \( [4; 6) \): Tần số tương đối là \( \frac{8}{40} \cdot 100\% = 20\% \).<br>
+        - Nhóm \( [6; 8) \): Tần số tương đối là \( \frac{20}{40} \cdot 100\% = 50\% \).<br>
+        - Nhóm \( [8; 10] \): Tần số tương đối là \( \frac{12}{40} \cdot 100\% = 30\% \).
+    </div>
+    <div class="step"><b>b)</b> Tổng số kết quả có thể xảy ra khi gieo 2 con xúc xắc là: \( 6 \times 6 = 36 \) kết quả.<br>
+        Các biến cố thuận lợi để tổng số chấm chia hết cho 5 bao gồm tổng bằng 5 hoặc tổng bằng 10:<br>
+        - Tổng bằng 5: \( (1,4), (4,1), (2,3), (3,2) \) \(\rightarrow\) 4 kết quả.<br>
+        - Tổng bằng 10: \( (4,6), (6,4), (5,5) \) \(\rightarrow\) 3 kết quả.<br>
+        Số kết quả thuận lợi là: \( 4 + 3 = 7 \). Xác suất cần tìm là: \( P = \frac{7}{36} \).
     </div>
 
-    <div class="question">
-        <strong>Câu 8:</strong> Cho hai biến cố độc lập A và B. Biết <span class="math">P(A) = 0,4</span> và <span class="math">P(B) = 0,5</span>. Xác suất <span class="math">P(A ∪ B)</span> bằng:
-        <div class="options">
-            <div class="option">A. 0,9</div>
-            <div class="option">B. 0,2</div>
-            <div class="option">C. 0,7</div>
-            <div class="option">D. 0,1</div>
-        </div>
+    <div class="answer-q">Câu 7 (1,0 điểm)</div>
+    <div class="step">Biểu diễn bài toán dưới dạng bất phương trình chi phí: \( 500.000 + 12.000x \le 3.500.000 \)<br>
+        \( \Leftrightarrow 12.000x \le 3.000.000 \Leftrightarrow x \le 250 \). Vậy quãng đường tối đa nhóm bạn có thể đi là 250 km.
     </div>
 
-    <div class="question">
-        <strong>Câu 9:</strong> Một hình lập phương có cạnh bằng <span class="math">2a</span>. Thể tích của hình lập phương đó là:
-        <div class="options">
-            <div class="option">A. <span class="math">8a<sup>3</sup></span></div>
-            <div class="option">B. <span class="math">6a<sup>3</sup></span></div>
-            <div class="option">C. <span class="math">4a<sup>3</sup></span></div>
-            <div class="option">D. <span class="math">2a<sup>3</sup></span></div>
-        </div>
+    <hr>
+
+    <!-- ĐÁP ÁN ĐỀ 2 -->
+    <div class="de-title">ĐÁP ÁN ĐỀ SỐ 2</div>
+    
+    <div class="answer-q">Câu 1 (1,5 điểm)</div>
+    <div class="step"><b>a)</b> \( A = |\sqrt{5}-3| - \sqrt{4 \cdot 5} = (3-\sqrt{5}) - 2\sqrt{5} = 3 - 3\sqrt{5} \) (vì \( 3 > \sqrt{5} \)).</div>
+    <div class="step"><b>b)</b> Quy đồng và thu gọn ngoặc thứ nhất: \( \frac{(\sqrt{x}+2)^2 - (\sqrt{x}-2)^2}{(\sqrt{x}-2)(\sqrt{x}+2)} = \frac{(x+4\sqrt{x}+4) - (x-4\sqrt{x}+4)}{x-4} = \frac{8\sqrt{x}}{x-4} \).<br>
+        Nhân với biểu thức phía ngoài: \( P = \frac{8\sqrt{x}}{x-4} \cdot \frac{x-4}{4\sqrt{x}} = 2 \).
     </div>
 
-    <div class="question">
-        <strong>Câu 10:</strong> Hệ số góc của tiếp tuyến của đồ thị hàm số <span class="math">y = x<sup>3</sup></span> tại điểm có hoành độ <span class="math">x = 1</span> là:
-        <div class="options">
-            <div class="option">A. 1</div>
-            <div class="option">B. 2</div>
-            <div class="option">C. 3</div>
-            <div class="option">D. 4</div>
-        </div>
+    <div class="answer-q">Câu 2 (0,5 điểm)</div>
+    <div class="step">Lập bảng giá trị với các điểm đối xứng qua trục tung: \( (-2; 6), (-1; 1.5), (0; 0), (1; 1.5), (2; 6) \). Nối các điểm thu được đồ thị cong Parabol hướng bề lõm lên trên.</div>
+
+    <div class="answer-q">Câu 3 (1,5 điểm)</div>
+    <div class="step"><b>a)</b> \( -x^2 + 4x + 5 = 0 \). Nhẩm nghiệm phương trình bậc hai có hệ số \( a - b + c = -1 - 4 + 5 = 0 \) nên phương trình có hai nghiệm: \( x_1 = -1, x_2 = 5 \).</div>
+    <div class="step"><b>b)</b> Tính biệt thức: \( \Delta = [-(2m+1)]^2 - 4(m^2+m-2) = 4m^2+4m+1 - 4m^2-4m+8 = 9 > 0 \). Biệt thức là số dương cố định nên phương trình luôn có 2 nghiệm phân biệt với mọi m.<br>
+        Theo hệ thức Viète: \( x_1+x_2 = 2m+1 \) và \( x_1x_2 = m^2+m-2 \).<br>
+        Biến đổi hệ thức yêu cầu: \( x_1^2 - 2x_1x_2 + x_2^2 - 2x_1x_2 = 9 \Leftrightarrow (x_1+x_2)^2 - 6x_1x_2 = 9 \)<br>
+        \( \Leftrightarrow (2m+1)^2 - 6(m^2+m-2) = 9 \Leftrightarrow 4m^2+4m+1 - 6m^2-6m+12 = 9 \)<br>
+        \( \Leftrightarrow -2m^2 - 2m + 4 = 0 \Leftrightarrow m^2 + m - 2 = 0 \). Phương trình này cho nghiệm \( m = 1 \) hoặc \( m = -2 \).
+    </div>
+    <div class="step"><b>c)</b> Gọi thời gian để vòi 1 và vòi 2 chảy một mình đầy bể lần lượt là \( x, y \) (giờ) (\( x, y > 12 \)).<br>
+        - Hai vòi chảy chung đầy bể sau 12 giờ: \( \frac{1}{x} + \frac{1}{y} = \frac{1}{12} \) (1).<br>
+        - Mở vòi 1 trong 4 giờ và vòi 2 trong 6 giờ được 40% bể: \( \frac{4}{x} + \frac{6}{y} = \frac{2}{5} \) (2).<br>
+        Giải hệ phương trình bằng phương pháp đặt ẩn phụ, ta thu được \( \frac{1}{x} = \frac{1}{20} \) và \( \frac{1}{y} = \frac{1}{30} \Rightarrow x = 20, y = 30 \) (thỏa mãn). Vòi 1 chảy một mình hết 20 giờ, vòi 2 hết 30 giờ.
     </div>
 
-    <!-- PHẦN 2 -->
-    <div class="section-title">PHẦN II. CÂU TRẮC NGHIỆM ĐÚNG SAI (3 Câu - 3.0 điểm)</div>
-    <p><em>Thí sinh trả lời từ câu 11 đến câu 13. Trong mỗi ý a), b), c), d) ở mỗi câu, thí sinh chọn đúng hoặc sai.</em></p>
-
-    <div class="question">
-        <strong>Câu 11:</strong> Cho hàm số <span class="math">f(x) = (2x - 1) / (x + 1)</span>. Xét tính đúng/sai của các khẳng định sau:
-        <table class="true-false-table">
-            <tr><th>Ý</th><th>Khẳng định</th><th>Đúng</th><th>Sai</th></tr>
-            <tr><td>a)</td><td>Tập xác định của hàm số là <span class="math">R \ {1}</span>.</td><td></td><td></td></tr>
-            <tr><td>b)</td><td>Đạo hàm của hàm số là <span class="math">f'(x) = 3 / (x + 1)<sup>2</sup></span>.</td><td></td><td></td></tr>
-            <tr><td>c)</td><td>Tại <span class="math">x = 1</span>, giá trị đạo hàm <span class="math">f'(1) = 3/4</span>.</td><td></td><td></td></tr>
-            <tr><td>d)</td><td>Phương trình tiếp tuyến tại điểm có hoành độ <span class="math">x = 1</span> là <span class="math">y = (3/4)x - 1/4</span>.</td><td></td><td></td></tr>
-        </table>
+    <div class="answer-q">Câu 4 (1,0 điểm)</div>
+    <div class="step">Diện tích xung quanh của bồn nước hình trụ: \( S_{xq} = \pi \cdot d \cdot h \approx 3,14 \cdot 1 \cdot 2 = 6,28 \) (m\(^2\)).<br>
+        Tổng chi phí sơn là: \( 6,28 \cdot 50.000 = 314.000 \) (đồng).
     </div>
 
-    <div class="question">
-        <strong>Câu 12:</strong> Cho hình chóp <span class="math">S.ABCD</span> có đáy <span class="math">ABCD</span> là hình vuông, cạnh bên <span class="math">SA ⊥ (ABCD)</span>.
-        <table class="true-false-table">
-            <tr><th>Ý</th><th>Khẳng định</th><th>Đúng</th><th>Sai</th></tr>
-            <tr><td>a)</td><td>Đường thẳng <span class="math">SA</span> vuông góc với đường thẳng <span class="math">BD</span>.</td><td></td><td></td></tr>
-            <tr><td>b)</td><td>Đường thẳng <span class="math">BD</span> vuông góc với mặt phẳng <span class="math">(SAC)</span>.</td><td></td><td></td></tr>
-            <tr><td>c)</td><td>Tam giác <span class="math">SBC</span> là tam giác vuông tại <span class="math">B</span>.</td><td></td><td></td></tr>
-            <tr><td>d)</td><td>Góc giữa đường thẳng <span class="math">SC</span> và mặt phẳng <span class="math">(SAB)</span> là góc <span class="math">SCA</span>.</td><td></td><td></td></tr>
-        </table>
+    <div class="answer-q">Câu 5 (3,0 điểm)</div>
+    <div class="step"><b>a)</b> Ta có \( \sin \alpha = \sqrt{1 - \cos^2 \alpha} = \sqrt{1 - (0,8)^2} = 0,6 \). Tỉ số lượng giác \( \tan \alpha = \frac{\sin \alpha}{\cos \alpha} = \frac{0,6}{0,8} = 0,75 \).</div>
+    <div class="step"><b>b)</b> Gọi chân tòa nhà là H, đỉnh là S. Tam giác vuông chứa xe thứ nhất có góc nâng 45°: Khoảng cách từ xe này đến chân tòa nhà là \( d_1 = 30 \cdot \cot 45^\circ = 30 \text{ m} \).<br>
+        Tam giác vuông chứa xe thứ hai có góc nâng 30°: Khoảng cách là \( d_2 = 30 \cdot \cot 30^\circ = 30\sqrt{3} \approx 51,96 \text{ m} \).<br>
+        Khoảng cách giữa hai chiếc ô tô là: \( \Delta d = d_2 - d_1 = 51,96 - 30 = 21,96 \text{ m} \).
+    </div>
+    <div class="step"><b>c)</b> i. Do Ax và By vuông góc với AB nên Ax, By là tiếp tuyến tại A và B. Xét tứ giác ACOM có \( \widehat{CAO} = \widehat{CMO} = 90 \text{°} \). Tổng hai góc đối bằng 180° nên nội tiếp đường tròn đường kính OC.<br>
+        ii. Theo tính chất của hai tiếp tuyến cắt nhau, OC là phân giác góc AOM, OD là phân giác góc BOM. Do góc AOM và BOM là hai góc kề bù nên góc \( \widehat{COD} = 90^\circ \).<br>
+        Xét tam giác COD vuông tại O có đường cao OM, hệ thức lượng cho ta: \( CM \cdot MD = OM^2 = R^2 \). Mà theo tính chất tiếp tuyến \( AC = CM \) và \( BD = MD \), do đó \( AC \cdot BD = R^2 \). Vì R cố định nên tích này không phụ thuộc vào vị trí của điểm M.
     </div>
 
-    <div class="question">
-        <strong>Câu 13:</strong> Hai xạ thủ cùng bắn vào một mục tiêu độc lập với nhau. Xác suất bắn trúng của xạ thủ thứ nhất là 0,7 và của xạ thủ thứ hai là 0,8.
-        <table class="true-false-table">
-            <tr><th>Ý</th><th>Khẳng định</th><th>Đúng</th><th>Sai</th></tr>
-            <tr><td>a)</td><td>Xác suất cả hai người cùng bắn trượt là 0,06.</td><td></td><td></td></tr>
-            <tr><td>b)</td><td>Xác suất có ít nhất một người bắn trúng mục tiêu là 0,94.</td><td></td><td></td></tr>
-            <tr><td>c)</td><td>Xác suất chỉ có duy nhất xạ thủ thứ nhất bắn trúng là 0,14.</td><td></td><td></td></tr>
-            <tr><td>d)</td><td>Biến cố "Cả hai bắn trúng" và biến cố "Cả hai bắn trượt" là hai biến cố đối nhau.</td><td></td><td></td></tr>
-        </table>
+    <div class="answer-q">Câu 6 (1,5 điểm)</div>
+    <div class="step"><b>a)</b> Tổng số học sinh điều tra là N = 50. Tần số tương đối từng nhóm:<br>
+        - Nhóm \( [150; 160) \): \( \frac{15}{50} \cdot 100\% = 30\% \).<br>
+        - Nhóm \( [160; 170) \): \( \frac{25}{50} \cdot 100\% = 50\% \).<br>
+        - Nhóm \( [170; 180] \): \( \frac{10}{50} \cdot 100\% = 20\% \).
+    </div>
+    <div class="step"><b>b) Quy tắc đếm:</b> Số cách chọn quả bóng thứ nhất là 5 cách. Vì lấy ra không trả lại nên số cách chọn quả bóng thứ hai là 4 cách. Tổng số kết quả có thể xảy ra: \( 5 \times 4 = 20 \) cách.<br>
+        Biến cố lấy được 2 quả bóng khác màu bao gồm hai kịch bản:<br>
+        - Lần 1 lấy bóng Đỏ (3 cách), lần 2 lấy bóng Xanh (2 cách) \(\rightarrow\) có \( 3 \times 2 = 6 \) kết quả.<br>
+        - Lần 1 lấy bóng Xanh (2 cách), lần 2 lấy bóng Đỏ (3 cách) \(\rightarrow\) có \( 2 \times 3 = 6 \) kết quả.<br>
+        Số kết quả thuận lợi là: \( 6 + 6 = 12 \). Xác suất của biến cố là: \( P = \frac{12}{20} = \frac{3}{5} \).
     </div>
 
-    <!-- PHẦN 3 -->
-    <div class="section-title">PHẦN III. CÂU TRẢ LỜI NGẮN (4 Câu - 2.0 điểm)</div>
-    <p><em>Thí sinh trả lời từ câu 14 đến câu 17. (Làm tròn kết quả đến hàng phần trăm nếu cần).</em></p>
-
-    <div class="question">
-        <strong>Câu 14 (Toán thực tế - Động học):</strong> Một vật chuyển động theo quy luật <span class="math">s(t) = t<sup>3</sup> - 3t<sup>2</sup> + 5t + 2</span> (mét), với <span class="math">t</span> là thời gian tính bằng giây. Tính gia tốc tức thời của vật tại thời điểm <span class="math">t = 2</span> giây (đơn vị: <span class="math">m/s<sup>2</sup></span>).
-        <br><br><strong>Đáp số:</strong> .....................................................
+    <div class="answer-q">Câu 7 (1,0 điểm)</div>
+    <div class="step">Lợi nhuận thuần có được từ mỗi chiếc áo bán ra là: \( 180.000 - 120.000 = 60.000 \text{ đồng} \).<br>
+        Thiết lập bất phương trình kinh doanh: \( 60.000x - 300.000 \ge 2.000.000 \Leftrightarrow 60.000x \ge 2.300.000 \Leftrightarrow x \ge 38,33 \).<br>
+        Vì số lượng áo phải là số nguyên nên người đó cần nhập và bán tối thiểu 39 chiếc áo để đạt lợi nhuận mong muốn.
     </div>
 
-    <div class="question">
-        <strong>Câu 15 (Toán thực tế - Xác suất thể thao):</strong> Trong một trận đấu bóng rổ, một cầu thủ được thực hiện ném phạt 2 quả. Xác suất ném trúng quả thứ nhất là 0,8. Nếu ném trúng quả thứ nhất, tâm lý tốt nên xác suất ném trúng quả thứ hai là 0,9. Nếu ném trượt quả thứ nhất, xác suất ném trúng quả thứ hai chỉ là 0,6. Tính xác suất để cầu thủ đó ném trúng <strong>đúng 1 quả</strong>.
-        <br><br><strong>Đáp số:</strong> .....................................................
+    <hr>
+
+    <!-- ĐÁP ÁN ĐỀ 3 -->
+    <div class="de-title">ĐÁP ÁN ĐỀ SỐ 3</div>
+    
+    <div class="answer-q">Câu 1 (1,5 điểm)</div>
+    <div class="step"><b>a)</b> Trục căn thức vế đầu và phân tích căn vế sau: \( A = \frac{3(\sqrt{2}+1)}{2-1} - 3\sqrt{2} = 3\sqrt{2} + 3 - 3\sqrt{2} = 3 \).</div>
+    <div class="step"><b>b)</b> Phân tích hằng đẳng thức hiệu hai lập phương ở tử số: \( x\sqrt{x} - 8 = (\sqrt{x})^3 - 2^3 = (\sqrt{x}-2)(x+2\sqrt{x}+4) \).<br>
+        Rút gọn với mẫu số: \( P = \frac{(\sqrt{x}-2)(x+2\sqrt{x}+4)}{x+2\sqrt{x}+4} - \sqrt{x} = \sqrt{x} - 2 - \sqrt{x} = -2 \).
     </div>
 
-    <div class="question">
-        <strong>Câu 16 (Toán thực tế - Xây dựng):</strong> Một bệ đỡ cột điện bằng bê tông có dạng khối chóp cụt tứ giác đều. Cạnh đáy dưới là 2m, cạnh đáy trên là 1m, chiều cao của bệ đỡ là 3m. Tính thể tích khối bê tông dùng để đúc bệ đỡ này (đơn vị: m³).
-        <br><br><strong>Đáp số:</strong> .....................................................
+    <div class="answer-q">Câu 2 (0,5 điểm)</div>
+    <div class="step">Học sinh lập bảng giá trị tại các điểm tương ứng: \( (-2; -3), (-1; -0.75), (0; 0), (1; -0.75), (2; -3) \) để phác họa đồ thị Parabol.</div>
+
+    <div class="answer-q">Câu 3 (1,5 điểm)</div>
+    <div class="step"><b>a)</b> \( 4x^2 + 7x - 2 = 0 \). Ta có \( \Delta = 7^2 - 4 \cdot 4 \cdot (-2) = 81 \). Phương trình bậc hai có hai nghiệm phân biệt: \( x_1 = \frac{-7+9}{8} = \frac{1}{4} \) và \( x_2 = \frac{-7-9}{8} = -2 \).</div>
+    <div class="step"><b>b)</b> Điều kiện để phương trình có hai nghiệm phân biệt khác 0: \( \Delta = [-(m+2)]^2 - 4(2m) = m^2-4m+4 = (m-2)^2 > 0 \Leftrightarrow m \neq 2 \) và hệ số tự do \( 2m \neq 0 \Leftrightarrow m \neq 0 \).<br>
+        Theo Viète: \( x_1+x_2 = m+2 \) và \( x_1x_2 = 2m \).<br>
+        Biến đổi hệ thức: \( \frac{1}{x_1} + \frac{1}{x_2} = \frac{5}{4} \Leftrightarrow \frac{x_1+x_2}{x_1x_2} = \frac{5}{4} \Leftrightarrow \frac{m+2}{2m} = \frac{5}{4} \Leftrightarrow 4m+8=10m \Leftrightarrow 6m=8 \Rightarrow m=\frac{4}{3} \) (thỏa mãn điều kiện).
+    </div>
+    <div class="step"><b>c)</b> Gọi giá tiền của một quyển vở là \( x \) (đồng), giá một cây bút bi là \( y \) (đồng) (\( x, y > 0 \)).<br>
+        - Lần mua đầu: \( 15x + 10y = 160.000 \) (1).<br>
+        - Lần mua sau: \( 20x + 5y = 180.000 \) (2).<br>
+        Giải hệ phương trình từ (1) và (2) ta thu được: \( x = 8.000 \) và \( y = 4.000 \) (thỏa mãn). Vậy một quyển vở giá 8.000 đồng, một cây bút giá 4.000 đồng.
     </div>
 
-    <div class="question">
-        <strong>Câu 17 (Vận dụng cao - Y tế/Hóa học):</strong> Nồng độ một loại thuốc trong máu bệnh nhân sau <span class="math">t</span> giờ tiêm được tính bởi hàm số <span class="math">C(t) = 2t / (t<sup>2</sup> + 1)</span>. Hỏi sau bao nhiêu giờ kể từ khi tiêm thì nồng độ thuốc trong máu đạt giá trị lớn nhất?
-        <br><br><strong>Đáp số:</strong> .....................................................
+    <div class="answer-q">Câu 4 (1,0 điểm)</div>
+    <div class="step">Thể tích không gian bên trong quả địa cầu: \( V = \frac{4}{3}\pi R^3 \approx \frac{4}{3} \cdot 3,14 \cdot 10^3 \approx 4186,7 \) (cm\(^3\)).</div>
+
+    <div class="answer-q">Câu 5 (3,0 điểm)</div>
+    <div class="step"><b>a)</b> Áp dụng định lý Pytago tìm cạnh góc vuông còn lại: \( MP = \sqrt{NP^2 - MN^2} = \sqrt{10^2 - 6^2} = 8 \text{ cm} \).<br>
+        Tỉ số lượng giác góc nhọn tam giác vuông: \( \cos N = \frac{MN}{NP} = \frac{6}{10} = 0,6 \); \( \tan P = \frac{MN}{MP} = \frac{6}{8} = 0,75 \).
+    </div>
+    <div class="step"><b>b)</b> Khoảng cách cần tìm chính là cạnh huyền của tam giác vuông tạo bởi khinh khí cầu, góc hạ và hướng nhìn: \( L = \frac{800}{\sin 35^\circ} \approx 1395 \text{ m} \).
+    </div>
+    <div class="step"><b>c)</b> i. Do BE, CF là hai đường cao nên \( \widehat{AEH} = \widehat{AFH} = 90^\circ \). Xét tứ giác AEHF có tổng hai góc đối diện bằng 180° nên nội tiếp đường tròn.<br>
+        ii. Do AD là đường kính nên \( \widehat{ACD} = \widehat{ABD} = 90^\circ \) (góc nội tiếp chắn nửa đường tròn). Suy ra \( DC \perp AC \) và \( BD \perp AB \).<br>
+        Mặt khác, \( BH \perp AC \) và \( CH \perp AB \) (tính chất trực tâm H). Từ đó suy ra \( DC \parallel BH \) và \( BD \parallel CH \). Tứ giác BHCD có các cặp cạnh đối song song nên là hình bình hành (đpcm).
     </div>
 
-    <div class="footer">
-        --- Chúc em làm bài tốt! ---
+    <div class="answer-q">Câu 6 (1,5 điểm)</div>
+    <div class="step"><b>a)</b> Học sinh thiết lập bảng tần số ghép nhóm theo đúng các thông tin đề cho, gồm cột nhóm số liệu thời gian và cột số học sinh (tần số).</div>
+    <div class="step"><b>b) Phương pháp liệt kê:</b> Không gian mẫu gồm 15 phần tử tương ứng với 15 tấm thẻ từ 1 đến 15. Tập hợp các số nguyên tố trong khoảng từ 1 đến 15 là: {2, 3, 5, 7, 11, 13} \(\rightarrow\) có 6 kết quả thuận lợi.<br>
+        Xác suất cần tính: \( P = \frac{6}{15} = \frac{2}{5} \).
     </div>
+
+    <div class="answer-q">Câu 7 (1,0 điểm)</div>
+    <div class="step">Số tiền khách hàng phải chi trả cho quãng đường \( x \) km (\( x > 1 \)) là: \( 15.000 + 11.500(x - 1) \).<br>
+        Thiết lập bất phương trình giới hạn số tiền mang theo: \( 15.000 + 11.500(x - 1) \le 200.000 \)<br>
+        \( \Leftrightarrow 11.500(x - 1) \le 185.000 \Leftrightarrow x - 1 \le 16,08 \Leftrightarrow x \le 17,08 \).<br>
+        Làm tròn đến hàng phần mười, hành khách có thể di chuyển quãng đường tối đa là 17,0 km.
+    </div>
+
 </div>
 
 </body>
